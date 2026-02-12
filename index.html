@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Team Computers – Navbar & Hero FIXED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    html{
+  scroll-behavior:smooth;
+}
+
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;background:#000;color:#fff}
+
+/* ================= ANIMATION SYSTEM ================= */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Fade In */
+[data-animate="fade-in"] {
+  transform: translateY(0);
+}
+
+/* Fade Up */
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+
+/* Fade Down */
+[data-animate="fade-down"] {
+  transform: translateY(-40px);
+}
+
+/* Fade Left */
+[data-animate="fade-left"] {
+  transform: translateX(40px);
+}
+
+/* Fade Right */
+[data-animate="fade-right"] {
+  transform: translateX(-40px);
+}
+
+/* Active State */
+[data-animate].animate {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+
+
+/* ========== NAVBAR ========== */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:80px;
+  padding:0 72px;
+  display:flex;
+  align-items:center;
+  z-index:100;
+  text-shadow: #000 0px 0px 10px;
+}
+
+.logo{
+  font-family:Montserrat,sans-serif;
+  font-weight:700;
+  font-size:22px;
+}
+.logo span{
+  display:block;
+  font-size:10px;
+  letter-spacing:3px;
+  opacity:.8;
+}
+
+.nav-menu{
+  margin-left:auto;
+  display:flex;
+  gap:36px;
+}
+
+.nav-item{position:relative}
+
+.nav-link{
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:color .25s ease;
+}
+.nav-link:hover{color:#fde61c}
+
+/* Arrow animation */
+.nav-arrow{
+  font-size:10px;
+  transition:transform .25s ease;
+}
+.nav-item:hover .nav-arrow{transform:rotate(180deg)}
+
+/* Dropdown */
+.dropdown{
+  position:absolute;
+  top:120%;
+  left: 12px;
+  min-width:220px;
+  background:rgba(0,0,0,.92);
+  padding:10px 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.25s ease;
+}
+.nav-item:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.dropdown a{
+  display:block;
+  padding:12px 18px;
+  font-size:14px;
+  text-decoration:none;
+  color:#fff;
+}
+.dropdown a:hover{
+  background:#fde61c;
+  color:#002b2b;
+}
+
+/* ========== NEW: HAMBURGER ========== */
+.hamburger{
+  display:none;
+  margin-left:auto;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ========== NEW: MOBILE MENU ========== */
+.mobile-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:150;
+}
+.mobile-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+  
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:280px;
+  height:100vh;
+  background:#000;
+  padding:24px;
+  transition:.35s ease;
+  z-index:200;
+  
+}
+.mobile-menu.active{right:0}
+
+.mobile-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+.mobile-close{
+  font-size:28px;
+  cursor:pointer;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:14px 0;
+  font-size:16px;
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid #222;
+}
+
+/* ========== HERO ========== */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.slide.active{opacity:1}
+
+.slide::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,rgba(0,0,0,.55),rgba(0,0,0,.25));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  padding:0 72px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+
+.hero-left h1{
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:64px;
+  line-height:1.05;
+}
+
+.hero-right{
+  max-width:380px;
+  justify-self:end;
+  border-left:2px solid #1bd4a5;
+  padding-left:32px;
+}
+
+.hero-right p{font-size:22px}
+
+.hero-btn{
+  margin-top:24px;
+  display:inline-flex;
+  gap:8px;
+  padding:14px 28px;
+  border-radius:30px;
+  background:#1bd4a5;
+  color:#003333;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.hero-arrows{
+  position:absolute;
+  bottom:40px;
+  left:72px;
+  display:flex;
+  gap:14px;
+  z-index:5;
+}
+.hero-arrow{
+  width:46px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){
+  .nav-menu{display:none !important;}
+  .hamburger{display:block}
+  .hero-content{grid-template-columns:1fr}
+  .hero-right{justify-self:start}
+}
+@media(max-width:768px){
+  .navbar{padding:0 24px}
+  .hero-content{padding:0 24px}
+  .hero-left h1{font-size:42px}
+}
+.mobile-accordion-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;  
+}
+.mobile-accordion.open .mobile-accordion-content{
+  max-height:300px;
+}
+.mobile-accordion {
+  border-bottom:1px solid #222;
+
+}
+
+
+/* Mobile menu hover / tap feedback */
+.mobile-link:hover,
+.mobile-link:active,
+.mobile-accordion-btn:hover {
+  color:#fde61c;
+    
+}
+.mobile-accordion-content{
+    padding-left: 20px;
+}
+/* Sub-links hover */
+.mobile-accordion-content a:hover,
+.mobile-accordion-content a:active {
+  color:#fde61c;
+  padding-left:16px;
+  transition:all .25s ease;
+  
+}
+/* Divider line after accordion headers */
+.mobile-accordion-btn {
+  padding:14px 0;
+  font-size:16px;
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+  border-bottom:1px solid #222; /* ← THIS LINE */
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-section{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  color:#fff;
+  text-shadow: #000 0px 0px 10px;
+}
+
+/* Video */
+.about-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+/* Overlay */
+.about-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(2, 18, 41, 0.95) 5%, rgba(1, 27, 83, 0) 50%, rgba(5, 22, 67, 0.95) 100%);
+  z-index:2;
+}
+
+/* Content Wrapper */
+.about-content{
+  position:relative;
+  z-index:3;
+  height:100%;
+  padding:110px 92px;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  align-items:right;
+  gap:60px;
+}
+
+/* Left */
+.about-left h5{
+  letter-spacing:1px;
+  opacity:.85;
+  margin-bottom:10px;
+}
+
+.about-left h2{
+  font-family:Montserrat,sans-serif;
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+.about-left p{
+  max-width:720px;
+  line-height:1.7;
+  opacity:.95;
+}
+
+/* Stats */
+.about-stats{
+  display:flex;
+  gap:40px;
+  margin-top:40px;
+}
+
+.stat h3{
+  font-size:36px;
+  background:linear-gradient(259.44deg, #d6eeff 25.03%, #ffffff 90.57%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat span{
+  font-size:14px;
+  opacity:.9;
+}
+
+/* Right Image */
+.about-right img{
+  width:100%;
+  max-width:420px;
+  justify-self:end;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1024px){
+  .about-content{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  .about-right{
+    order:-1;
+    text-align:left;
+  }
+}
+
+@media(max-width:768px){
+  .about-content{
+    padding:80px 24px;
+  }
+  .about-left h2{
+    font-size:36px;
+  }
+  .about-stats{
+    flex-direction:column;
+    gap:24px;
+  }
+}
+@media (max-width: 768px) {
+  .about-video {
+    object-position: 70% center;
+  }
+}
+
+/* ================= SOLUTIONS SECTION ================= */
+.solutions-section{
+  padding:120px 72px;
+background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
+  color:#000;
+}
+
+.solutions-container{
+  max-width:1400px;
+  margin:auto;
+}
+
+.solutions-title{
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:64px;
+  line-height:1.05;
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.solutions-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+}
+
+/* Card */
+.solution-card{
+  position:relative;
+  height:280px;
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:24px;
+  color:#fff;
+  cursor:pointer;
+  transition:transform .35s ease;
+  background-size:cover;
+  background-position:center;
+}
+
+/* Temporary backgrounds (replace later with real images) */
+.solution-card:nth-child(1){background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475')}
+.solution-card:nth-child(2){background-image:url('https://images.unsplash.com/photo-1508780709619-79562169bc64')}
+.solution-card:nth-child(3){background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7')}
+.solution-card:nth-child(4){background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31')}
+.solution-card:nth-child(5){background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')}
+.solution-card:nth-child(6){background-image:url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72')}
+.solution-card:nth-child(7){background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5')}
+.solution-card:nth-child(8){background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b')}
+
+/* Overlay */
+.solution-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.3));
+  transition:background .35s ease;
+}
+
+/* Title */
+.solution-card h3{
+  position:relative;
+  z-index:2;
+  font-size:18px;
+  font-weight:600;
+}
+
+/* Hover Effects */
+.solution-card:hover{
+  transform:translateY(-8px);
+}
+
+.solution-card:hover .solution-overlay{
+  background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.4));
+}
+
+/* Content Wrapper */
+.solution-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Description hidden by default (desktop) */
+.solution-content p{
+  font-size:14px;
+  line-height:1.5;
+  opacity:0;
+  transform:translateY(15px);
+  transition:all .4s ease;
+  color:#eaeaea;
+}
+
+/* Hover reveal */
+.solution-card:hover .solution-content p{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Slight title lift */
+.solution-card:hover h3{
+  transform:translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(179, 135, 40, 0.4);
+
+}
+
+.solution-card-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit;       /* Keeps your paragraph color */
+  display: block;       /* Makes the entire area clickable */
+}
+
+/* Ensure the hover effect still works on the card when the link is hovered */
+.solution-card-link:hover .solution-card {
+  transform: translateY(-4px);
+}
+
+/* ================= MOBILE FIX ================= */
+@media(max-width:768px){
+  .solution-content p{
+    opacity:1;
+    transform:none;
+  }
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1200px){
+  .solutions-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:768px){
+  .solutions-section{
+    padding:80px 24px;
+  }
+  .solutions-title{
+    font-size:32px;
+  }
+  .solutions-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+/* ================= TEAM SECTION ================= */
+.team-section{
+  padding:120px 72px;
+  background: linear-gradient(90deg, #050505, #1a1d31, #393964, #1a1a1a);
+  color:#111;
+}
+
+.team-container{
+  max-width:1400px;
+  margin:auto;
+}
+
+/* Header */
+.team-header{
+  margin-bottom:60px;
+  color: rgb(225, 230, 233);
+  text-align: center;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+
+.team-header h2{
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:64px;
+  line-height:1.05;
+  text-align:center;
+}
+
+/* Grid */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+/* Card */
+.team-card{
+  background: linear-gradient(135deg, #050505 0%, #1A1A1A 40%, #3628b3 85%, #050505 100%);
+  border-radius:12px;
+  overflow:hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease;
+  cursor:pointer;
+  color: whitesmoke;
+}
+
+/* Image */
+.team-image{
+  overflow:hidden;
+}
+
+.team-image img{
+  width:100%;
+  display:block;
+  transition:transform .8s ease;
+}
+
+/* Info */
+.team-info{
+  padding:22px;
+}
+
+.team-info h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.team-info p{
+  font-size:14px;
+  color:#9c9cec;
+  text-shadow: #0d142c 0px 0px 8px;
+  font-style: italic;
+}
+
+/* Hover Effects */
+.team-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 25px rgba(3, 53, 152, 0.64);
+}
+
+.team-card:hover img{
+  transform:scale(1.08);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .team-section{
+    padding:80px 24px;
+  }
+  .team-header h2{
+    font-size:32px;
+  }
+}
+
+
+
+/* ================= TESTIMONIAL HERO ================= */
+
+.testimonial-hero{
+  background: linear-gradient(90deg, #050505, #111113, #111111, #1a1a1a);
+  padding:120px 60px;
+  position:relative;
+  overflow:hidden;
+}
+
+.testimonial-container{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+}
+
+.testimonial-slider{
+  position:relative;
+}
+
+.testimonial-slide{
+  display:none;
+  align-items:center;
+  gap:60px;
+  transition:opacity .6s ease;
+}
+
+.testimonial-slide.active{
+  display:flex;
+}
+
+.testimonial-image img{
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.testimonial-content{
+  flex:1;
+}
+
+.stars{
+  color:#ffc107;
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.testimonial-text{
+  font-size:22px;
+  line-height:1.6;
+  margin-bottom:30px;
+  max-width:700px;
+  position:relative;
+}
+
+.testimonial-text::before{
+  content:"“";
+  font-size:60px;
+  color:#fff;
+  opacity:.2;
+  position:absolute;
+  left:-40px;
+  top:-20px;
+}
+
+.testimonial-author h3{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.testimonial-author span{
+  font-size:14px;
+  opacity:.7;
+}
+
+/* Decorative giant quote on right */
+.quote-decor{
+  position:absolute;
+  right:100px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:160px;
+  color:#ffffff;
+  opacity:.9;
+}
+
+/* Arrows */
+.testimonial-arrow{
+  position:absolute;
+  top:60%;
+  transform:translateY(-50%);
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+  opacity:.6;
+  transition:.3s;
+  user-select:none;
+
+  width:46px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+
+.testimonial-arrow:hover{
+  opacity:1;
+}
+
+.testimonial-arrow.left{
+  left:-50px;
+}
+
+.testimonial-arrow.right{
+  right:-50px;
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .testimonial-slide{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .testimonial-image img{
+    width:200px;
+    height:200px;
+  }
+
+  .testimonial-text::before{
+    left:0;
+  }
+
+  .quote-decor{
+    display:none;
+  }
+
+  .testimonial-arrow.left{
+    left:10px;
+  }
+
+  .testimonial-arrow.right{
+    right:10px;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px" style="mix-blend-mode: multiply;"></div>
+  <span class="logo-text">OXODOT TECHNOCARE</span>
+
+  <nav class="nav-menu">
+    <div class="nav-item">
+      <div class="nav-link">What We Do <span class="nav-arrow">▾</span></div>
+      <div class="dropdown">
+        <a href="#">Infrastructure</a>
+        <a href="#">Cloud</a>
+        <a href="#">Staffing</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-link">Industries <span class="nav-arrow">▾</span></div>
+      <div class="dropdown">
+        <a href="#">Banking</a>
+        <a href="#">Healthcare</a>
+        <a href="#">Manufacturing</a>
+      </div>
+    </div>
+
+    <div class="nav-link">Who We Are</div>
+    <div class="nav-link">Careers</div>
+    <div class="nav-link">Contact Us</div>
+  </nav>
+
+  <!-- NEW -->
+  <div class="hamburger" onclick="openMenu()">☰</div>
+</header>
+
+<!-- NEW: MOBILE MENU -->
+<div class="mobile-overlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-header">
+  <strong>Menu</strong>
+  <span class="mobile-close" onclick="closeMenu()">✕</span>
+</div>
+
+<div class="mobile-accordion">
+  <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+    What We Do <span>▾</span>
+  </div>
+  <div class="mobile-accordion-content">
+    <a href="#">Infrastructure</a>
+    <a href="#">Cloud</a>
+    <a href="#">Staffing</a>
+  </div>
+</div>
+
+<div class="mobile-accordion">
+  <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+    Industries <span>▾</span>
+  </div>
+  <div class="mobile-accordion-content">
+    <a href="#">Banking</a>
+    <a href="#">Healthcare</a>
+    <a href="#">Manufacturing</a>
+  </div>
+</div>
+
+<a href="#" class="mobile-link">Who We Are</a>
+<a href="#" class="mobile-link">Careers</a>
+<a href="#" class="mobile-link">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
+  <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/Banners/slide-1.jpg')"></div>
+
+  <div class="hero-content">
+    <div class="hero-left" data-animate="fade-right">
+      <h1>INNOVATE.<br>GROW.<br>SUCCEED.</h1>
+    </div>
+    <div class="hero-right">
+      <p>Unlock Your Potential<br>with Smarter IT</p>
+      <a href="#about" class="hero-btn">Learn More →</a>
+    </div>
+  </div>
+
+  <div class="hero-arrows">
+    <div class="hero-arrow" id="prev">←</div>
+    <div class="hero-arrow" id="next">→</div>
+  </div>
+</section>
+
+<script>
+/* HERO SLIDER (UNCHANGED) */
+const slides=document.querySelectorAll('.slide');
+let current=0,timer;
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove('active'));
+  slides[i].classList.add('active');
+}
+function nextSlide(){current=(current+1)%slides.length;showSlide(current)}
+function prevSlide(){current=(current-1+slides.length)%slides.length;showSlide(current)}
+document.getElementById('next').onclick=nextSlide;
+document.getElementById('prev').onclick=prevSlide;
+timer=setInterval(nextSlide,5000);
+
+/* NEW: MOBILE MENU JS */
+const mobileMenu=document.getElementById('mobileMenu');
+const overlay=document.querySelector('.mobile-overlay');
+function openMenu(){
+  mobileMenu.classList.add('active');
+  overlay.classList.add('active');
+}
+function closeMenu(){
+  mobileMenu.classList.remove('active');
+  overlay.classList.remove('active');
+}
+function toggleAccordion(el){
+  el.parentElement.classList.toggle('open');
+}
+
+</script>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about-section" id="about">
+  <!-- Background Video -->
+  <video class="about-video" autoplay muted loop playsinline>
+    <source src="assets/videos/about section.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="about-overlay"></div>
+
+  <!-- Content -->
+  <div class="about-content">
+    <!-- Left -->
+    <div class="about-left" data-animate="fade-right">
+      <h5 data-animate="fade-in">OUR STORY</h5>
+      <h2 data-animate="fade-in">About Us</h2>
+      <p data-animate="fade-right" data-delay="300">
+        OxoDot TechnoCare Solutions is an IT company dedicated to providing technology-driven solutions for hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR technology services, business office services, quality management programs, business intelligence and analysis and more. Additionally, the company provides business process outsourcing and information technology services to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also offers a wide range of services, including CFO advisory, environmental and social governance services, financial planning and analysis, enterprise risk and compliance services, human capital management, catering to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and agriculture sercives/ development/ RND.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <h3>4500+</h3>
+          <span>Cr Turnover</span>
+        </div>
+        <div class="stat">
+          <h3>750+</h3>
+          <span>Locations</span>
+        </div>
+        <div class="stat">
+          <h3>5000+</h3>
+          <span>Employees</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= EXPLORE TECH SOLUTIONS ================= --> 
+ <section class="solutions-section"> 
+  <div class="solutions-container"> 
+  <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+     Explore Our Tech Solutions in <br>HEALTH CARE </h2>
+<div class="solutions-grid">
+
+  <a href="infrastrcture-solutions-page.html" class="solution-card-link">
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Infrastructure Solutions</h3>
+      <p>
+        End-to-end IT infrastructure design, deployment, and optimization
+        for scalable and secure enterprise environments.
+      </p>
+    </div>
+  </div>
+  </a>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cloud Solutions</h3>
+      <p>
+        Seamless cloud migration, modernization, and management
+        across hybrid and multi-cloud platforms.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Staffing Solutions</h3>
+      <p>
+        Skilled IT professionals and resource augmentation
+        to accelerate digital transformation initiatives.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Infrastructure Managed Services</h3>
+      <p>
+        Proactive monitoring, management, and support to ensure
+        high availability and performance.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Security Solutions</h3>
+      <p>
+        Advanced cybersecurity strategies to safeguard
+        digital assets, networks, and enterprise data.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Annual Maintenance Contract</h3>
+      <p>
+        Comprehensive AMC services ensuring uninterrupted
+        IT operations and system reliability.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Business Analytics</h3>
+      <p>
+        Data-driven insights and intelligent reporting
+        to enable smarter business decisions.
+      </p>
+    </div>
+  </div>
+
+  <div class="solution-card" data-animate="fade-up">
+    <div class="solution-overlay"></div>
+    <div class="solution-content">
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ERP & Business Applications</h3>
+      <p>
+        Integrated enterprise applications to streamline
+        operations and enhance productivity.
+      </p>
+    </div>
+  </div>
+
+</div>
+  </div>
+ </section>
+
+ <!-- ================= OUR TEAM ================= -->
+<section class="team-section">
+  <div class="team-container">
+
+    <div class="team-header" data-animate="fade-up">
+      <h2 style="background: linear-gradient(79.44deg, #fdfdfb 25.03%, #3748e5 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OUR TEAM</h2>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- TEAM CARD -->
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Walter White">
+        </div>
+        <div class="team-info">
+          <h3>Walter White</h3>
+          <p>Chief Executive Officer</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+        </div>
+        <div class="team-info">
+          <h3>Sarah Johnson</h3>
+          <p>Product Manager</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="William Anderson">
+        </div>
+        <div class="team-info">
+          <h3>William Anderson</h3>
+          <p>Chief Technology Officer</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Amanda Jepson">
+        </div>
+        <div class="team-info">
+          <h3>Amanda Jepson</h3>
+          <p>Finance Manager</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PREMIUM TESTIMONIALS ================= -->
+<section class="testimonial-hero">
+
+  <div class="testimonial-container">
+    <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+       TESTIMONIALS </h2>
+
+
+    <div class="testimonial-slider">
+
+      <!-- Slide 1 -->
+      <div class="testimonial-slide active">
+        <div class="testimonial-image">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client">
+        </div>
+
+        <div class="testimonial-content">
+          <div class="stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            “Team Computers has revolutionized our healthcare services with
+            their cutting-edge technology and exceptional customer support.”
+          </p>
+
+          <div class="testimonial-author">
+            <h3>Alice Brown</h3>
+            <span>Healthcare Administrator</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="testimonial-slide">
+        <div class="testimonial-image">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client">
+        </div>
+
+        <div class="testimonial-content">
+          <div class="stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            “Their cloud transformation strategy improved scalability and
+            reduced operational costs significantly.”
+          </p>
+
+          <div class="testimonial-author">
+            <h3>Rahul Mehta</h3>
+            <span>CTO, Manufacturing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <div class="testimonial-arrow left" id="testimonialPrev">←</div>
+    <div class="testimonial-arrow right" id="testimonialNext">→</div>
+
+  </div>
+
+  <!-- Decorative Quote -->
+  <div class="quote-decor">”</div>
+<script>
+/* ================= TESTIMONIAL HERO SLIDER ================= */
+
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+let testimonialIndex = 0;
+
+function showTestimonial(index){
+  testimonialSlides.forEach(slide => slide.classList.remove('active'));
+  testimonialSlides[index].classList.add('active');
+}
+
+document.getElementById('testimonialNext').onclick = () => {
+  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+  showTestimonial(testimonialIndex);
+};
+
+document.getElementById('testimonialPrev').onclick = () => {
+  testimonialIndex = (testimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+  showTestimonial(testimonialIndex);
+};
+
+/* Auto play */
+setInterval(() => {
+  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+  showTestimonial(testimonialIndex);
+}, 7000);
+</script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+/* Declarative scroll animations */
+const animatedElements = document.querySelectorAll('[data-animate]');
+
+const animationObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        animationObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+animatedElements.forEach(el => animationObserver.observe(el));
+</script>
+
+</body>
+</html>
