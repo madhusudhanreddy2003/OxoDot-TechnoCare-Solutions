@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 <style>
     html{
@@ -26,7 +28,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 }
 
 /* Fade In */
-[data-animate="fade-in"] {
+[data-animate="fade-up"] {
   transform: translateY(0);
 }
 
@@ -60,26 +62,45 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 
 /* ========== NAVBAR ========== */
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:80px;
-  padding:0 72px;
-  display:flex;
-  align-items:center;
-  z-index:100;
+.navbar {
+  position: fixed;
+  top: 10px;              /* 1. Pull it away from the top edge */
+  left: 50%;
+  transform: translateX(-50%); /* 2. Center it horizontally */
+  width: 100%;             /* 3. Reduce width so corners are visible */
+  max-width: 1800px;      /* Optional: keeps it from getting too wide */
+  height: 80px;
+  padding: 0 40px;        /* Adjusted padding for shorter width */
+  display: flex;
+  align-items: center;
+  z-index: 100;
+
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  
+  /* 4. Rounded Corners & Full Border */
+  border-radius: 40px;    /* Half the height creates a pill shape */
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
   text-shadow: #000 0px 0px 10px;
 }
+
+
+  
+
 
 .logo{
   font-family:Montserrat,sans-serif;
   font-weight:700;
-  font-size:22px;
+  font-size:55px;
 }
 .logo span{
   display:block;
-  font-size:10px;
+  font-size:50px;
   letter-spacing:3px;
   opacity:.8;
 }
@@ -88,12 +109,13 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   margin-left:auto;
   display:flex;
   gap:36px;
+
 }
 
 .nav-item{position:relative}
 
 .nav-link{
-  font-size:15px;
+  font-size:17px;
   font-weight:500;
   cursor:pointer;
   display:flex;
@@ -203,6 +225,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   height:100vh;
   position:relative;
   overflow:hidden;
+  
 }
 
 .slide{
@@ -242,7 +265,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 .hero-right{
   max-width:380px;
   justify-self:end;
-  border-left:2px solid #1bd4a5;
+  border-left:2px solid #f5f8ff;
   padding-left:32px;
 }
 
@@ -254,8 +277,8 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   gap:8px;
   padding:14px 28px;
   border-radius:30px;
-  background:#1bd4a5;
-  color:#003333;
+  background:linear-gradient(135deg, #28ddb2 0%, #195d78 40%, #3628b3 85%, #050505 100%);
+  color:#ffffff;
   font-weight:600;
   text-decoration:none;
 }
@@ -490,14 +513,14 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 }
 
 /* Temporary backgrounds (replace later with real images) */
-.solution-card:nth-child(1){background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475')}
+.solution-card:nth-child(1){background-image:url('https://egcgs.theegc.com/wp-content/uploads/2023/05/Product-Ideation-1024x683.webp')}
 .solution-card:nth-child(2){background-image:url('https://images.unsplash.com/photo-1508780709619-79562169bc64')}
 .solution-card:nth-child(3){background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7')}
-.solution-card:nth-child(4){background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31')}
+.solution-card:nth-child(4){background-image:url('https://i.pinimg.com/1200x/70/48/b3/7048b30c361e2f0418300d69d6faaca3.jpg')}
 .solution-card:nth-child(5){background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')}
 .solution-card:nth-child(6){background-image:url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72')}
-.solution-card:nth-child(7){background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5')}
-.solution-card:nth-child(8){background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b')}
+.solution-card:nth-child(7){background-image:url('https://i.pinimg.com/736x/99/fa/e5/99fae59629d468b551cb1f3bd970ad2f.jpg')}
+.solution-card:nth-child(8){background-image:url('https://i.pinimg.com/1200x/c9/91/fa/c991fad20ac4e2485a6945c9b78d55d9.jpg')}
 
 /* Overlay */
 .solution-overlay{
@@ -552,7 +575,7 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 /* Slight title lift */
 .solution-card:hover h3{
   transform:translateY(-4px);
-  box-shadow: 0 12px 24px -10px rgba(179, 135, 40, 0.4);
+  
 
 }
 
@@ -694,15 +717,20 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   .team-header h2{
     font-size:32px;
   }
+  .team-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(210px,2fr));
+  gap:40px;
+}
 }
 
 
 
-/* ================= TESTIMONIAL HERO ================= */
+/* ================= ULTRA TESTIMONIAL ================= */
 
 .testimonial-hero{
-  background: linear-gradient(90deg, #050505, #111113, #111111, #1a1a1a);
-  padding:120px 60px;
+  background: linear-gradient(90deg, #050505, #291a31, #563964, #1a1a1a);
+  padding:140px 60px;
   position:relative;
   overflow:hidden;
 }
@@ -718,14 +746,22 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 }
 
 .testimonial-slide{
-  display:none;
+  position:absolute;
+  inset:0;
+  display:flex;
   align-items:center;
   gap:60px;
-  transition:opacity .6s ease;
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity .8s ease, transform .8s ease;
+  pointer-events:none;
 }
 
 .testimonial-slide.active{
-  display:flex;
+  opacity:1;
+  transform:translateX(0);
+  pointer-events:auto;
+  position:relative;
 }
 
 .testimonial-image img{
@@ -733,16 +769,42 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   height:260px;
   border-radius:50%;
   object-fit:cover;
+  transform:scale(.95);
+  transition:transform .8s ease;
 }
 
-.testimonial-content{
-  flex:1;
+.testimonial-slide.active .testimonial-image img{
+  transform:scale(1);
 }
 
 .stars{
+  display:flex;
+  gap:6px;
+  margin-bottom:20px;
+}
+
+.stars span{
   color:#ffc107;
   font-size:22px;
-  margin-bottom:20px;
+  opacity:0;
+  transform:translateY(10px);
+}
+
+.testimonial-slide.active .stars span{
+  animation:starPop .4s forwards;
+}
+
+.testimonial-slide.active .stars span:nth-child(1){animation-delay:.1s}
+.testimonial-slide.active .stars span:nth-child(2){animation-delay:.2s}
+.testimonial-slide.active .stars span:nth-child(3){animation-delay:.3s}
+.testimonial-slide.active .stars span:nth-child(4){animation-delay:.4s}
+.testimonial-slide.active .stars span:nth-child(5){animation-delay:.5s}
+
+@keyframes starPop{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .testimonial-text{
@@ -750,17 +812,6 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   line-height:1.6;
   margin-bottom:30px;
   max-width:700px;
-  position:relative;
-}
-
-.testimonial-text::before{
-  content:"“";
-  font-size:60px;
-  color:#fff;
-  opacity:.2;
-  position:absolute;
-  left:-40px;
-  top:-20px;
 }
 
 .testimonial-author h3{
@@ -773,48 +824,56 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   opacity:.7;
 }
 
-/* Decorative giant quote on right */
+/* Giant quote */
 .quote-decor{
   position:absolute;
   right:100px;
   top:50%;
   transform:translateY(-50%);
   font-size:160px;
-  color:#ffffff;
-  opacity:.9;
+  color:#fff;
+  opacity:.05;
 }
 
 /* Arrows */
 .testimonial-arrow{
   position:absolute;
-  top:60%;
+  top:50%;
   transform:translateY(-50%);
   font-size:28px;
-  color:#fff;
   cursor:pointer;
-  opacity:.6;
+  opacity:.5;
   transition:.3s;
   user-select:none;
-
-  width:46px;
-  height:46px;
-  border:2px solid #fff;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
 }
 
 .testimonial-arrow:hover{
   opacity:1;
 }
 
-.testimonial-arrow.left{
-  left:-50px;
+.testimonial-arrow.left{left:-50px;}
+.testimonial-arrow.right{right:-50px;}
+
+/* Dots */
+.testimonial-dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:60px;
 }
 
-.testimonial-arrow.right{
-  right:-50px;
+.testimonial-dots span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#555;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.testimonial-dots span.active{
+  background:#938e94;
+  transform:scale(1.3);
 }
 
 /* Responsive */
@@ -824,26 +883,440 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
     text-align:center;
   }
 
-  .testimonial-image img{
-    width:200px;
-    height:200px;
-  }
+  .quote-decor{display:none;}
+}
 
-  .testimonial-text::before{
-    left:0;
-  }
 
-  .quote-decor{
-    display:none;
-  }
 
-  .testimonial-arrow.left{
-    left:10px;
-  }
 
-  .testimonial-arrow.right{
-    right:10px;
+
+/* ================= ULTRA FAQ ================= */
+
+.faq-section{
+  background: linear-gradient(90deg, #050505, #1a2c31, #2a3132, #1a1a1a);
+  padding:120px 20px;
+  color:#fff;
+}
+
+.faq-container{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+.faq-title{
+
+  margin-bottom:20px;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:64px;
+  line-height:1.05;
+  text-align:center;
+}
+
+.faq-subtitle{
+  opacity:.7;
+  margin-bottom:60px;
+}
+
+.faq-accordion{
+  text-align:left;
+}
+
+/* ITEM BASE */
+.faq-item{
+  border-radius:14px;
+  background:linear-gradient(145deg,#141414,#1c1c1c);
+  margin-bottom:20px;
+  overflow:hidden;
+  transition:all .4s ease;
+  border:1px solid rgba(255,255,255,0.05);
+  position:relative;
+}
+
+/* Glow effect */
+.faq-item.active{
+  border-color:#1bd4a5;
+  box-shadow:0 0 40px rgba(27,212,165,.5);
+}
+
+/* QUESTION */
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  color:#fff;
+  padding:24px;
+  font-size:18px;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  position:relative;
+  z-index:2;
+  transition:color .3s ease;
+}
+
+/* Gradient highlight for active question */
+.faq-item.active .faq-question{
+  background:linear-gradient(90deg,rgba(50, 255, 214, 0.15),transparent);
+}
+
+/* Arrow */
+.faq-icon{
+  transition:transform .35s ease;
+  font-size:18px;
+}
+
+.faq-item.active .faq-icon{
+  transform:rotate(180deg);
+}
+
+/* ANSWER WRAPPER */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:
+    max-height .5s cubic-bezier(.77,0,.18,1),
+    opacity .4s ease,
+    transform .4s ease;
+  padding:0 24px;
+}
+
+/* Slide-down cinematic animation */
+.faq-item.active .faq-answer{
+  max-height:300px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.faq-answer p{
+  padding-bottom:24px;
+  line-height:1.7;
+  opacity:.85;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .faq-title{
+    font-size:30px;
   }
+}
+
+
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+  background:linear-gradient(135deg,#021b4d,#001437);
+  padding:120px 8%;
+  color:#fff;
+}
+
+.contact-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:flex-start;
+}
+
+/* ===== FORM ===== */
+
+.contact-form-wrapper{
+  background:rgba(255,255,255,0.05);
+  padding:50px 40px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.contact-form-wrapper h2{
+  font-size:28px;
+  margin-bottom:40px;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.form-group{
+  position:relative;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:16px 14px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:8px;
+  color:#fff;
+  font-size:14px;
+  outline:none;
+  transition:all .3s ease;
+}
+
+.form-group textarea{
+  height:120px;
+  resize:none;
+}
+
+.form-group label{
+  position:absolute;
+  left:14px;
+  top:16px;
+  font-size:13px;
+  color:#aaa;
+  pointer-events:none;
+  transition:.3s ease;
+}
+
+/* Floating Label */
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#00f5c4;
+  box-shadow:0 0 15px rgba(0,245,196,.3);
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label{
+  top:-8px;
+  left:10px;
+  background:#001437;
+  padding:0 6px;
+  font-size:11px;
+  color:#00f5c4;
+}
+
+/* Submit */
+.submit-btn{
+  margin-top:10px;
+  padding:16px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(90deg,#00f5c4,#00d1a7);
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,245,196,.4);
+}
+
+/* ===== OFFICE INFO ===== */
+
+.contact-info-wrapper h2{
+  font-size:32px;
+  margin-bottom:30px;
+}
+
+.office-details p{
+  margin-bottom:20px;
+  line-height:1.6;
+  font-size:15px;
+}
+
+.map-wrapper{
+  margin-top:30px;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.map-wrapper iframe{
+  width:100%;
+  height:280px;
+  border:0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1024px){
+  .contact-container{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* ================= FOOTER ================= */
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#2e2e2e;   /* NOT black */
+  padding:80px 60px 30px;
+  color:#bbb;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+/* GRID FIX */
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+  padding-bottom:50px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* TITLE */
+.footer-title{
+  font-size:32px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:25px;
+  position:relative;
+  display:inline-block;
+}
+
+/* Underline animation */
+.footer-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  width:60px;
+  height:3px;
+  background:linear-gradient(90deg,#00f5c4,#00d1a7);
+  transition:.4s;
+}
+
+.footer-title:hover::after{
+  width:100%;
+}
+
+/* TEXT */
+.footer-desc{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:25px;
+  color:#aaa;
+}
+
+/* LINKS */
+.footer-links h4,
+.footer-social h4{
+  color:#fff;
+  margin-bottom:20px;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-links li{
+  margin-bottom:14px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:#bbb;
+  position:relative;
+  transition:.3s;
+}
+
+.footer-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:100%;
+  height:2px;
+  background:#00d1a7;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  color:#fff;
+}
+
+.footer-links a:hover::after{
+  transform:scaleX(1);
+}
+
+/* SOCIAL */
+.footer-icons{
+  display:flex;
+  gap:15px;
+}
+
+.footer-icons a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#3a3a3a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.footer-icons a:hover{
+  background:linear-gradient(135deg,#00f5c4,#00d1a7);
+  transform:translateY(-4px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center; /* Vertically centers the text with the logo */
+  gap: 15px;           /* Adds space between the logo and the text */
+}
+
+.logo-container h1 {
+  font-size: 1.2rem;   /* Adjust size so it fits inside your 80px bar */
+  margin: 0;           /* Removes default browser margins */
+  white-space: nowrap; /* Prevents the text from wrapping to a second line */
+}
+
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  font-size:13px;
+  color:#777;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .footer-desc{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:25px;
+  padding-right: 15%;
+  justify-content: space-evenly;
+  color:#aaa;
+}
+.logo-container {
+  display: flex;
+  margin-left: 0px; /* Vertically centers the text with the logo */
+  gap: 10px;           /* Adds space between the logo and the text */
+}
+
+.logo-container h1 {
+  font-size: 1.2rem;   /* Adjust size so it fits inside your 80px bar */
+  margin: 0;           /* Removes default browser margins */
+  white-space: nowrap; /* Prevents the text from wrapping to a second line */
+}
 }
 
 
@@ -855,7 +1328,7 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px" style="mix-blend-mode: multiply;"></div>
+  <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"  style="mix-blend-mode: multiply;  margin-top:15px;"></div>
   <span class="logo-text">OXODOT TECHNOCARE</span>
 
   <nav class="nav-menu">
@@ -923,9 +1396,10 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
-  <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
+  <div class="slide active" style="background-image:url('assets/Banners/AdobeStock_291228153.jpeg')"></div>
+  <div class="slide" style="background-image:url('assets/Banners/logo-banner.png')"></div>
   <div class="slide" style="background-image:url('assets/Banners/slide-1.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
 
   <div class="hero-content">
     <div class="hero-left" data-animate="fade-right">
@@ -989,10 +1463,10 @@ function toggleAccordion(el){
   <div class="about-content">
     <!-- Left -->
     <div class="about-left" data-animate="fade-right">
-      <h5 data-animate="fade-in">OUR STORY</h5>
-      <h2 data-animate="fade-in">About Us</h2>
+      <h5 data-animate="fade-up">OUR STORY</h5>
+      <h2 data-animate="fade-up">About Us</h2>
       <p data-animate="fade-right" data-delay="300">
-        OxoDot TechnoCare Solutions is an IT company dedicated to providing technology-driven solutions for hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR technology services, business office services, quality management programs, business intelligence and analysis and more. Additionally, the company provides business process outsourcing and information technology services to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also offers a wide range of services, including CFO advisory, environmental and social governance services, financial planning and analysis, enterprise risk and compliance services, human capital management, catering to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and agriculture sercives/ development/ RND.
+        OxoDot TechnoCare Solutions is an IT company in INDIA, dedicated to providing technology-driven solutions for hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR technology services, business office services, quality management programs, business intelligence and analysis and more. Additionally, the company provides business process outsourcing and information technology services to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also offers a wide range of services, including CFO advisory, environmental and social governance services, financial planning and analysis, enterprise risk and compliance services, human capital management, catering to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and agriculture sercives/ development/ RND.
       </p>
 
       <div class="about-stats">
@@ -1016,23 +1490,22 @@ function toggleAccordion(el){
  <section class="solutions-section"> 
   <div class="solutions-container"> 
   <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-     Explore Our Tech Solutions in <br>HEALTH CARE </h2>
+     Explore Our Tech Solutions</h2>
 <div class="solutions-grid">
 
   <a href="infrastrcture-solutions-page.html" class="solution-card-link">
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Infrastructure Solutions</h3>
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Product Engineering & Development Services</h3>
       <p>
-        End-to-end IT infrastructure design, deployment, and optimization
-        for scalable and secure enterprise environments.
+        Startups often boost efficiency by outsourcing specific development tasks rather than immediately hiring full in-house teams.
       </p>
     </div>
   </div>
   </a>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
       <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cloud Solutions</h3>
@@ -1043,7 +1516,7 @@ function toggleAccordion(el){
     </div>
   </div>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
       <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Staffing Solutions</h3>
@@ -1054,13 +1527,12 @@ function toggleAccordion(el){
     </div>
   </div>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Infrastructure Managed Services</h3>
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Web Development Services</h3>
       <p>
-        Proactive monitoring, management, and support to ensure
-        high availability and performance.
+        Strategic full-stack engineering, API integration, and responsive design across modern frameworks and headless architectures
       </p>
     </div>
   </div>
@@ -1076,7 +1548,7 @@ function toggleAccordion(el){
     </div>
   </div>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
       <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Annual Maintenance Contract</h3>
@@ -1087,7 +1559,7 @@ function toggleAccordion(el){
     </div>
   </div>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
       <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Business Analytics</h3>
@@ -1098,13 +1570,12 @@ function toggleAccordion(el){
     </div>
   </div>
 
-  <div class="solution-card" data-animate="fade-up">
+  <div class="solution-card" data-animate="fade-up" >
     <div class="solution-overlay"></div>
     <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ERP & Business Applications</h3>
+      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Presence</h3>
       <p>
-        Integrated enterprise applications to streamline
-        operations and enhance productivity.
+        Holistic brand identity, UI/UX design, and SEO strategy to amplify visibility and engagement across all digital touchpoints
       </p>
     </div>
   </div>
@@ -1118,7 +1589,7 @@ function toggleAccordion(el){
   <div class="team-container">
 
     <div class="team-header" data-animate="fade-up">
-      <h2 style="background: linear-gradient(79.44deg, #fdfdfb 25.03%, #3748e5 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OUR TEAM</h2>
+      <h2 style="background: linear-gradient(79.44deg, #fdfdfb 25.03%, #3748e5 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OUR <span>TEAM</h2>
     </div>
 
     <div class="team-grid">
@@ -1169,28 +1640,28 @@ function toggleAccordion(el){
   </div>
 </section>
 
-<!-- ================= PREMIUM TESTIMONIALS ================= -->
+<!-- ================= ULTRA TESTIMONIALS ================= -->
 <section class="testimonial-hero">
-
+<h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+     TESTIMONIALS </h2>
   <div class="testimonial-container">
-    <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-       TESTIMONIALS </h2>
 
+    <div class="testimonial-slider" id="testimonialSlider">
 
-    <div class="testimonial-slider">
-
-      <!-- Slide 1 -->
+      <!-- Slide -->
       <div class="testimonial-slide active">
         <div class="testimonial-image">
-          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
         </div>
 
         <div class="testimonial-content">
-          <div class="stars">★★★★★</div>
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
 
           <p class="testimonial-text">
             “Team Computers has revolutionized our healthcare services with
-            their cutting-edge technology and exceptional customer support.”
+            cutting-edge technology and exceptional customer support.”
           </p>
 
           <div class="testimonial-author">
@@ -1200,14 +1671,16 @@ function toggleAccordion(el){
         </div>
       </div>
 
-      <!-- Slide 2 -->
+      <!-- Slide -->
       <div class="testimonial-slide">
         <div class="testimonial-image">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
         </div>
 
         <div class="testimonial-content">
-          <div class="stars">★★★★★</div>
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
 
           <p class="testimonial-text">
             “Their cloud transformation strategy improved scalability and
@@ -1224,41 +1697,340 @@ function toggleAccordion(el){
     </div>
 
     <!-- Arrows -->
-    <div class="testimonial-arrow left" id="testimonialPrev">←</div>
-    <div class="testimonial-arrow right" id="testimonialNext">→</div>
+    <div class="testimonial-arrow left" id="testimonialPrev">❮</div>
+    <div class="testimonial-arrow right" id="testimonialNext">❯</div>
+
+    <!-- Dots -->
+    <div class="testimonial-dots" id="testimonialDots"></div>
 
   </div>
 
-  <!-- Decorative Quote -->
   <div class="quote-decor">”</div>
+
+
 <script>
-/* ================= TESTIMONIAL HERO SLIDER ================= */
-
 const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-let testimonialIndex = 0;
+const prevBtn = document.getElementById('testimonialPrev');
+const nextBtn = document.getElementById('testimonialNext');
+const dotsContainer = document.getElementById('testimonialDots');
 
-function showTestimonial(index){
-  testimonialSlides.forEach(slide => slide.classList.remove('active'));
+let index = 0;
+let startX = 0;
+
+/* Create dots */
+testimonialSlides.forEach((_, i)=>{
+  const dot = document.createElement('span');
+  if(i === 0) dot.classList.add('active');
+  dot.addEventListener('click', ()=> goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll('span');
+
+function goToSlide(i){
+  testimonialSlides[index].classList.remove('active');
+  dots[index].classList.remove('active');
+
+  index = i;
+
   testimonialSlides[index].classList.add('active');
+  dots[index].classList.add('active');
 }
 
-document.getElementById('testimonialNext').onclick = () => {
-  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-  showTestimonial(testimonialIndex);
-};
+function nextSlide(){
+  goToSlide((index + 1) % testimonialSlides.length);
+}
 
-document.getElementById('testimonialPrev').onclick = () => {
-  testimonialIndex = (testimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-  showTestimonial(testimonialIndex);
-};
+function prevSlide(){
+  goToSlide((index - 1 + testimonialSlides.length) % testimonialSlides.length);
+}
+
+nextBtn.onclick = nextSlide;
+prevBtn.onclick = prevSlide;
 
 /* Auto play */
-setInterval(() => {
-  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-  showTestimonial(testimonialIndex);
-}, 7000);
+let auto = setInterval(nextSlide, 7000);
+
+/* Swipe support */
+const slider = document.getElementById('testimonialSlider');
+
+slider.addEventListener('touchstart', e=>{
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener('touchend', e=>{
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) nextSlide();
+  if(endX - startX > 50) prevSlide();
+});
 </script>
 </section>
+
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq-section">
+
+  <div class="faq-container">
+
+<h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+     Frequently Asked <br>QUESTIONS </h2>
+
+    <p class="faq-subtitle">
+      Find answers to common questions. If you can't find what you're looking for,
+      feel free to contact our support team.
+    </p>
+
+    <div class="faq-accordion">
+
+      <!-- ITEM -->
+      <div class="faq-item active">
+        <button class="faq-question">
+          <span>What are Services are being Provided ?</span>
+          <span class="faq-icon">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            We provide a wide range of IT services including product engineering, cloud solutions, staffing, web development, security solutions, annual maintenance contracts, business analytics, and digital presence management. Our expertise spans across various industries to help businesses innovate and grow.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>On what basis you charge for the services ?</span>
+          <span class="faq-icon">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Basically, We charge based on the scope of work, complexity of the project, and the resources required. Our pricing is transparent and tailored to meet your specific business needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is there any concession if I pay in advance?</span>
+          <span class="faq-icon">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, we offer discounts for advance payments. The concession amount depends on the total project cost and the payment terms agreed upon. Please contact our sales team for detailed information on our advance payment discounts.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do you offer enterprise solutions?</span>
+          <span class="faq-icon">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes. We provide tailored enterprise solutions with dedicated support
+            and scalable architecture.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const button = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  button.addEventListener('click', () => {
+
+    // Close others
+    faqItems.forEach(el => {
+      if(el !== item){
+        el.classList.remove('active');
+        el.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+
+    // Toggle current
+    item.classList.toggle('active');
+
+    if(item.classList.contains('active')){
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = null;
+    }
+
+  });
+});
+</script>
+
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section" id="contact">
+  <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+     Contact US </h2>
+  <div class="contact-container">
+    
+
+    <!-- LEFT FORM -->
+    <div class="contact-form-wrapper">
+      <h2>Have a Question? Ask Us</h2>
+
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-group">
+          <input type="text" required>
+          <label>Full Name*</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" required>
+          <label>Email Address*</label>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" required>
+          <label>Phone Number*</label>
+        </div>
+
+        <div class="form-group">
+          <textarea required></textarea>
+          <label>Message</label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit
+        </button>
+
+      </form>
+    </div>
+
+    <!-- RIGHT OFFICE DETAILS -->
+    <div class="contact-info-wrapper">
+
+      <h2>Our Head Office</h2>
+
+      <div class="office-details">
+        <p><img src="assets/icons/map.png" width="25px" height="20px" style="padding-right:6px;">street 7, Mayur Vihar, Phase1, Delhi, India</p>
+
+        <p><img src="assets/icons/call.png" width="20px" height="15px" style="padding-right:5px;">  +91-9946373982 - 9743433887 </p>
+
+        <p><img src="assets/icons/email.png" width="20px" height="15px" style="padding-right:5px;"> info@oxodottechnocaresolutions.in</p>
+        <p><img src="assets/icons/time-left.png" width="20px" height="15px" style="padding-right:5px;"> Mon-Fri - 08:00-19:00 </p>
+      </div>
+
+      <div class="map-wrapper">
+        <iframe 
+        src="https://maps-cdn.cdn-files-a.com/include/globalMapDisplay.php?q=street+7%2C+Mayur+Vihar%2C+Phase1%2C+Delhi%2C+India&z=15&l=en&ilfc="
+
+        allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const inputs = form.querySelectorAll("input, textarea");
+  let valid = true;
+
+  inputs.forEach(input=>{
+    if(!input.value.trim()){
+      valid = false;
+      input.style.borderColor = "red";
+    } else {
+      input.style.borderColor = "#00f5c4";
+    }
+  });
+
+  if(valid){
+    form.innerHTML = `
+      <div style="text-align:center;padding:40px;">
+        <h3 style="color:#00f5c4;">Message Sent Successfully ✔</h3>
+        <p style="margin-top:15px;">Our team will contact you soon.</p>
+      </div>
+    `;
+  }
+});
+</script>
+
+</section>
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-top">
+
+      <!-- LEFT -->
+      <div class="footer-about">
+        <h2 class="footer-title">Connect With Us ↗</h2>
+        <p class="footer-desc">
+          OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
+          We see ourselves as trusted solutions partner. We understand your needs,
+          Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
+          Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
+        </p>
+        
+
+        
+        
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-links">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="#">Solutions</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="footer-social">
+        <h4>STAY IN TOUCH</h4>
+        <div class="footer-icons">
+          <a href="#">in</a>
+          <a href="#">ig</a>
+          <a href="#">yt</a>
+          <a href="#">fb</a>
+        </div>
+            <div class="logo-container">
+              <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" alt="logo" width="200">
+              <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
+            </div>
+
+      </div>
+
+
+    </div>
+    
+
+    <div class="footer-bottom">
+      © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
+      <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
+    </div>
+
+  </div>
+</footer>
+
+
+
 
 
 
