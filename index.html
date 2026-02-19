@@ -46,7 +46,6 @@ body.loading {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-weight: 900;
   letter-spacing: 5px;
-  color: #ff4869;
   margin: 0;
   text-transform: uppercase;
   
@@ -1555,6 +1554,20 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   .logo-container h1{
   font-size: 1.0rem;   /* Adjust size so it fits inside your 80px bar */
   }
+
+  .welcome-text {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin: 0;
+  text-transform: uppercase;
+  
+  /* Entrance + Color Shift */
+  animation: 
+    fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    colorize 6s ease-in-out infinite;
+  opacity: 0;
+}
 
 }
 
