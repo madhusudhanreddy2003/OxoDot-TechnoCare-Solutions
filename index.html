@@ -1319,6 +1319,112 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 }
 }
 
+/* ========================= */
+/* ===== MOBILE MASTER FIX ===== */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* ===== PREVENT HORIZONTAL SCROLL ===== */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR FIX ===== */
+  .navbar {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 0 20px;
+  }
+
+  /* ===== HERO FIX ===== */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .hero-left h1 {
+    font-size: 38px;
+  }
+
+  .hero-right {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  /* ===== ABOUT FIX ===== */
+  .about-section {
+    min-height: auto;
+  }
+
+  .about-content {
+    padding: 80px 20px;
+  }
+
+  /* ===== SOLUTIONS FIX ===== */
+  .solutions-section {
+    padding: 80px 20px;
+  }
+
+  /* ===== TEAM FIX ===== */
+  .team-section {
+    padding: 80px 20px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ===== TESTIMONIAL FIX ===== */
+  .testimonial-hero {
+    padding: 100px 20px;
+  }
+
+  .testimonial-slide {
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .testimonial-arrow {
+    display: none;
+  }
+
+  /* ===== FAQ FIX ===== */
+  .faq-section {
+    padding: 80px 20px;
+  }
+
+  .faq-title {
+    font-size: 32px;
+  }
+
+  /* ===== CONTACT FIX ===== */
+  .contact-section {
+    padding: 80px 20px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* ===== FOOTER FIX ===== */
+  .footer {
+    padding: 60px 20px 20px;
+  }
+
+}
 
 
 </style>
