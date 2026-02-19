@@ -968,6 +968,13 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   opacity:.5;
   transition:.3s;
   user-select:none;
+  width:46px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
 }
 
 .testimonial-arrow:hover{
@@ -1518,7 +1525,9 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
   }
 
   .testimonial-arrow {
+    /*
     display: none;
+    */
   }
 
   /* ===== FAQ FIX ===== */
@@ -1973,8 +1982,8 @@ function toggleAccordion(el){
     </div>
 
     <!-- Arrows -->
-    <div class="testimonial-arrow left" id="testimonialPrev">❮</div>
-    <div class="testimonial-arrow right" id="testimonialNext">❯</div>
+    <div class="testimonial-arrow left" id="testimonialPrev">←</div>
+    <div class="testimonial-arrow right" id="testimonialNext">→</div>
 
     <!-- Dots -->
     <div class="testimonial-dots" id="testimonialDots"></div>
