@@ -9,7 +9,7 @@
 }
 
 /* Fade In */
-[data-animate="fade-up"] {
+[data-animate="fade-in"] {
   transform: translateY(0);
 }
 
@@ -31,6 +31,16 @@
 /* Fade Right */
 [data-animate="fade-right"] {
   transform: translateX(-40px);
+}
+
+/* Zoom In */
+[data-animate="zoom-in"] {
+  transform: scale(0.85);
+}
+
+/* Zoom Out */
+[data-animate="zoom-out"] {
+  transform: scale(1.15);
 }
 
 /* Active State */
