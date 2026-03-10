@@ -1,1789 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<title>OXODOT TECHNOCARE SOLUTIONS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>OXODOT TECHNOCARE SOLUTIONS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/logo/favicon.png?v=1">
-<link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
 
 
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-<style>
-    html{
-  scroll-behavior:smooth;
-}
+  <!-- CSS Styles -->
 
-/* ================= PAGE LOADER WRAPPER ================= */
-#page-loader {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  display: flex;
-  flex-direction: column; /* Vertical stack */
-  align-items: center;
-  justify-content: center;
-  gap: 30px; /* Space between Welcome and Loader */
-  z-index: 999999;
-  transition: opacity .8s ease, visibility .8s ease;
-}
+  <link rel="stylesheet" href="index.css" />
 
-body.loading {
-  overflow: hidden;
-}
 
-#page-loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* ================= WELCOME TEXT ================= */
-.welcome-text {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-weight: 900;
-  letter-spacing: 5px;
-  margin: 0;
-  text-transform: uppercase;
-  
-  /* Entrance + Color Shift */
-  animation: 
-    fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    colorize 6s ease-in-out infinite;
-  opacity: 0;
-}
-
-/* ================= LOADER STYLES ================= */
-.loader {
-  --color-one: #ffbf48;
-  --color-two: #be4a1d;
-  --color-three: #ffbf4780;
-  --color-four: #bf4a1d80;
-  --color-five: #ffbf4740;
-  --time-animation: 2s;
-  
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  box-shadow: 0 0 25px 0 var(--color-three), 0 20px 50px 0 var(--color-four);
-  
-  /* Delayed Entrance */
-  animation: 
-    fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
-    colorize calc(var(--time-animation) * 3) ease-in-out infinite;
-  opacity: 0;
-}
-
-.loader::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  border-top: solid 1px var(--color-one);
-  border-bottom: solid 1px var(--color-two);
-  background: linear-gradient(180deg, var(--color-five), var(--color-four));
-  box-shadow: inset 0 10px 10px 0 var(--color-three), inset 0 -10px 10px 0 var(--color-four);
-}
-
-.loader .box {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(180deg, var(--color-one) 30%, var(--color-two) 70%);
-  mask: url(#clipping);
-  -webkit-mask: url(#clipping);
-}
-
-.loader svg { position: absolute; }
-
-/* Gooey Effect Control */
-.loader svg #clipping {
-  filter: contrast(15);
-  animation: roundness calc(var(--time-animation) / 2) linear infinite;
-}
-
-.loader svg #clipping polygon {
-  filter: blur(7px);
-}
-
-/* Polygon Rotations */
-.loader svg #clipping polygon:nth-child(2) { transform-origin: 50% 50%; animation: rotation var(--time-animation) linear infinite reverse; }
-.loader svg #clipping polygon:nth-child(3) { transform-origin: 50% 60%; animation: rotation var(--time-animation) linear infinite; animation-delay: -0.6s; }
-.loader svg #clipping polygon:nth-child(4) { transform-origin: 40% 40%; animation: rotation var(--time-animation) linear infinite reverse; }
-.loader svg #clipping polygon:nth-child(5) { transform-origin: 40% 40%; animation: rotation var(--time-animation) linear infinite reverse; animation-delay: -1s; }
-.loader svg #clipping polygon:nth-child(6) { transform-origin: 60% 40%; animation: rotation var(--time-animation) linear infinite; }
-.loader svg #clipping polygon:nth-child(7) { transform-origin: 60% 40%; animation: rotation var(--time-animation) linear infinite; animation-delay: -1.3s; }
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes roundness {
-  0%, 60%, 100% { filter: contrast(15); }
-  20%, 40% { filter: contrast(3); }
-}
-
-@keyframes colorize {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(-45deg); }
-}
-
-
-/* ========== RESET ========== */
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#000;color:#fff}
-
-/* ================= ANIMATION SYSTEM ================= */
-[data-animate] {
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-/* Fade In */
-[data-animate="fade-up"] {
-  transform: translateY(0);
-}
-
-/* Fade Up */
-[data-animate="fade-up"] {
-  transform: translateY(40px);
-}
-
-/* Fade Down */
-[data-animate="fade-down"] {
-  transform: translateY(-40px);
-}
-
-/* Fade Left */
-[data-animate="fade-left"] {
-  transform: translateX(40px);
-}
-
-/* Fade Right */
-[data-animate="fade-right"] {
-  transform: translateX(-40px);
-}
-
-/* Active State */
-[data-animate].animate {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-
-
-
-/* ========== NAVBAR ========== */
-.navbar {
-  position: fixed;
-  top: 10px;              /* 1. Pull it away from the top edge */
-  left: 50%;
-  transform: translateX(-50%); /* 2. Center it horizontally */
-  width: 98%;             /* 3. Reduce width so corners are visible */
-  max-width: auto;      /* Optional: keeps it from getting too wide */
-  height: 80px;
-  padding: 0 40px;        /* Adjusted padding for shorter width */
-  display: flex;
-  align-items: center;
-  z-index: 100;
-
-  /* Glass Effect */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  
-  /* 4. Rounded Corners & Full Border */
-  border-radius: 40px;    /* Half the height creates a pill shape */
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  text-shadow: #000 0px 0px 10px;
-}
-
-
-  
-
-
-.logo{
-  font-family:Montserrat,sans-serif;
-  font-weight:700;
-  font-size:55px;
-}
-.logo span{
-  display:block;
-  font-size:50px;
-  letter-spacing:3px;
-  opacity:.8;
-}
-
-.nav-menu{
-  margin-left:auto;
-  display:flex;
-  gap:36px;
-
-}
-
-.nav-item{position:relative}
-
-.nav-link{
-  font-size:17px;
-  font-weight:500;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  transition:color .25s ease;
-}
-.nav-link:hover{color:#fde61c}
-
-/* Arrow animation */
-.nav-arrow{
-  font-size:10px;
-  transition:transform .25s ease;
-}
-.nav-item:hover .nav-arrow{transform:rotate(180deg)}
-
-/* Dropdown */
-.dropdown{
-  position:absolute;
-  top:120%;
-  left: 12px;
-  min-width:220px;
-  background:rgba(0,0,0,.92);
-  padding:10px 0;
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(10px);
-  transition:.25s ease;
-}
-.nav-item:hover .dropdown{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-.dropdown a{
-  display:block;
-  padding:12px 18px;
-  font-size:14px;
-  text-decoration:none;
-  color:#fff;
-}
-.dropdown a:hover{
-  background:#fde61c;
-  color:#002b2b;
-}
-
-/* ========== NEW: HAMBURGER ========== */
-.hamburger{
-  display:none;
-  margin-left:auto;
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* ========== NEW: MOBILE MENU ========== */
-.mobile-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:150;
-}
-.mobile-overlay.active{
-  opacity:1;
-  pointer-events:auto;
-  
-}
-
-.mobile-menu{
-  position:fixed;
-  top:0;
-  right:-200%;
-  width:280px;
-  height:100vh;
-  background:#000;
-  padding:24px;
-  transition:.35s ease;
-  z-index:200;
-  
-}
-.mobile-menu.active{right:0}
-
-.mobile-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-}
-.mobile-close{
-  font-size:28px;
-  cursor:pointer;
-}
-
-.mobile-menu a{
-  display:block;
-  padding:14px 0;
-  font-size:16px;
-  color:#fff;
-  text-decoration:none;
-  border-bottom:1px solid #222;
-}
-
-/* ========== HERO ========== */
-.hero{
-  height:100vh;
-  position:relative;
-  overflow:hidden;
-  
-}
-
-.slide{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:opacity 1s ease;
-}
-.slide.active{opacity:1}
-
-.slide::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to right,rgba(0,0,0,.55),rgba(0,0,0,.25));
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  padding:0 72px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-}
-
-.hero-left h1{
-  font-family:Montserrat,sans-serif;
-  font-weight:800;
-  font-size:64px;
-  line-height:1.05;
-}
-
-.hero-right{
-  max-width:380px;
-  justify-self:end;
-  border-left:2px solid #f5f8ff;
-  padding-left:32px;
-}
-
-.hero-right p{font-size:22px}
-
-.hero-btn{
-  margin-top:24px;
-  display:inline-flex;
-  gap:8px;
-  padding:14px 28px;
-  border-radius:30px;
-  background:linear-gradient(135deg, #28ddb2 0%, #195d78 40%, #3628b3 85%, #050505 100%);
-  color:#ffffff;
-  font-weight:600;
-  text-decoration:none;
-}
-
-.hero-arrows{
-  position:absolute;
-  bottom:40px;
-  left:72px;
-  display:flex;
-  gap:14px;
-  z-index:5;
-}
-.hero-arrow{
-  width:46px;
-  height:46px;
-  border:2px solid #fff;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-}
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:1024px){
-  .nav-menu{display:none !important;}
-  .hamburger{display:block}
-  .hero-content{grid-template-columns:1fr}
-  .hero-right{justify-self:start}
-}
-@media(max-width:768px){
-  .navbar{padding:0 24px}
-  .hero-content{padding:0 24px}
-  .hero-left h1{font-size:42px}
-}
-.mobile-accordion-content{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .3s ease;  
-}
-.mobile-accordion.open .mobile-accordion-content{
-  max-height:300px;
-}
-.mobile-accordion {
-  border-bottom:1px solid #222;
-
-}
-
-
-/* Mobile menu hover / tap feedback */
-.mobile-link:hover,
-.mobile-link:active,
-.mobile-accordion-btn:hover {
-  color:#fde61c;
-    
-}
-.mobile-accordion-content{
-    padding-left: 20px;
-}
-/* Sub-links hover */
-.mobile-accordion-content a:hover,
-.mobile-accordion-content a:active {
-  color:#fde61c;
-  padding-left:16px;
-  transition:all .25s ease;
-  
-}
-/* Divider line after accordion headers */
-.mobile-accordion-btn {
-  padding:14px 0;
-  font-size:16px;
-  display:flex;
-  justify-content:space-between;
-  cursor:pointer;
-  border-bottom:1px solid #222; /* ← THIS LINE */
-}
-
-/* ================= ABOUT SECTION ================= */
-.about-section{
-  position:relative;
-  min-height:100vh;
-  overflow:hidden;
-  color:#fff;
-  text-shadow: #000 0px 0px 10px;
-}
-
-/* Video */
-.about-video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:1;
-}
-
-/* Overlay */
-.about-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(2, 18, 41, 0.95) 5%, rgba(1, 27, 83, 0) 50%, rgba(5, 22, 67, 0.95) 100%);
-  z-index:2;
-}
-
-/* Content Wrapper */
-.about-content{
-  position:relative;
-  z-index:3;
-  height:100%;
-  padding:110px 92px;
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  align-items:right;
-  gap:60px;
-}
-
-/* Left */
-.about-left h5{
-  letter-spacing:1px;
-  opacity:.85;
-  margin-bottom:10px;
-}
-
-.about-left h2{
-  font-family:Montserrat,sans-serif;
-  font-size:48px;
-  margin-bottom:20px;
-}
-
-.about-left p{
-  max-width:720px;
-  line-height:1.7;
-  opacity:.95;
-}
-
-/* Stats */
-.about-stats{
-  display:flex;
-  gap:40px;
-  margin-top:40px;
-}
-
-.stat h3{
-  font-size:36px;
-  background:linear-gradient(259.44deg, #d6eeff 25.03%, #ffffff 90.57%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.stat span{
-  font-size:14px;
-  opacity:.9;
-}
-
-/* Right Image */
-.about-right img{
-  width:100%;
-  max-width:420px;
-  justify-self:end;
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:1024px){
-  .about-content{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-  .about-right{
-    order:-1;
-    text-align:left;
-  }
-}
-
-@media(max-width:768px){
-  .about-content{
-    padding:80px 24px;
-  }
-  .about-left h2{
-    font-size:36px;
-  }
-  .about-stats{
-    flex-direction:column;
-    gap:24px;
-  }
-}
-@media (max-width: 768px) {
-  .about-video {
-    object-position: 70% center;
-  }
-}
-
-/* ================= SOLUTIONS SECTION ================= */
-.solutions-section{
-  padding:120px 72px;
-background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
-  color:#000;
-}
-
-.solutions-container{
-  max-width:1400px;
-  margin:auto;
-}
-
-.solutions-title{
-  font-family:Montserrat,sans-serif;
-  font-weight:800;
-  font-size:64px;
-  line-height:1.05;
-  text-align:center;
-  margin-bottom:70px;
-}
-
-.solutions-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:28px;
-}
-
-/* Card */
-.solution-card{
-  position:relative;
-  height:280px;
-  border-radius:8px;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-end;
-  padding:24px;
-  color:#fff;
-  cursor:pointer;
-  transition:transform .35s ease;
-  background-size:cover;
-  background-position:center;
-}
-
-/* Temporary backgrounds (replace later with real images) */
-.solution-card:nth-child(1){background-image:url('https://egcgs.theegc.com/wp-content/uploads/2023/05/Product-Ideation-1024x683.webp')}
-.solution-card:nth-child(2){background-image:url('https://images.unsplash.com/photo-1508780709619-79562169bc64')}
-.solution-card:nth-child(3){background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7')}
-.solution-card:nth-child(4){background-image:url('https://i.pinimg.com/1200x/70/48/b3/7048b30c361e2f0418300d69d6faaca3.jpg')}
-.solution-card:nth-child(5){background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')}
-.solution-card:nth-child(6){background-image:url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72')}
-.solution-card:nth-child(7){background-image:url('https://i.pinimg.com/736x/99/fa/e5/99fae59629d468b551cb1f3bd970ad2f.jpg')}
-.solution-card:nth-child(8){background-image:url('https://i.pinimg.com/1200x/c9/91/fa/c991fad20ac4e2485a6945c9b78d55d9.jpg')}
-
-/* Overlay */
-.solution-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.3));
-  transition:background .35s ease;
-}
-
-/* Title */
-.solution-card h3{
-  position:relative;
-  z-index:2;
-  font-size:18px;
-  font-weight:600;
-}
-
-/* Hover Effects */
-.solution-card:hover{
-  transform:translateY(-8px);
-}
-
-.solution-card:hover .solution-overlay{
-  background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.4));
-}
-
-/* Content Wrapper */
-.solution-content{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-/* Description hidden by default (desktop) */
-.solution-content p{
-  font-size:14px;
-  line-height:1.5;
-  opacity:0;
-  transform:translateY(15px);
-  transition:all .4s ease;
-  color:#eaeaea;
-}
-
-/* Hover reveal */
-.solution-card:hover .solution-content p{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* Slight title lift */
-.solution-card:hover h3{
-  transform:translateY(-4px);
-  
-
-}
-
-.solution-card-link {
-  text-decoration: none; /* Removes underline */
-  color: inherit;       /* Keeps your paragraph color */
-  display: block;       /* Makes the entire area clickable */
-}
-
-/* Ensure the hover effect still works on the card when the link is hovered */
-.solution-card-link:hover .solution-card {
-  transform: translateY(-4px);
-}
-
-/* ================= MOBILE FIX ================= */
-@media(max-width:768px){
-  .solution-content p{
-    opacity:1;
-    transform:none;
-  }
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:1200px){
-  .solutions-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:768px){
-  .solutions-section{
-    padding:80px 24px;
-  }
-  .solutions-title{
-    font-size:32px;
-  }
-  .solutions-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-
-
-
-/* ================= TEAM SECTION ================= */
-.team-section{
-  padding:120px 72px;
-  background: linear-gradient(90deg, #050505, #1a1d31, #393964, #1a1a1a);
-  color:#111;
-}
-
-.team-container{
-  max-width:1400px;
-  margin:auto;
-}
-
-/* Header */
-.team-header{
-  margin-bottom:60px;
-  color: rgb(225, 230, 233);
-  text-align: center;
-  font-weight: bolder;
-  font-size: larger;
-}
-
-
-.team-header h2{
-  font-family:Montserrat,sans-serif;
-  font-weight:800;
-  font-size:64px;
-  line-height:1.05;
-  text-align:center;
-}
-
-/* Grid */
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-}
-
-/* Card */
-.team-card{
-  background: linear-gradient(135deg, #050505 0%, #1A1A1A 40%, #3628b3 85%, #050505 100%);
-  border-radius:12px;
-  overflow:hidden;
-  transition:
-    transform .4s cubic-bezier(.2,.8,.2,1),
-    box-shadow .4s ease;
-  cursor:pointer;
-  color: whitesmoke;
-}
-
-/* Image */
-.team-image{
-  overflow:hidden;
-}
-
-.team-image img{
-  width:100%;
-  display:block;
-  transition:transform .8s ease;
-}
-
-/* Info */
-.team-info{
-  padding:22px;
-}
-
-.team-info h3{
-  font-size:18px;
-  font-weight:600;
-  margin-bottom:6px;
-}
-
-.team-info p{
-  font-size:14px;
-  color:#9c9cec;
-  text-shadow: #0d142c 0px 0px 8px;
-  font-style: italic;
-}
-
-/* Hover Effects */
-.team-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 10px 25px rgba(3, 53, 152, 0.64);
-}
-
-.team-card:hover img{
-  transform:scale(1.08);
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
-  .team-section{
-    padding:80px 24px;
-  }
-  .team-header h2{
-    font-size:32px;
-  }
-  .team-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(200px,2fr));
-  gap:40px;
-}
-}
-
-
-
-/* ================= ULTRA TESTIMONIAL ================= */
-
-.testimonial-hero{
-  background: linear-gradient(90deg, #050505, #291a31, #563964, #1a1a1a);
-  padding:140px 60px;
-  position:relative;
-  overflow:hidden;
-}
-
-.testimonial-container{
-  max-width:1100px;
-  margin:auto;
-  position:relative;
-}
-
-.testimonial-slider{
-  position:relative;
-}
-
-.testimonial-slide{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  gap:60px;
-  opacity:0;
-  transform:translateX(40px);
-  transition:opacity .8s ease, transform .8s ease;
-  pointer-events:none;
-}
-
-.testimonial-slide.active{
-  opacity:1;
-  transform:translateX(0);
-  pointer-events:auto;
-  position:relative;
-}
-
-.testimonial-image img{
-  width:260px;
-  height:260px;
-  border-radius:50%;
-  object-fit:cover;
-  transform:scale(.95);
-  transition:transform .8s ease;
-}
-
-.testimonial-slide.active .testimonial-image img{
-  transform:scale(1);
-}
-
-.stars{
-  display:flex;
-  gap:6px;
-  margin-bottom:20px;
-}
-
-.stars span{
-  color:#ffc107;
-  font-size:22px;
-  opacity:0;
-  transform:translateY(10px);
-}
-
-.testimonial-slide.active .stars span{
-  animation:starPop .4s forwards;
-}
-
-.testimonial-slide.active .stars span:nth-child(1){animation-delay:.1s}
-.testimonial-slide.active .stars span:nth-child(2){animation-delay:.2s}
-.testimonial-slide.active .stars span:nth-child(3){animation-delay:.3s}
-.testimonial-slide.active .stars span:nth-child(4){animation-delay:.4s}
-.testimonial-slide.active .stars span:nth-child(5){animation-delay:.5s}
-
-@keyframes starPop{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.testimonial-text{
-  font-size:22px;
-  line-height:1.6;
-  margin-bottom:30px;
-  max-width:700px;
-}
-
-.testimonial-author h3{
-  font-size:20px;
-  margin-bottom:5px;
-}
-
-.testimonial-author span{
-  font-size:14px;
-  opacity:.7;
-}
-
-/* Giant quote */
-.quote-decor{
-  position:absolute;
-  right:100px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:160px;
-  color:#fff;
-  opacity:.05;
-}
-
-/* Arrows */
-.testimonial-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:28px;
-  cursor:pointer;
-  opacity:.5;
-  transition:.3s;
-  user-select:none;
-  width:46px;
-  height:46px;
-  border:2px solid #fff;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-}
-
-.testimonial-arrow:hover{
-  opacity:1;
-}
-
-.testimonial-arrow.left{left:-50px;}
-.testimonial-arrow.right{right:-50px;}
-
-/* Dots */
-.testimonial-dots{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:60px;
-}
-
-.testimonial-dots span{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#555;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.testimonial-dots span.active{
-  background:#938e94;
-  transform:scale(1.3);
-}
-
-/* Responsive */
-@media(max-width:992px){
-  .testimonial-slide{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .quote-decor{display:none;}
-}
-
-
-
-
-
-/* ================= ULTRA FAQ ================= */
-
-.faq-section{
-  background: linear-gradient(90deg, #050505, #1a2c31, #2a3132, #1a1a1a);
-  padding:120px 20px;
-  color:#fff;
-}
-
-.faq-container{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-}
-
-.faq-title{
-
-  margin-bottom:20px;
-  font-family:Montserrat,sans-serif;
-  font-weight:800;
-  font-size:64px;
-  line-height:1.05;
-  text-align:center;
-}
-
-.faq-subtitle{
-  opacity:.7;
-  margin-bottom:60px;
-}
-
-.faq-accordion{
-  text-align:left;
-}
-
-/* ITEM BASE */
-.faq-item{
-  border-radius:14px;
-  background:linear-gradient(145deg,#141414,#1c1c1c);
-  margin-bottom:20px;
-  overflow:hidden;
-  transition:all .4s ease;
-  border:1px solid rgba(255,255,255,0.05);
-  position:relative;
-}
-
-/* Glow effect */
-.faq-item.active{
-  border-color:#1bd4a5;
-  box-shadow:0 0 40px rgba(27,212,165,.5);
-}
-
-/* QUESTION */
-.faq-question{
-  width:100%;
-  background:none;
-  border:none;
-  color:#fff;
-  padding:24px;
-  font-size:18px;
-  font-weight:600;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-  position:relative;
-  z-index:2;
-  transition:color .3s ease;
-}
-
-/* Gradient highlight for active question */
-.faq-item.active .faq-question{
-  background:linear-gradient(90deg,rgba(50, 255, 214, 0.15),transparent);
-}
-
-/* Arrow */
-.faq-icon{
-  transition:transform .35s ease;
-  font-size:18px;
-}
-
-.faq-item.active .faq-icon{
-  transform:rotate(180deg);
-}
-
-/* ANSWER WRAPPER */
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
-  transform:translateY(-10px);
-  transition:
-    max-height .5s cubic-bezier(.77,0,.18,1),
-    opacity .4s ease,
-    transform .4s ease;
-  padding:0 24px;
-}
-
-/* Slide-down cinematic animation */
-.faq-item.active .faq-answer{
-  max-height:300px;
-  opacity:1;
-  transform:translateY(0);
-}
-
-.faq-answer p{
-  padding-bottom:24px;
-  line-height:1.7;
-  opacity:.85;
-}
-
-/* Responsive */
-@media(max-width:768px){
-  .faq-title{
-    font-size:30px;
-  }
-}
-
-
-
-/* ================= CONTACT SECTION ================= */
-
-.contact-section{
-  background:linear-gradient(135deg,#021b4d,#001437);
-  padding:120px 8%;
-  color:#fff;
-}
-
-.contact-container{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:flex-start;
-}
-
-/* ===== FORM ===== */
-
-.contact-form-wrapper{
-  background:rgba(255,255,255,0.05);
-  padding:50px 40px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.08);
-}
-
-.contact-form-wrapper h2{
-  font-size:28px;
-  margin-bottom:40px;
-}
-
-.contact-form{
-  display:flex;
-  flex-direction:column;
-  gap:25px;
-}
-
-.form-group{
-  position:relative;
-}
-
-.form-group input,
-.form-group textarea{
-  width:100%;
-  padding:16px 14px;
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.25);
-  border-radius:8px;
-  color:#fff;
-  font-size:14px;
-  outline:none;
-  transition:all .3s ease;
-}
-
-.form-group textarea{
-  height:120px;
-  resize:none;
-}
-
-.form-group label{
-  position:absolute;
-  left:14px;
-  top:16px;
-  font-size:13px;
-  color:#aaa;
-  pointer-events:none;
-  transition:.3s ease;
-}
-
-/* Floating Label */
-.form-group input:focus,
-.form-group textarea:focus{
-  border-color:#00f5c4;
-  box-shadow:0 0 15px rgba(0,245,196,.3);
-}
-
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label{
-  top:-8px;
-  left:10px;
-  background:#001437;
-  padding:0 6px;
-  font-size:11px;
-  color:#00f5c4;
-}
-
-/* Submit */
-.submit-btn{
-  margin-top:10px;
-  padding:16px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(90deg,#00f5c4,#00d1a7);
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s ease;
-}
-
-.submit-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(0,245,196,.4);
-}
-
-/* ===== OFFICE INFO ===== */
-
-.contact-info-wrapper h2{
-  font-size:32px;
-  margin-bottom:30px;
-}
-
-.office-details p{
-  margin-bottom:20px;
-  line-height:1.6;
-  font-size:15px;
-}
-
-.map-wrapper{
-  margin-top:30px;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.map-wrapper iframe{
-  width:100%;
-  height:280px;
-  border:0;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:1024px){
-  .contact-container{
-    grid-template-columns:1fr;
-  }
-}
-
-
-/* ================= FOOTER ================= */
-/* ================= FOOTER ================= */
-
-.footer{
-  background:#2e2e2e;   /* NOT black */
-  padding:80px 60px 30px;
-  color:#bbb;
-}
-
-.footer-container{
-  max-width:1200px;
-  margin:auto;
-}
-
-/* GRID FIX */
-.footer-top{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:60px;
-  padding-bottom:50px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-/* TITLE */
-.footer-title{
-  font-size:32px;
-  font-weight:700;
-  color:#fff;
-  margin-bottom:25px;
-  position:relative;
-  display:inline-block;
-}
-
-/* Underline animation */
-.footer-title::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-10px;
-  width:60px;
-  height:3px;
-  background:linear-gradient(90deg,#00f5c4,#00d1a7);
-  transition:.4s;
-}
-
-.footer-title:hover::after{
-  width:100%;
-}
-
-/* TEXT */
-.footer-desc{
-  font-size:15px;
-  line-height:1.7;
-  margin-bottom:25px;
-  color:#aaa;
-}
-
-/* LINKS */
-.footer-links h4,
-.footer-social h4{
-  color:#fff;
-  margin-bottom:20px;
-}
-
-.footer-links ul{
-  list-style:none;
-  padding:0;
-}
-
-.footer-links li{
-  margin-bottom:14px;
-}
-
-.footer-links a{
-  text-decoration:none;
-  color:#bbb;
-  position:relative;
-  transition:.3s;
-}
-
-.footer-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:100%;
-  height:2px;
-  
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:.3s;
-}
-
-.footer-links a:hover{
-  color:#fff;
-}
-
-.footer-links a:hover::after{
-  transform:scaleX(1);
-}
-
-/* SOCIAL */
-.footer-icons{
-  display:flex;
-  gap:15px;
-}
-
-.footer-icons a{
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.footer-icons a:hover{
-  transform:translateY(-4px);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center; /* Vertically centers the text with the logo */
-  gap: 15px;           /* Adds space between the logo and the text */
-}
-
-.logo-container h1 {
-  
-  font-size: 1.2rem;   /* Adjust size so it fits inside your 80px bar */
-  margin: 0;           /* Removes default browser margins */
-  white-space: nowrap; /* Prevents the text from wrapping to a second line */
-}
-
-
-/* BOTTOM */
-.footer-bottom{
-  text-align:center;
-  margin-top:30px;
-  font-size:13px;
-  color:#777;
-}
-
-/* RESPONSIVE */
-@media(max-width:992px){
-  .footer-top{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-  .footer-desc{
-  font-size:15px;
-  line-height:1.7;
-  margin-bottom:25px;
-  padding-right: 15%;
-  justify-content: space-evenly;
-  color:#aaa;
-}
-.logo-container {
-  display: flex;
-  padding-top: 10px;
-  margin-left: 0px; /* Vertically centers the text with the logo */
-  gap: 15px;           /* Adds space between the logo and the text */
-}
-
-.logo-container h1 {
-  font-size: 1.2rem;   /* Adjust size so it fits inside your 80px bar */
-  margin: 0;           /* Removes default browser margins */
-  white-space: nowrap; /* Prevents the text from wrapping to a second line */
-}
-}
-
-/* ========================= */
-/* ===== MOBILE MASTER FIX ===== */
-/* ========================= */
-
-@media (max-width: 768px) {
-
-  /* ===== PREVENT HORIZONTAL SCROLL ===== */
-  html, body {
-    overflow-x: hidden;
-  }
-
-  /* ===== NAVBAR FIX ===== */
-  .navbar {
-    top: 0.5px;
-    left: 0;
-    transform: none;
-    width: 100%;
-    border-radius: 20px;
-    padding: 0px 20px;
-  }
-
-  /* ===== HERO FIX ===== */
-  .hero {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .hero-content {
-    grid-template-columns: 1fr;
-    padding: 250px 20px;
-  }
-
-  .hero-left h1 {
-    font-size: 38px;
-  }
-
-  .hero-right {
-    border-left: none;
-    padding-left: 0;
-    margin-top: 20px;
-  }
-
-  /* ===== ABOUT FIX ===== */
-  .about-section {
-    min-height: auto;
-  }
-
-  .about-content {
-    padding: 80px 20px;
-  }
-
-  /* ===== SOLUTIONS FIX ===== */
-  .solutions-section {
-    padding: 80px 20px;
-  }
-
-  /* ===== TEAM FIX ===== */
-  .team-section {
-    padding: 80px 20px;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* ===== TESTIMONIAL FIX ===== */
-  .testimonial-hero {
-    padding: 100px 20px;
-  }
-
-  .testimonial-slide {
-    position:absolute;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .testimonial-arrow {
-    /*
-    display: none;
-    */
-  }
-
-  /* ===== FAQ FIX ===== */
-  .faq-section {
-    padding: 80px 20px;
-  }
-
-  .faq-title {
-    font-size: 32px;
-  }
-
-  /* ===== CONTACT FIX ===== */
-  .contact-section {
-    padding: 80px 20px;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  /* ===== FOOTER FIX ===== */
-  .footer {
-    padding: 60px 20px 20px;
-  }
-  .logo-container{
-    margin-top: 30px !important;
-    width: 30px !important;
-    height: 30px !important;
-    gap: 15px;
-
-  }
-  .logo-container h1{
-  font-size: 1.0rem;   /* Adjust size so it fits inside your 80px bar */
-  }
-
-  .welcome-text {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-weight: 900;
-  letter-spacing: 5px;
-  margin: 0;
-  text-transform: uppercase;
-  
-  /* Entrance + Color Shift */
-  animation: 
-    fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    colorize 6s ease-in-out infinite;
-  opacity: 0;
-}
-
-.testimonial-arrow{
-  position:absolute;
-  top:40%;
-  transform:translateY(-50%);
-  font-size:18px;
-  cursor:pointer;
-  opacity:.5;
-  transition:.3s;
-  user-select:none;
-  width:46px;
-  height:46px;
-  border:2px solid #fff;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-}
-.testimonial-arrow.left{
-  left:-20px;
-}
-.testimonial-arrow.right{
-  right:-20px;
-}
-
-}
-
-
-</style>
 </head>
 
 <body><!-- ================= PAGE LOADER ================= -->
 
-  
-<div id="page-loader">
-<h1 class="welcome-text" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OXODOT TECHNOCARE</h1>
-  <div class="loader">
-    <svg width="100" height="100" viewBox="0 0 100 100">
-      <defs>
-        <mask id="clipping">
-          <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
-          <polygon points="25,25 75,25 50,75" fill="white"></polygon>
-          <polygon points="50,25 75,75 25,75" fill="white"></polygon>
-          <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-          <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-          <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-          <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-        </mask>
-      </defs>
-    </svg>
-    <div class="box"></div>
+
+  <div id="page-loader">
+    <h1 class="welcome-text"
+      style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      OXODOT TECHNOCARE</h1>
+    <div class="loader">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <defs>
+          <mask id="clipping">
+            <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
+            <polygon points="25,25 75,25 50,75" fill="white"></polygon>
+            <polygon points="50,25 75,75 25,75" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+          </mask>
+        </defs>
+      </svg>
+      <div class="box"></div>
+    </div>
   </div>
-</div>  
 
 
 
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"  style="mix-blend-mode: multiply;  margin-top:15px;"></div>
-  <span class="logo-text">OXODOT TECHNOCARE</span>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"
+        style="mix-blend-mode: multiply;  margin-top:15px;"></div>
+    <span class="logo-text">OXODOT TECHNOCARE</span>
 
-  <nav class="nav-menu">
-    <div class="nav-item">
-      <div class="nav-link">What We Do <span class="nav-arrow">▾</span></div>
-      <div class="dropdown">
-        <a href="#">Infrastructure</a>
-        <a href="#">Cloud</a>
-        <a href="#">Staffing</a>
+    <nav class="nav-menu">
+      <div class="nav-link">Who We Are</div>
+      <div class="nav-item">
+        <div class="nav-link">Domains <span class="nav-arrow">▾</span></div>
+        <div class="dropdown">
+          <a href="health-care.html">Health Care</a>
+          <a href="finance.html">Finance</a>
+          <a href="auto-mobile.html">Auto Mobile</a>
+          <a href="tele-communication.html">Tele Communication</a>
+          <a href="real-estate.html">Real Estate</a>
+        </div>
+      </div>
+      <a href="our-teams.html" class="nav-link">Our Teams</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
+    </nav>
+
+    <!-- NEW -->
+    <div class="hamburger" onclick="openMenu()">☰</div>
+  </header>
+
+  <!-- NEW: MOBILE MENU -->
+  <div class="mobile-overlay" onclick="closeMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-header">
+      <strong>Menu</strong>
+      <span class="mobile-close" onclick="closeMenu()">✕</span>
+    </div>
+
+    <a href="who-we-are.html" class="mobile-link">Who We Are</a>
+
+    <div class="mobile-accordion">
+      <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+        Domains <span>▾</span>
+      </div>
+      <div class="mobile-accordion-content">
+        <a href="health-care.html">Health Care</a>
+        <a href="finance.html">Finance</a>
+        <a href="auto-mobile.html">Auto Mobile</a>
+        <a href="tele-communication.html">Tele Communication</a>
+        <a href="real-estate.html">Real Estate</a>
       </div>
     </div>
 
-    <div class="nav-item">
-      <div class="nav-link">Industries <span class="nav-arrow">▾</span></div>
-      <div class="dropdown">
-        <a href="#">Banking</a>
-        <a href="#">Healthcare</a>
-        <a href="#">Manufacturing</a>
+    <a href="our-teams.html" class="mobile-link">Our Teams</a>
+    <a href="careers.html" class="mobile-link">Careers</a>
+    <a href="contact-us.html" class="mobile-link">Contact Us</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="slide active" style="background-image:url('assets/Banners/AdobeStock_291228153.jpeg')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/logo-banner.png')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/slide-1.jpg')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
+
+    <div class="hero-content">
+      <div class="hero-left" data-animate="fade-right">
+        <h1>INNOVATE.<br>GROW.<br>SUCCEED.</h1>
+      </div>
+      <div class="hero-right">
+        <p>Unlock Your Potential<br>with Smarter IT</p>
+        <a href="#about" class="hero-btn">Learn More →</a>
       </div>
     </div>
 
-    <div class="nav-link">Who We Are</div>
-    <div class="nav-link">Careers</div>
-    <div class="nav-link">Contact Us</div>
-  </nav>
-
-  <!-- NEW -->
-  <div class="hamburger" onclick="openMenu()">☰</div>
-</header>
-
-<!-- NEW: MOBILE MENU -->
-<div class="mobile-overlay" onclick="closeMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-header">
-  <strong>Menu</strong>
-  <span class="mobile-close" onclick="closeMenu()">✕</span>
-</div>
-
-<div class="mobile-accordion">
-  <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
-    What We Do <span>▾</span>
-  </div>
-  <div class="mobile-accordion-content">
-    <a href="#">Infrastructure</a>
-    <a href="#">Cloud</a>
-    <a href="#">Staffing</a>
-  </div>
-</div>
-
-<div class="mobile-accordion">
-  <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
-    Industries <span>▾</span>
-  </div>
-  <div class="mobile-accordion-content">
-    <a href="#">Banking</a>
-    <a href="#">Healthcare</a>
-    <a href="#">Manufacturing</a>
-  </div>
-</div>
-
-<a href="#" class="mobile-link">Who We Are</a>
-<a href="#" class="mobile-link">Careers</a>
-<a href="#" class="mobile-link">Contact Us</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="slide active" style="background-image:url('assets/Banners/AdobeStock_291228153.jpeg')"></div>
-  <div class="slide" style="background-image:url('assets/Banners/logo-banner.png')"></div>
-  <div class="slide" style="background-image:url('assets/Banners/slide-1.jpg')"></div>
-  <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
-
-  <div class="hero-content">
-    <div class="hero-left" data-animate="fade-right">
-      <h1>INNOVATE.<br>GROW.<br>SUCCEED.</h1>
+    <div class="hero-arrows">
+      <div class="hero-arrow" id="prev">←</div>
+      <div class="hero-arrow" id="next">→</div>
     </div>
-    <div class="hero-right">
-      <p>Unlock Your Potential<br>with Smarter IT</p>
-      <a href="#about" class="hero-btn">Learn More →</a>
-    </div>
-  </div>
+  </section>
 
-  <div class="hero-arrows">
-    <div class="hero-arrow" id="prev">←</div>
-    <div class="hero-arrow" id="next">→</div>
-  </div>
-</section>
+  <script>
+    /* HERO SLIDER (UNCHANGED) */
+    const slides = document.querySelectorAll('.slide');
+    let current = 0, timer;
+    function showSlide(i) {
+      slides.forEach(s => s.classList.remove('active'));
+      slides[i].classList.add('active');
+    }
+    function nextSlide() { current = (current + 1) % slides.length; showSlide(current) }
+    function prevSlide() { current = (current - 1 + slides.length) % slides.length; showSlide(current) }
+    document.getElementById('next').onclick = nextSlide;
+    document.getElementById('prev').onclick = prevSlide;
+    timer = setInterval(nextSlide, 5000);
 
-<script>
-/* HERO SLIDER (UNCHANGED) */
-const slides=document.querySelectorAll('.slide');
-let current=0,timer;
-function showSlide(i){
-  slides.forEach(s=>s.classList.remove('active'));
-  slides[i].classList.add('active');
-}
-function nextSlide(){current=(current+1)%slides.length;showSlide(current)}
-function prevSlide(){current=(current-1+slides.length)%slides.length;showSlide(current)}
-document.getElementById('next').onclick=nextSlide;
-document.getElementById('prev').onclick=prevSlide;
-timer=setInterval(nextSlide,5000);
+    /* NEW: MOBILE MENU JS */
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-overlay');
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    }
+    function toggleAccordion(el) {
+      el.parentElement.classList.toggle('open');
+    }
 
-/* NEW: MOBILE MENU JS */
-const mobileMenu=document.getElementById('mobileMenu');
-const overlay=document.querySelector('.mobile-overlay');
-function openMenu(){
-  mobileMenu.classList.add('active');
-  overlay.classList.add('active');
-}
-function closeMenu(){
-  mobileMenu.classList.remove('active');
-  overlay.classList.remove('active');
-}
-function toggleAccordion(el){
-  el.parentElement.classList.toggle('open');
-}
+  </script>
 
-</script>
+  <!-- ================= ABOUT SECTION ================= -->
+  <section class="about-section" id="about">
+    <!-- Background Video -->
+    <video class="about-video" autoplay muted loop playsinline>
+      <source src="assets/videos/about section.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-<!-- ================= ABOUT SECTION ================= -->
-<section class="about-section" id="about">
-  <!-- Background Video -->
-  <video class="about-video" autoplay muted loop playsinline>
-    <source src="assets/videos/about section.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+    <!-- Overlay -->
+    <div class="about-overlay"></div>
 
-  <!-- Overlay -->
-  <div class="about-overlay"></div>
-
-  <!-- Content -->
-  <div class="about-content">
-    <!-- Left -->
-    <div class="about-left" data-animate="fade-right">
-      <h5 data-animate="fade-up">OUR STORY</h5>
-      <h2 data-animate="fade-up">About Us</h2>
-      <p data-animate="fade-right" data-delay="300">
-        OxoDot TechnoCare Solutions is an IT company in INDIA, dedicated to providing technology-driven solutions for hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR technology services, business office services, quality management programs, business intelligence and analysis and more. Additionally, the company provides business process outsourcing and information technology services to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also offers a wide range of services, including CFO advisory, environmental and social governance services, financial planning and analysis, enterprise risk and compliance services, human capital management, catering to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and agriculture sercives/ development/ RND.
-      </p>
-<!-- ================= EXPLORE TECH SOLUTIONS =================
+    <!-- Content -->
+    <div class="about-content">
+      <!-- Left -->
+      <div class="about-left" data-animate="fade-right">
+        <h5 data-animate="fade-up">OUR STORY</h5>
+        <h2 data-animate="fade-up">About Us</h2>
+        <p data-animate="fade-right" data-delay="300">
+          OxoDot TechnoCare Solutions is an IT company in INDIA, dedicated to providing technology-driven solutions for
+          hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician
+          advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR
+          technology services, business office services, quality management programs, business intelligence and analysis
+          and more. Additionally, the company provides business process outsourcing and information technology services
+          to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also
+          offers a wide range of services, including CFO advisory, environmental and social governance services,
+          financial planning and analysis, enterprise risk and compliance services, human capital management, catering
+          to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and
+          agriculture sercives/ development/ RND.
+        </p>
+        <!-- ================= EXPLORE TECH SOLUTIONS =================
       <div class="about-stats">
         <div class="stat">
           <h3>4500+</h3>
@@ -1797,110 +209,92 @@ function toggleAccordion(el){
           <h3>5000+</h3>
           <span>Employees</span>
         </div>
-      </div> --> 
+      </div> -->
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= EXPLORE TECH SOLUTIONS ================= --> 
- <section class="solutions-section"> 
-  <div class="solutions-container"> 
-  <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-     Explore Our Tech Solutions</h2>
-<div class="solutions-grid">
+  <!-- ================= Domains We Work On ================= -->
+  <section class="solutions-section">
+    <div class="solutions-container">
+      <h2 class="solutions-title" data-animate="fade-up"
+        style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Domains We Work On</h2>
+      <div class="solutions-grid">
 
-  <a href="infrastrcture-solutions-page.html" class="solution-card-link">
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Product Engineering & Development Services</h3>
-      <p>
-        Startups often boost efficiency by outsourcing specific development tasks rather than immediately hiring full in-house teams.
-      </p>
+        <a href="health-care.html" class="solution-card-link">
+          <div class="solution-card" data-animate="fade-up">
+            <div class="solution-overlay"></div>
+            <div class="solution-content">
+              <h3
+                style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Health Care</h3>
+              <p>
+                Innovative IT solutions for hospitals, health systems,
+                and medical groups to optimize operations and enhance patient care.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Finance</h3>
+            <p>
+              Comprehensive IT services for financial institutions like Banks, E-Commerce Platforms including
+              fintech solutions, risk management, and regulatory compliance.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Auto Mobile</h3>
+            <p>
+              End-to-end IT solutions for automotive industry including connected car technologies, supply chain
+              management, Aero space Technologies, Naval Technologies and manufacturing automation.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Tele Communication</h3>
+            <p>
+              Cutting-edge telecommunications solutions for seamless connectivity and enhanced communication
+              experiences, including 5G, IoT, and network optimization.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Real Estate</h3>
+            <p>
+              Innovative IT solutions for real estate industry including property management, Interior & exterior
+              design, smart building technologies, and even Land brokerage, total end to end services are provided.
+            </p>
+          </div>
+        </div>
+
+
+      </div>
     </div>
-  </div>
-  </a>
+  </section>
 
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cloud Solutions</h3>
-      <p>
-        Seamless cloud migration, modernization, and management
-        across hybrid and multi-cloud platforms.
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Staffing Solutions</h3>
-      <p>
-        Skilled IT professionals and resource augmentation
-        to accelerate digital transformation initiatives.
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Web Development Services</h3>
-      <p>
-        Strategic full-stack engineering, API integration, and responsive design across modern frameworks and headless architectures
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up">
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Security Solutions</h3>
-      <p>
-        Advanced cybersecurity strategies to safeguard
-        digital assets, networks, and enterprise data.
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Annual Maintenance Contract</h3>
-      <p>
-        Comprehensive AMC services ensuring uninterrupted
-        IT operations and system reliability.
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Business Analytics</h3>
-      <p>
-        Data-driven insights and intelligent reporting
-        to enable smarter business decisions.
-      </p>
-    </div>
-  </div>
-
-  <div class="solution-card" data-animate="fade-up" >
-    <div class="solution-overlay"></div>
-    <div class="solution-content">
-      <h3 style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Presence</h3>
-      <p>
-        Holistic brand identity, UI/UX design, and SEO strategy to amplify visibility and engagement across all digital touchpoints
-      </p>
-    </div>
-  </div>
-
-</div>
-  </div>
- </section>
-
- <!-- ================= OUR TEAM ================= -->
+  <!-- ================= OUR TEAM ================= 
 <section class="team-section">
   <div class="team-container">
 
@@ -1910,7 +304,7 @@ function toggleAccordion(el){
 
     <div class="team-grid">
 
-      <!-- TEAM CARD -->
+       TEAM CARD 
       <div class="team-card" data-animate="fade-up">
         <div class="team-image">
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Walter White">
@@ -1955,8 +349,9 @@ function toggleAccordion(el){
 
   </div>
 </section>
+            -->
 
-<!-- ================= ULTRA TESTIMONIALS ================= -->
+  <!-- ================= ULTRA TESTIMONIALS ================= 
 <section class="testimonial-hero">
 <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
      TESTIMONIALS </h2>
@@ -1964,7 +359,7 @@ function toggleAccordion(el){
 
     <div class="testimonial-slider" id="testimonialSlider">
 
-      <!-- Slide -->
+      <!-- Slide 
       <div class="testimonial-slide active">
         <div class="testimonial-image">
           <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
@@ -1987,7 +382,7 @@ function toggleAccordion(el){
         </div>
       </div>
 
-      <!-- Slide -->
+      <!-- Slide 
       <div class="testimonial-slide">
         <div class="testimonial-image">
           <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
@@ -2012,11 +407,11 @@ function toggleAccordion(el){
 
     </div>
 
-    <!-- Arrows -->
+    <!-- Arrows 
     <div class="testimonial-arrow left" id="testimonialPrev">←</div>
     <div class="testimonial-arrow right" id="testimonialNext">→</div>
 
-    <!-- Dots -->
+    <!-- Dots 
     <div class="testimonial-dots" id="testimonialDots"></div>
 
   </div>
@@ -2081,269 +476,285 @@ slider.addEventListener('touchend', e=>{
 });
 </script>
 </section>
+-->
 
-<!-- ================= FAQ SECTION ================= -->
-<section class="faq-section">
+  <!-- ================= FAQ SECTION ================= -->
+  <section class="faq-section">
 
-  <div class="faq-container">
+    <div class="faq-container">
 
-<h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-     Frequently Asked <br>QUESTIONS </h2>
+      <h2 class="solutions-title" data-animate="fade-up"
+        style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Frequently Asked <br>QUESTIONS </h2>
 
-    <p class="faq-subtitle">
-      Find answers to common questions. If you can't find what you're looking for,
-      feel free to contact our support team.
-    </p>
+      <p class="faq-subtitle">
+        Find answers to common questions. If you can't find what you're looking for,
+        feel free to contact our support team.
+      </p>
 
-    <div class="faq-accordion">
+      <div class="faq-accordion">
 
-      <!-- ITEM -->
-      <div class="faq-item active">
-        <button class="faq-question">
-          <span>What are Services are being Provided ?</span>
-          <span class="faq-icon">⌄</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            We provide a wide range of IT services including product engineering, cloud solutions, staffing, web development, security solutions, annual maintenance contracts, business analytics, and digital presence management. Our expertise spans across various industries to help businesses innovate and grow.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>On what basis you charge for the services ?</span>
-          <span class="faq-icon">⌄</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Basically, We charge based on the scope of work, complexity of the project, and the resources required. Our pricing is transparent and tailored to meet your specific business needs.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Is there any concession if I pay in advance?</span>
-          <span class="faq-icon">⌄</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes, we offer discounts for advance payments. The concession amount depends on the total project cost and the payment terms agreed upon. Please contact our sales team for detailed information on our advance payment discounts.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Do you offer enterprise solutions?</span>
-          <span class="faq-icon">⌄</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes. We provide tailored enterprise solutions with dedicated support
-            and scalable architecture.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <script>
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-  const button = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  button.addEventListener('click', () => {
-
-    // Close others
-    faqItems.forEach(el => {
-      if(el !== item){
-        el.classList.remove('active');
-        el.querySelector('.faq-answer').style.maxHeight = null;
-      }
-    });
-
-    // Toggle current
-    item.classList.toggle('active');
-
-    if(item.classList.contains('active')){
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    } else {
-      answer.style.maxHeight = null;
-    }
-
-  });
-});
-</script>
-
-</section>
-
-<!-- ================= CONTACT SECTION ================= -->
-<section class="contact-section" id="contact">
-  <h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-     Contact US </h2>
-  <div class="contact-container">
-    
-
-    <!-- LEFT FORM -->
-    <div class="contact-form-wrapper">
-      <h2>Have a Question? Ask Us</h2>
-
-      <form class="contact-form" id="contactForm">
-
-        <div class="form-group">
-          <input type="text" required>
-          <label>Full Name*</label>
+        <!-- ITEM -->
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What are Services are being Provided ?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We provide a wide range of IT services including product engineering, cloud solutions, staffing, web
+              development, security solutions, annual maintenance contracts, business analytics, and digital presence
+              management. Our expertise spans across various industries to help businesses innovate and grow.
+            </p>
+          </div>
         </div>
 
-        <div class="form-group">
-          <input type="email" required>
-          <label>Email Address*</label>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>On what basis you charge for the services ?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Basically, We charge based on the scope of work, complexity of the project, and the resources required.
+              Our pricing is transparent and tailored to meet your specific business needs.
+            </p>
+          </div>
         </div>
 
-        <div class="form-group">
-          <input type="tel" required>
-          <label>Phone Number*</label>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is there any concession if I pay in advance?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, we offer discounts for advance payments. The concession amount depends on the total project cost and
+              the payment terms agreed upon. Please contact our sales team for detailed information on our advance
+              payment discounts.
+            </p>
+          </div>
         </div>
 
-        <div class="form-group">
-          <textarea required></textarea>
-          <label>Message</label>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you offer enterprise solutions?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. We provide tailored enterprise solutions with dedicated support
+              and scalable architecture.
+            </p>
+          </div>
         </div>
 
-        <button type="submit" class="submit-btn">
-          Submit
-        </button>
-
-      </form>
-    </div>
-
-    <!-- RIGHT OFFICE DETAILS -->
-    <div class="contact-info-wrapper">
-
-      <h2>Our Head Office</h2>
-
-      <div class="office-details">
-        <p><img src="assets/icons/map.png" width="25px" height="20px" style="padding-right:6px;">street 7, Mayur Vihar, Phase1, Delhi, India</p>
-
-        <p><img src="assets/icons/call.png" width="20px" height="15px" style="padding-right:5px;">  +91-9946373982 - 9743433887 </p>
-
-        <p><img src="assets/icons/email.png" width="20px" height="15px" style="padding-right:5px;"> info@oxodottechnocaresolutions.in</p>
-        <p><img src="assets/icons/time-left.png" width="20px" height="15px" style="padding-right:5px;"> Mon-Fri - 08:00-19:00 </p>
-      </div>
-
-      <div class="map-wrapper">
-        <iframe 
-        src="https://maps-cdn.cdn-files-a.com/include/globalMapDisplay.php?q=street+7%2C+Mayur+Vihar%2C+Phase1%2C+Delhi%2C+India&z=15&l=en&ilfc="
-
-        allowfullscreen=""
-          loading="lazy">
-        </iframe>
       </div>
 
     </div>
 
-  </div>
 
-  <script>
-const form = document.getElementById("contactForm");
+    <script>
+      const faqItems = document.querySelectorAll('.faq-item');
 
-form.addEventListener("submit", function(e){
-  e.preventDefault();
+      faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
 
-  const inputs = form.querySelectorAll("input, textarea");
-  let valid = true;
+        button.addEventListener('click', () => {
 
-  inputs.forEach(input=>{
-    if(!input.value.trim()){
-      valid = false;
-      input.style.borderColor = "red";
-    } else {
-      input.style.borderColor = "#00f5c4";
-    }
-  });
+          // Close others
+          faqItems.forEach(el => {
+            if (el !== item) {
+              el.classList.remove('active');
+              el.querySelector('.faq-answer').style.maxHeight = null;
+            }
+          });
 
-  if(valid){
-    form.innerHTML = `
+          // Toggle current
+          item.classList.toggle('active');
+
+          if (item.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+
+        });
+      });
+    </script>
+
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section class="contact-section" id="contact">
+    <h2 class="solutions-title" data-animate="fade-up"
+      style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      Contact US </h2>
+    <div class="contact-container">
+
+
+      <!-- LEFT FORM -->
+      <div class="contact-form-wrapper">
+        <h2>Have a Question? Ask Us</h2>
+
+        <form class="contact-form" id="contactForm">
+
+          <div class="form-group">
+            <input type="text" required>
+            <label>Full Name*</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" required>
+            <label>Email Address*</label>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" required>
+            <label>Phone Number*</label>
+          </div>
+
+          <div class="form-group">
+            <textarea required></textarea>
+            <label>Message</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Submit
+          </button>
+
+        </form>
+      </div>
+
+      <!-- RIGHT OFFICE DETAILS -->
+      <div class="contact-info-wrapper">
+
+        <h2>Our Head Office</h2>
+
+        <div class="office-details">
+          <p><img src="assets/icons/map.png" width="25px" height="20px" style="padding-right:6px;">street 7, Mayur
+            Vihar, Phase1, Delhi, India</p>
+
+          <p><img src="assets/icons/call.png" width="20px" height="15px" style="padding-right:5px;"> +91-9946373982 -
+            9743433887 </p>
+
+          <p><img src="assets/icons/email.png" width="20px" height="15px" style="padding-right:5px;">
+            info@oxodottechnocaresolutions.in</p>
+          <p><img src="assets/icons/time-left.png" width="20px" height="15px" style="padding-right:5px;"> Mon-Fri -
+            08:00-19:00 </p>
+        </div>
+
+        <div class="map-wrapper">
+          <iframe
+            src="https://maps-cdn.cdn-files-a.com/include/globalMapDisplay.php?q=street+7%2C+Mayur+Vihar%2C+Phase1%2C+Delhi%2C+India&z=15&l=en&ilfc="
+            allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const inputs = form.querySelectorAll("input, textarea");
+        let valid = true;
+
+        inputs.forEach(input => {
+          if (!input.value.trim()) {
+            valid = false;
+            input.style.borderColor = "red";
+          } else {
+            input.style.borderColor = "#00f5c4";
+          }
+        });
+
+        if (valid) {
+          form.innerHTML = `
       <div style="text-align:center;padding:40px;">
         <h3 style="color:#00f5c4;">Message Sent Successfully ✔</h3>
         <p style="margin-top:15px;">Our team will contact you soon.</p>
       </div>
     `;
-  }
-});
-</script>
+        }
+      });
+    </script>
 
-</section>
+  </section>
 
 
 
-<footer class="footer">
-  <div class="footer-container">
+  <footer class="footer">
+    <div class="footer-container">
 
-    <div class="footer-top">
+      <div class="footer-top">
 
-      <!-- LEFT -->
-      <div class="footer-about">
-        <h2 class="footer-title">Connect With Us ↗</h2>
-        <p class="footer-desc">
-          OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
-          We see ourselves as trusted solutions partner. We understand your needs,
-          Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
-          Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
-        </p>
-        
+        <!-- LEFT -->
+        <div class="footer-about">
+          <h2 class="footer-title">Connect With Us ↗</h2>
+          <p class="footer-desc">
+            OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
+            We see ourselves as trusted solutions partner. We understand your needs,
+            Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
+            Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
+          </p>
 
-        
-        
-      </div>
 
-      <!-- QUICK LINKS -->
-      <div class="footer-links">
-        <h4>QUICK LINKS</h4>
-        <ul>
-          <li><a href="#">Solutions</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
 
-      <!-- SOCIAL -->
-      <div class="footer-social">
-        <h4>STAY IN TOUCH</h4>
-        <div class="footer-icons">
-          <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/instagram-new.png" alt="instagram-new"/></a>
-          <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/linkedin--v2.png" alt="linkedin--v2"/></a>
-          <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/youtube-play.png" alt="youtube-play"/></a>
-          <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/facebook-logo.png" alt="facebook-logo"/></a>
+
         </div>
-            <div class="logo-container">
-              <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 3.png" alt="logo" width="100" style="padding-top: 20px ;">
-              <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
-            </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+          <h4>QUICK LINKS</h4>
+          <ul>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="footer-social">
+          <h4>STAY IN TOUCH</h4>
+          <div class="footer-icons">
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/instagram-new.png"
+                alt="instagram-new" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/linkedin--v2.png"
+                alt="linkedin--v2" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/youtube-play.png"
+                alt="youtube-play" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/facebook-logo.png"
+                alt="facebook-logo" /></a>
+          </div>
+          <div class="logo-container">
+            <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 3.png" alt="logo" width="100"
+              style="padding-top: 20px ;">
+            <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
+          </div>
+
+        </div>
+
 
       </div>
 
 
+      <div class="footer-bottom">
+        © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
+        <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span
+              style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
+      </div>
+
     </div>
-    
-
-    <div class="footer-bottom">
-      © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
-      <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
 
 
@@ -2396,38 +807,39 @@ form.addEventListener("submit", function(e){
 
 
 
-<script>
-document.body.classList.add("loading");
+  <script>
+    document.body.classList.add("loading");
 
-window.addEventListener("load", function () {
-  const loader = document.getElementById("page-loader");
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("page-loader");
 
-  setTimeout(() => {
-    loader.classList.add("hidden");
-    document.body.classList.remove("loading");
-  }, 800); // cinematic delay
-});
-</script>
-
-
-<script>
-/* Declarative scroll animations */
-const animatedElements = document.querySelectorAll('[data-animate]');
-
-const animationObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        animationObserver.unobserve(entry.target);
-      }
+      setTimeout(() => {
+        loader.classList.add("hidden");
+        document.body.classList.remove("loading");
+      }, 800); // cinematic delay
     });
-  },
-  { threshold: 0.2 }
-);
+  </script>
 
-animatedElements.forEach(el => animationObserver.observe(el));
-</script>
+
+  <script>
+    /* Declarative scroll animations */
+    const animatedElements = document.querySelectorAll('[data-animate]');
+
+    const animationObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            animationObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    animatedElements.forEach(el => animationObserver.observe(el));
+  </script>
 
 </body>
+
 </html>
