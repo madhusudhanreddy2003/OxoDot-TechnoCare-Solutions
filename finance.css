@@ -314,9 +314,9 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 
 
-/* ================= HEALTHCARE HERO ================= */
+/* ================= finance HERO ================= */
 
-.healthcare-hero{
+.finance-hero{
   height:100vh;
   position:relative;
   display:flex;
@@ -328,18 +328,18 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
   background: 
     /* Soft Aqua Glow */
-    radial-gradient(circle at 20% 30%, rgba(40, 221, 178, 0.4), transparent 40%),
+    radial-gradient(circle at 20% 30%, rgba(40, 58, 221, 0.4), transparent 40%),
     /* Trust Blue Glow */
-    radial-gradient(circle at 80% 20%, rgba(25, 93, 120, 0.4), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(25, 54, 120, 0.4), transparent 40%),
     /* Deep Medical Blue Glow */
-    radial-gradient(circle at 60% 80%, rgba(54, 40, 179, 0.3), transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(40, 61, 179, 0.3), transparent 40%),
     /* Deep Professional Gradient Base */
-    linear-gradient(135deg, #0a192f, #112240, #195d78, #0a192f);
+    linear-gradient(135deg, #0a192f, #112240, #193f78, #0a192f);
 }
 
 /* subtle glow overlay */
 /* subtle glow overlay */
-.healthcare-hero-overlay {
+.finance-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
@@ -347,7 +347,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 }
 
 /* Content */
-.healthcare-hero-content {
+.finance-hero-content {
   position: relative;
   z-index: 2; /* Explicitly set above the overlay */
   max-width: 900px;
@@ -355,20 +355,20 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 }
 
 /* Heading */
-.healthcare-hero h1{
+.finance-hero h1{
   font-family:Montserrat,sans-serif;
   font-weight:800;
   font-size:70px;
   line-height:1.1;
   margin-bottom:25px;
 
-  background:linear-gradient(90deg,#ffd88a,#ffffff,#a6fff6);
+  background:linear-gradient(90deg,#f2c262,#ffffff,#a6beff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 /* Subtitle */
-.healthcare-hero p{
+.finance-hero p{
   font-size:22px;
   line-height:1.6;
   margin-bottom:35px;
@@ -376,7 +376,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 }
 
 /* Button */
-.healthcare-hero .hero-btn{
+.finance-hero .hero-btn{
   padding:14px 28px;
   border-radius:30px;
   background:linear-gradient(135deg,#28ddb2,#195d78,#3628b3);
@@ -386,7 +386,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   transition:.3s;
 }
 
-.healthcare-hero .hero-btn:hover{
+.finance-hero .hero-btn:hover{
   transform:translateY(-3px);
   box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
@@ -396,16 +396,16 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 
 
-/* ================= HEALTHCARE INTRO ================= */
+/* ================= finance INTRO ================= */
 
-.healthcare-intro{
+.finance-intro{
     height:100vh;
   padding:120px 8%;
-  background:linear-gradient(90deg,#050505,#1a2c31,#39645e,#1a1a1a);
+  background:linear-gradient(90deg,#050505,#1a1c31,#3628b3,#1a1a1a);
   
 }
 
-.healthcare-intro-container{
+.finance-intro-container{
   max-width:1300px;
   margin:auto;
   display:grid;
@@ -423,7 +423,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   font-weight:600;
 }
 
-.healthcare-intro h2{
+.finance-intro h2{
   font-family:Montserrat,sans-serif;
   font-size:56px;
   line-height:1.1;
@@ -431,11 +431,11 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   color:#fff;
 }
 
-.healthcare-intro-left h2 span{
-  color:#28ddb2;
+.finance-intro-left h2 span{
+  color:#ffba26;
 }
 
-.healthcare-intro p{
+.finance-intro p{
   font-size:18px;
   line-height:1.7;
   color:#cfcfcf;
@@ -447,7 +447,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 .intro-buttons{
   margin-top:35px;
   display:flex;
-  gap:18px;
+  gap:25px;
 }
 
 .intro-btn{
@@ -459,12 +459,12 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 }
 
 .intro-btn.primary{
-  background:#2f5bff;
-  color:#fff;
+  background:#ffaf2f;
+  color:#000000;
 }
 
 .intro-btn.primary:hover{
-  background:#1d45d6;
+  box-shadow: 0 0 25px #da9e07; /* 0 offset, 15px blur radius */
 }
 
 .intro-btn.secondary{
@@ -479,7 +479,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 /* Image */
 
-.healthcare-intro-right img{
+.finance-intro-right img{
   width:100%;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.5);
@@ -489,22 +489,22 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 @media(max-width:900px){
 
-.healthcare-intro-container{
+.finance-intro-container{
   grid-template-columns:1fr;
   gap:40px;
 }
 
-.healthcare-intro h2{
+.finance-intro h2{
   font-size:36px;
 }
 
 }
 
-/* ================= HEALTHCARE SERVICES ================= */
+/* ================= finance SERVICES ================= */
 
-.healthcare-services{
+.finance-services{
 padding:120px 8%;
-background:linear-gradient(90deg,#050505,#1a2c31,#39645e,#1a1a1a);
+  background:linear-gradient(90deg,#050505,#1a1c31,#3628b3,#1a1a1a);
 }
 
 .services-container{
@@ -527,19 +527,29 @@ margin-bottom:60px;
 font-size:18px;
 }
 
+.services-category{
+  font-family:Montserrat,sans-serif;
+  font-weight:700;
+  font-size:38px;
+  margin-bottom:30px;
+  color:#ffba26;
+}
+
 /* GRID */
 
 .services-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
 gap:30px;
+padding-top: 20px;
+padding-bottom: 50px;
 }
 
 /* CARD */
 
 .service-card{
 background:rgba(12, 24, 42, 0.384);
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255, 255, 255, 0.16);
 padding:35px;
 border-radius:14px;
 text-align:left;
@@ -550,7 +560,7 @@ cursor: pointer;
 
 .service-card i{
 font-size:26px;
-color:#2fffba;
+color:#ffba26;
 margin-bottom:15px;
 }
 
@@ -571,7 +581,7 @@ font-size:15px;
 .service-card:hover{
 transform:translateY(-6px);
 box-shadow:0 15px 35px rgba(0,0,0,.6);
-border-color:#2fffba;
+border-color:#2f47ff;
 }
 
 /* Highlight card */
@@ -605,11 +615,11 @@ font-size:32px;
 
 
 
-/* ================= HEALTHCARE STANDARDS ================= */
+/* ================= finance STANDARDS ================= */
 
-.healthcare-standards{
+.finance-standards{
 padding:120px 8%;
-background:linear-gradient(90deg,#050505,#1a2c31,#39645e,#1a1a1a);
+background:linear-gradient(90deg,#050505,#1a1c31,#39645e,#1a1a1a);
 }
 
 .standards-container{
@@ -715,7 +725,7 @@ display:none;
 
 .why-partner{
 padding:120px 8%;
-background:linear-gradient(90deg,#050505,#1a2c31,#39645e,#1a1a1a);
+background:linear-gradient(90deg,#050505,#1a1c31,#3628b3,#1a1a1a);
 color:#fff;
 }
 
@@ -1127,31 +1137,31 @@ transform:translateX(50%);
 
 @media (max-width:1024px){
 
-/* Healthcare Intro */
-.healthcare-intro{
+/* finance Intro */
+.finance-intro{
 height: 1000px;
 padding:100px 16% 100px;
 
 }
 
-.healthcare-intro-container{
+.finance-intro-container{
 grid-template-columns:1fr;
 gap:50px;
 text-align:center;
 }
 
-.healthcare-intro-left h2{
+.finance-intro-left h2{
 font-size:50px;
 }
 
-.healthcare-intro-right img{
+.finance-intro-right img{
 max-width:600px;
 margin:auto;
 }
 
 /* Services */
 
-.healthcare-services{
+.finance-services{
   height: auto;
 }
 .services-grid{
@@ -1188,29 +1198,29 @@ justify-content:center;
 @media (max-width:768px){
 
 /* Hero text scaling */
-.healthcare-hero h1{
+.finance-hero h1{
 font-size:42px;
 }
 
-.healthcare-hero p{
+.finance-hero p{
 font-size:15px;
 }
 
-/* Healthcare Intro */
-.healthcare-intro{
+/* finance Intro */
+.finance-intro{
 padding:80px 24px;
 height: 750px;
 }
 
-.healthcare-intro h2{
+.finance-intro h2{
 font-size:34px;
 }
 
-.healthcare-intro-left {
+.finance-intro-left {
 text-align: left;
 }
 
-.healthcare-intro-left p {
+.finance-intro-left p {
 text-align: left;
 font-size: smaller;
 
@@ -1245,7 +1255,7 @@ padding:28px;
 }
 
 /* Standards */
-.healthcare-standards{
+.finance-standards{
   height:850px;
 }
 
