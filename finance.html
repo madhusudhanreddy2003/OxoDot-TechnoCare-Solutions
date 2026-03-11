@@ -22,11 +22,39 @@
 
 
     <link rel="stylesheet" href="finance.css" />
+<script>document.addEventListener("DOMContentLoaded", function(){
 
-    <style>
+const toggleSwitch = document.getElementById("color_mode");
+const body = document.body;
 
+const DEFAULT_THEME = "dark-mode";
 
-    </style>
+const savedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
+
+if(savedTheme === "dark-mode"){
+    body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+}else{
+    body.classList.add("light-mode");
+    toggleSwitch.checked = false;
+}
+
+toggleSwitch.addEventListener("change", function(){
+
+    if(this.checked){
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme","dark-mode");
+    }else{
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme","light-mode");
+    }
+
+});
+
+});
+</script>
 
 </head>
 
@@ -54,6 +82,15 @@
             <a href="our-teams.html" class="nav-link">Our Teams</a>
             <a href="careers.html" class="nav-link">Careers</a>
             <a href="#contact" class="nav-link">Contact Us</a>
+            <!-- theme button -->
+            <div class="btn-container">
+
+                <label class="switch btn-color-mode-switch">
+                    <input value="1" id="color_mode" name="color_mode" type="checkbox">
+                    <label class="btn-color-mode-switch-inner" data-off="Light" data-on="Dark" for="color_mode"></label>
+                </label>
+
+            </div>
         </nav>
 
         <!-- NEW -->
@@ -169,138 +206,138 @@
 
             <h2 class="services-category">Banking Services</h2>
 
-<div class="services-grid">
+            <div class="services-grid">
 
-    <!-- Payment Solutions: Changed to a credit card with a gear for 'development' -->
-    <div class="service-card" data-animate="fade-up" data-delay="1s">
-        <i class="fa-solid fa-credit-card"></i>
-        <h3>Payment Solutions</h3>
-        <p>
-            Payment gateway development for secure online transactions
-            and seamless integration of Third-party Payment gateways with banking systems.
-        </p>
-    </div>
+                <!-- Payment Solutions: Changed to a credit card with a gear for 'development' -->
+                <div class="service-card" data-animate="fade-up" data-delay="1s">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h3>Payment Solutions</h3>
+                    <p>
+                        Payment gateway development for secure online transactions
+                        and seamless integration of Third-party Payment gateways with banking systems.
+                    </p>
+                </div>
 
-    <!-- Data Analytics: Changed to 'magnifying-glass-chart' for insights -->
-    <div class="service-card" data-animate="fade-up" data-delay="2s">
-        <i class="fa-solid fa-magnifying-glass-chart"></i>
-        <h3>Data Analytics</h3>
-        <p>
-            Data warehousing, business intelligence, and predictive analytics
-            for finance providers to gain insights and make informed decisions.
-        </p>
-    </div>
+                <!-- Data Analytics: Changed to 'magnifying-glass-chart' for insights -->
+                <div class="service-card" data-animate="fade-up" data-delay="2s">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h3>Data Analytics</h3>
+                    <p>
+                        Data warehousing, business intelligence, and predictive analytics
+                        for finance providers to gain insights and make informed decisions.
+                    </p>
+                </div>
 
-    <!-- AI & ML Solutions: Changed to 'robot' for virtual assistants -->
-    <div class="service-card" data-animate="fade-up" data-delay="3s">
-        <i class="fa-solid fa-robot"></i>
-        <h3>AI & ML Solutions</h3>
-        <p>
-            AI-powered chatbots and virtual assistants for customer support
-            and personalized financial services and development of Financial Fraud Detection Systems.
-        </p>
-    </div>
+                <!-- AI & ML Solutions: Changed to 'robot' for virtual assistants -->
+                <div class="service-card" data-animate="fade-up" data-delay="3s">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>AI & ML Solutions</h3>
+                    <p>
+                        AI-powered chatbots and virtual assistants for customer support
+                        and personalized financial services and development of Financial Fraud Detection Systems.
+                    </p>
+                </div>
 
-    <!-- Research & Development: Changed to 'flask-vial' for R&D -->
-    <div class="service-card" data-animate="fade-up" data-delay="4s">
-        <i class="fa-solid fa-flask-vial"></i>
-        <h3>Research & Development</h3>
-        <p>
-            Research and development of innovative financial products,
-            services, and platforms to drive growth and competitive advantage.
-        </p>
-    </div>
+                <!-- Research & Development: Changed to 'flask-vial' for R&D -->
+                <div class="service-card" data-animate="fade-up" data-delay="4s">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <h3>Research & Development</h3>
+                    <p>
+                        Research and development of innovative financial products,
+                        services, and platforms to drive growth and competitive advantage.
+                    </p>
+                </div>
 
-    <!-- Cloud Solutions: Changed to 'cloud-arrow-up' for migration -->
-    <div class="service-card" data-animate="fade-up" data-delay="5s">
-        <i class="fa-solid fa-cloud-arrow-up"></i>
-        <h3>Cloud Solutions</h3>
-        <p>
-            Cloud migration, infrastructure management, and DevOps services
-            for finance providers to enhance scalability, security, and agility.
-        </p>
-    </div>
+                <!-- Cloud Solutions: Changed to 'cloud-arrow-up' for migration -->
+                <div class="service-card" data-animate="fade-up" data-delay="5s">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <h3>Cloud Solutions</h3>
+                    <p>
+                        Cloud migration, infrastructure management, and DevOps services
+                        for finance providers to enhance scalability, security, and agility.
+                    </p>
+                </div>
 
-    <!-- Cyber Security: Changed from 'file-medical' to 'shield-lock' -->
-    <div class="service-card" data-animate="fade-up" data-delay="6s">
-        <i class="fa-solid fa-shield-halved"></i>
-        <h3>Cyber Security</h3>
-        <p>
-            Comprehensive cybersecurity services including development of secure firewalls,
-            vulnerability management, and incident response for finance providers.
-        </p>
-    </div>
+                <!-- Cyber Security: Changed from 'file-medical' to 'shield-lock' -->
+                <div class="service-card" data-animate="fade-up" data-delay="6s">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Cyber Security</h3>
+                    <p>
+                        Comprehensive cybersecurity services including development of secure firewalls,
+                        vulnerability management, and incident response for finance providers.
+                    </p>
+                </div>
 
-    <!-- Risk Factor Analysis: Changed to 'triangle-exclamation' for risk -->
-    <div class="service-card" data-animate="fade-up" data-delay="7s">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <h3>Risk Factor Analysis</h3>
-        <p>
-            Comprehensive risk assessment and mitigation strategies
-            for finance providers to identify and address potential vulnerabilities.
-        </p>
-    </div>
+                <!-- Risk Factor Analysis: Changed to 'triangle-exclamation' for risk -->
+                <div class="service-card" data-animate="fade-up" data-delay="7s">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <h3>Risk Factor Analysis</h3>
+                    <p>
+                        Comprehensive risk assessment and mitigation strategies
+                        for finance providers to identify and address potential vulnerabilities.
+                    </p>
+                </div>
 
-</div>
+            </div>
 
-            
 
-           <h2 class="services-category">E Commerce Services</h2>
 
-<div class="services-grid">
+            <h2 class="services-category">E Commerce Services</h2>
 
-    <!-- Research & Development: Lightbulb for innovation/features -->
-    <div class="service-card" data-animate="fade-up" data-delay="1s">
-        <i class="fa-solid fa-lightbulb"></i>
-        <h3>Research & Development</h3>
-        <p>
-            Research and development for E-Commerce platforms 
-            to create innovative shopping experiences and Platform Features.
-        </p>
-    </div>
+            <div class="services-grid">
 
-    <!-- Payment Integration: Wallet/Card combination for transactions -->
-    <div class="service-card" data-animate="fade-up" data-delay="2s">
-        <i class="fa-solid fa-wallet"></i>
-        <h3>Payment Integration</h3>
-        <p>
-            Seamless integration of payment gateways and secure transaction processing
-            for E-Commerce platforms to enhance customer experience and drive sales.
-        </p>
-    </div>
+                <!-- Research & Development: Lightbulb for innovation/features -->
+                <div class="service-card" data-animate="fade-up" data-delay="1s">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Research & Development</h3>
+                    <p>
+                        Research and development for E-Commerce platforms
+                        to create innovative shopping experiences and Platform Features.
+                    </p>
+                </div>
 
-    <!-- Order Management: Box/Package for inventory and tracking -->
-    <div class="service-card" data-animate="fade-up" data-delay="3s">
-        <i class="fa-solid fa-box-open"></i>
-        <h3>Order Management</h3>
-        <p>
-            Development of robust order management systems for E-Commerce platforms
-            to streamline order processing, inventory management, Order Tracking, and customer service.
-        </p>
-    </div>
+                <!-- Payment Integration: Wallet/Card combination for transactions -->
+                <div class="service-card" data-animate="fade-up" data-delay="2s">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Payment Integration</h3>
+                    <p>
+                        Seamless integration of payment gateways and secure transaction processing
+                        for E-Commerce platforms to enhance customer experience and drive sales.
+                    </p>
+                </div>
 
-    <!-- AI Personalization: User-gear to represent AI customization -->
-    <div class="service-card" data-animate="fade-up" data-delay="4s">
-        <i class="fa-solid fa-user-gear"></i>
-        <h3>AI Personalization</h3>
-        <p>
-            AI-driven personalization and recommendation engines for E-Commerce platforms
-            to enhance customer engagement and drive sales through targeted marketing.
-        </p>
-    </div>
+                <!-- Order Management: Box/Package for inventory and tracking -->
+                <div class="service-card" data-animate="fade-up" data-delay="3s">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>Order Management</h3>
+                    <p>
+                        Development of robust order management systems for E-Commerce platforms
+                        to streamline order processing, inventory management, Order Tracking, and customer service.
+                    </p>
+                </div>
 
-    <!-- Behavioral Analytics: Chart-pie for segmenting customer behavior -->
-    <div class="service-card" data-animate="fade-up" data-delay="5s">
-        <i class="fa-solid fa-chart-pie"></i>
-        <h3>Behavioral Analytics</h3>
-        <p>
-            Advanced analytics and insights for E-Commerce platforms
-            to understand customer behavior and optimize the shopping experience.
-        </p>
-    </div>
-</div>
+                <!-- AI Personalization: User-gear to represent AI customization -->
+                <div class="service-card" data-animate="fade-up" data-delay="4s">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>AI Personalization</h3>
+                    <p>
+                        AI-driven personalization and recommendation engines for E-Commerce platforms
+                        to enhance customer engagement and drive sales through targeted marketing.
+                    </p>
+                </div>
 
-        
+                <!-- Behavioral Analytics: Chart-pie for segmenting customer behavior -->
+                <div class="service-card" data-animate="fade-up" data-delay="5s">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>Behavioral Analytics</h3>
+                    <p>
+                        Advanced analytics and insights for E-Commerce platforms
+                        to understand customer behavior and optimize the shopping experience.
+                    </p>
+                </div>
+            </div>
+
+
     </section>
 
 
@@ -315,7 +352,7 @@
             <!-- LEFT IMAGE -->
             <div class="partner-image">
 
-                <img src="assets/images/Health-care-6.jpg" alt="finance Technology">
+                <img src="assets/Banners/AdobeStock_291228153.jpeg" alt="finance Technology">
 
                 <div class="experience-badge">
                     <h3>2+</h3>
@@ -340,7 +377,8 @@
                     <div>
                         <h3 data-animate="fade-right" data-delay="2s"> Expert Specialists</h3>
                         <p data-animate="fade-right" data-delay="3s">
-                            Our team consists of finance technology experts with deep industry knowledge and technical expertise to deliver innovative solutions.
+                            Our team consists of finance technology experts with deep industry knowledge and technical
+                            expertise to deliver innovative solutions.
                         </p>
                     </div>
 
