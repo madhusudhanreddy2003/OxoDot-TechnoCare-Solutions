@@ -627,14 +627,13 @@ background: linear-gradient(90deg, #050505, #261a31, #4f3964, #1A1A1A);
 
 
 /* Temporary backgrounds (replace later with real images) */
-.solution-card:nth-child(1){background-image:url('assets/images/Health-care-5.jpg')}
-.solution-card:nth-child(2){background-image:url('assets/images/Finance.jpg')}
-.solution-card:nth-child(3){background-image:url('assets/images/Automobile\ sector 2.jpg')}
-.solution-card:nth-child(4){background-image:url('assets/images/Telecom-1.jpeg')}
-.solution-card:nth-child(5){background-image:url('assets/images/realestate-1.jpeg')}
-.solution-card:nth-child(6){background-image:url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72')}
-.solution-card:nth-child(7){background-image:url('https://i.pinimg.com/736x/99/fa/e5/99fae59629d468b551cb1f3bd970ad2f.jpg')}
-.solution-card:nth-child(8){background-image:url('https://i.pinimg.com/1200x/c9/91/fa/c991fad20ac4e2485a6945c9b78d55d9.jpg')}
+/* Update the selector to target the wrapper link */
+.solution-card-link:nth-child(1) .solution-card { background-image: url('assets/images/Health-care-5.jpg'); }
+.solution-card-link:nth-child(2) .solution-card { background-image: url('assets/images/Finance.jpg'); }
+.solution-card-link:nth-child(3) .solution-card { background-image: url('assets/images/Automobile\ sector 2.jpg'); }
+.solution-card-link:nth-child(4) .solution-card { background-image: url('assets/images/Telecom-1.jpeg'); }
+.solution-card-link:nth-child(5) .solution-card { background-image: url('assets/images/realestate-1.jpeg'); }
+
 
 /* Overlay */
 .solution-overlay{

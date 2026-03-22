@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OXODOT TECHNOCARE SOLUTIONS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="automobile.css" />
+<script>document.addEventListener("DOMContentLoaded", function(){
+
+const toggleSwitch = document.getElementById("color_mode");
+const body = document.body;
+
+const DEFAULT_THEME = "dark-mode";
+
+const savedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
+
+if(savedTheme === "dark-mode"){
+    body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+}else{
+    body.classList.add("light-mode");
+    toggleSwitch.checked = false;
+}
+
+toggleSwitch.addEventListener("change", function(){
+
+    if(this.checked){
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme","dark-mode");
+    }else{
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme","light-mode");
+    }
+
+});
+
+});
+</script>
+
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo"><a href="index.html"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"
+                style="mix-blend-mode: multiply;  margin-top:15px;"></a></div>
+        <span class="logo-text">OXODOT TECHNOCARE</span>
+
+        <nav class="nav-menu">
+            <div class="nav-link">Who We Are</div>
+            <div class="nav-item">
+                <div class="nav-link">Domains <span class="nav-arrow">▾</span></div>
+                <div class="dropdown">
+                    <a href="health-care.html">Health Care</a>
+                    <a href="finance.html">Finance</a>
+                    <a href="auto-mobile.html">Auto Mobile</a>
+                    <a href="tele-communication.html">Tele Communication</a>
+                    <a href="real-estate.html">Real Estate</a>
+                </div>
+            </div>
+            <a href="our-teams.html" class="nav-link">Our Teams</a>
+            <a href="careers.html" class="nav-link">Careers</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+            <!-- theme button -->
+            <div class="btn-container">
+
+                <label class="switch btn-color-mode-switch">
+                    <input value="1" id="color_mode" name="color_mode" type="checkbox">
+                    <label class="btn-color-mode-switch-inner" data-off="Light" data-on="Dark" for="color_mode"></label>
+                </label>
+
+            </div>
+        </nav>
+
+        <!-- NEW -->
+        <div class="hamburger" onclick="openMenu()">☰</div>
+    </header>
+
+    <!-- NEW: MOBILE MENU -->
+    <div class="mobile-overlay" onclick="closeMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <strong>Menu</strong>
+            <span class="mobile-close" onclick="closeMenu()">✕</span>
+        </div>
+
+        <a href="who-we-are.html" class="mobile-link">Who We Are</a>
+
+        <div class="mobile-accordion">
+            <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+                Domains <span>▾</span>
+            </div>
+            <div class="mobile-accordion-content">
+                <a href="health-care.html">Health Care</a>
+                <a href="finance.html">Finance</a>
+                <a href="auto-mobile.html">Auto Mobile</a>
+                <a href="tele-communication.html">Tele Communication</a>
+                <a href="real-estate.html">Real Estate</a>
+            </div>
+        </div>
+
+        <a href="our-teams.html" class="mobile-link">Our Teams</a>
+        <a href="careers.html" class="mobile-link">Careers</a>
+        <a href="contact-us.html" class="mobile-link">Contact Us</a>
+    </div>
+
+    <!-- ================= automobile HERO ================= -->
+    <section class="automobile-hero">
+
+        <div class="automobile-hero-overlay"></div>
+
+        <div class="automobile-hero-content">
+
+            <h1>
+                Automobile Services - IT Simplified
+            </h1>
+
+            <p>
+                Secure, scalable, and intelligent IT solutions designed to modernize
+                financial institutions and drive digital transformation in Banking,
+                Insurance,E-Commerce and Fintech sectors.
+            </p>
+
+            <a href="#automobile-solutions" class="hero-btn">
+                Explore →
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ================= automobile INTRO ================= -->
+    <section class="automobile-intro" id="automobile-solutions">
+
+        <div class="automobile-intro-container">
+
+            <div class="automobile-intro-left">
+
+                <span class="intro-tag">
+                    NEXT-GEN automobile IT
+                </span>
+
+                <h2 data-animate="fade-up">
+                    Empowering <br>
+                    <span>Automobile</span> Through <br>
+                    Technology
+                </h2>
+
+                <p data-animate="fade-up" data-delay="0.2s ">
+                    OXODOT TECHNOCARE SOLUTIONS delivers advanced IT consulting
+                    and digital transformation services for modern automobile
+                    organizations. We enable Banks, Insurance Companies, Chit Fund Companies, E-Commerce Platforms and
+                    other automobile
+                    providers to improve Businesses and services through secure,
+                    scalable, and intelligent technology solutions.
+                </p>
+
+                <div class="intro-buttons" data-animate="fade-up" data-delay="0.4s">
+                    <a href="#automobile-services" class="intro-btn primary">Our automobile Services</a>
+                    <a href="index.html#contact" class="intro-btn secondary">Contact Us</a>
+                </div>
+
+            </div>
+
+            <div class="automobile-intro-right" id="automobile-image" data-animate="zoom-in" data-delay="0.6s">
+                <img src="assets/images/Automobile sector 2.jpg" alt="automobile Technology">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= automobile SERVICES ================= -->
+    <section class="automobile-services" id="automobile-services">
+
+        <div class="services-container">
+
+            <h2 class="services-title">
+                Our Comprehensive Automobile IT Services
+            </h2>
+
+            <p class="services-subtitle">
+                We offer a wide range of IT services tailored to meet the unique needs of automobile providers,
+                including EV, Designing, Simulation Testing, Digital transformation for Hybrid Vehicle Solutions. Our solutions are designed to
+                drive innovation, enhance customer experience, and ensure security and compliance in the digital age.
+            </p>
+
+            <h2 class="services-category">Automobile Services</h2>
+
+            <div class="services-grid">
+
+                <!-- Payment Solutions: Changed to a credit card with a gear for 'development' -->
+                <div class="service-card" data-animate="fade-up" data-delay="1s">
+                    <i class="fa-solid fa-gears"></i>
+                    <h3>Research & Development</h3>
+                    <p>
+                        Research and development of innovative automobile products, services, and platforms to drive growth and competitive advantage.
+                    </p>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-delay="2s">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>Vehicle Designing</h3>
+                    <p>
+                        Complete vehicle design and engineering through HyperMesh, Ansys, Catia, Solidworks and other simulation software for automobile providers to optimize performance, safety, and efficiency.
+                    </p>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-delay="3s">
+                    <i class="bi bi-ev-front-fill"></i>
+                    <h3>EV Services</h3>
+                    <p>
+                        Comprehensive EV services including battery management systems, charging infrastructure, and digital platforms for electric vehicle providers to drive innovation and sustainability in the automobile industry.
+                    </p>
+                </div>
+
+                
+                <div class="service-card" data-animate="fade-up" data-delay="4s">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Security Services</h3>
+                    <p>
+                        Comprehensive cybersecurity services including development of secure firewalls,
+                        vulnerability management, and incident response for automobile providers.
+                    </p>
+                </div>
+
+                <!-- Cloud Solutions: Changed to 'cloud-arrow-up' for migration -->
+                <div class="service-card" data-animate="fade-up" data-delay="5s">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>Simulation Testing</h3>
+                    <p>
+                        HyperMesh and LFD Advanced simulation testing services for automobile providers to optimize vehicle performance, safety, and efficiency through advanced modeling and analysis.
+                    </p>
+                </div>
+
+                <!-- Cyber Security: Changed from 'file-medical' to 'shield-lock' -->
+                <div class="service-card" data-animate="fade-up" data-delay="6s">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <h3>Product Development & Lifecycle Management</h3>
+                    <p>
+                        End-to-end product development and lifecycle management services for automobile providers to accelerate time-to-market and drive innovation in the automobile industry.
+                    </p>
+                </div>
+
+                <!-- Risk Factor Analysis: Changed to 'triangle-exclamation' for risk -->
+                <div class="service-card" data-animate="fade-up" data-delay="7s">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <h3>Risk Factor Analysis</h3>
+                    <p>
+                        Comprehensive risk assessment and mitigation strategies
+                        for automobile providers to identify and address potential vulnerabilities.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <h2 class="services-category">E Commerce Services</h2>
+
+            <div class="services-grid">
+
+                <!-- Research & Development: Lightbulb for innovation/features -->
+                <div class="service-card" data-animate="fade-up" data-delay="1s">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Research & Development</h3>
+                    <p>
+                        Research and development for E-Commerce platforms
+                        to create innovative shopping experiences and Platform Features.
+                    </p>
+                </div>
+
+                <!-- Payment Integration: Wallet/Card combination for transactions -->
+                <div class="service-card" data-animate="fade-up" data-delay="2s">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Payment Integration</h3>
+                    <p>
+                        Seamless integration of payment gateways and secure transaction processing
+                        for E-Commerce platforms to enhance customer experience and drive sales.
+                    </p>
+                </div>
+
+                <!-- Order Management: Box/Package for inventory and tracking -->
+                <div class="service-card" data-animate="fade-up" data-delay="3s">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>Order Management</h3>
+                    <p>
+                        Development of robust order management systems for E-Commerce platforms
+                        to streamline order processing, inventory management, Order Tracking, and customer service.
+                    </p>
+                </div>
+
+                <!-- AI Personalization: User-gear to represent AI customization -->
+                <div class="service-card" data-animate="fade-up" data-delay="4s">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>AI Personalization</h3>
+                    <p>
+                        AI-driven personalization and recommendation engines for E-Commerce platforms
+                        to enhance customer engagement and drive sales through targeted marketing.
+                    </p>
+                </div>
+
+                <!-- Behavioral Analytics: Chart-pie for segmenting customer behavior -->
+                <div class="service-card" data-animate="fade-up" data-delay="5s">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>Behavioral Analytics</h3>
+                    <p>
+                        Advanced analytics and insights for E-Commerce platforms
+                        to understand customer behavior and optimize the shopping experience.
+                    </p>
+                </div>
+            </div>
+
+
+    </section>
+
+
+
+
+    <!-- ================= WHY PARTNER ================= -->
+
+    <section class="why-partner">
+
+        <div class="partner-container">
+
+            <!-- LEFT IMAGE -->
+            <div class="partner-image">
+
+                <img src="assets/images/Automobile sector 4.jpg" alt="automobile Technology">
+
+                <div class="experience-badge">
+                    <h3>2+</h3>
+                    <span>Years of Expertise</span>
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT CONTENT -->
+
+            <div class="partner-content">
+
+                <h2 data-animate="fade-right" data-delay="1s">Why Partner With OXODOT ?</h2>
+
+                <div class="partner-item">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <h3 data-animate="fade-right" data-delay="2s"> Expert Specialists</h3>
+                        <p data-animate="fade-right" data-delay="3s">
+                            Our team consists of automobile technology experts with deep industry knowledge and technical
+                            expertise to deliver innovative solutions.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="partner-item">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+
+                    <div>
+                        <h3 data-animate="fade-right" data-delay="4s">Agile Methodology</h3>
+                        <p data-animate="fade-right" data-delay="5s">
+                            We accelerate automobile innovation using agile development,
+                            rapid prototyping, and scalable infrastructure solutions.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="partner-item">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+
+                    <div>
+                        <h3 data-animate="fade-right" data-delay="6s">Enterprise Reliability</h3>
+                        <p data-animate="fade-right" data-delay="7s">
+                            Security, compliance, and performance are built into every
+                            solution we deliver for E-Commerce and automobile providers.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-top">
+
+                <!-- LEFT -->
+                <div class="footer-about">
+                    <h2 class="footer-title">Connect With Us ↗</h2>
+                    <p class="footer-desc">
+                        OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
+                        We see ourselves as trusted solutions partner. We understand your needs,
+                        Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
+                        Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
+                    </p>
+
+
+
+
+                </div>
+
+                <!-- QUICK LINKS -->
+                <div class="footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="footer-social">
+                    <h4>STAY IN TOUCH</h4>
+                    <div class="footer-icons">
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/instagram-new.png" alt="instagram-new" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/linkedin--v2.png" alt="linkedin--v2" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/youtube-play.png" alt="youtube-play" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/facebook-logo.png" alt="facebook-logo" /></a>
+                    </div>
+                    <div class="logo-container">
+                        <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 3.png" alt="logo" width="100"
+                            style="padding-top: 20px ;">
+                        <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+                © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
+                <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span
+                            style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        (function () {
+            const hamburger = document.querySelector(".hamburger");
+            const mobileMenu = document.querySelector(".mobile-menu");
+            const overlay = document.querySelector(".mobile-overlay");
+            const closeBtn = document.querySelector(".mobile-close");
+
+            hamburger.onclick = () => {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+            };
+        })();
+    </script>
+
+    <script>
+        // ACCORDION
+
+        document.querySelectorAll(".mobile-accordion-btn").forEach(btn => {
+            btn.onclick = () => {
+                btn.parentElement.classList.toggle("open");
+            };
+        });
+
+
+        // SCROLL ANIMATIONS
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                } else {
+                    entry.target.classList.remove("animate");
+                }
+            });
+        }, { threshold: .2 });
+
+        document.querySelectorAll("[data-animate]").forEach(el => {
+            observer.observe(el);
+        });
+
+        /* Declarative scroll animations */
+        const animatedElements = document.querySelectorAll('[data-animate]');
+
+        const animationObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        animatedElements.forEach(el => animationObserver.observe(el));
+
+
+        /* NEW: MOBILE MENU JS */
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.querySelector('.mobile-overlay');
+        function openMenu() {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+        function toggleAccordion(el) {
+            el.parentElement.classList.toggle('open');
+        }
+
+    </script>
+</body>
+
+</html>
