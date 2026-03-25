@@ -804,6 +804,11 @@ border-color:#ebedff;
 
 @media(max-width:1000px){
 
+.automobile-services{
+height: auto;
+padding-top: 170px;
+}
+
 .services-grid{
 grid-template-columns:repeat(2,1fr);
 }
@@ -926,6 +931,9 @@ line-height:1.6;
 
 
 @media(max-width:900px){
+.why-partner{
+height: 1100px;
+}
 
 .partner-container{
 grid-template-columns:1fr;
@@ -934,6 +942,8 @@ text-align:center;
 
 .partner-image img{
 margin:auto;
+width: 350px;
+height: 350px;
 }
 
 .partner-item{

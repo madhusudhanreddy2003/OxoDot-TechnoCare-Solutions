@@ -544,6 +544,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   justify-content:center;
   text-align:center;
   overflow:hidden;
+ 
 
 
   background: var(--hero-bg);
@@ -603,6 +604,43 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
+@media(max-width:600px){
+  .telecommunication-hero{
+    padding: 25px 50px;
+    
+
+  }
+.telecommunication-hero h1{
+  font-size:38px !important;
+  font-weight: 800;
+  padding: fit-content;
+  width: fit-content;
+  margin-right: 50px;
+  margin-left: 50px;
+  
+}
+
+.telecommunication-hero p {
+  /* 1. Basic Styling */
+  font-size: 18px; 
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: #e8e8e8;
+
+  /* 2. The Width Fix */
+  /* Remove width: fit-content and replace with these: */
+  width: 90% !important;   /* Occupies 90% of screen width */
+  max-width: 500px;        /* Limits width on larger screens */
+  margin-inline: auto;     /* Centers the paragraph horizontally */
+
+  /* 3. The Wrapping & Padding Fix */
+  /* Replace padding: fit-content with actual values */
+  padding: 0 15px !important; 
+  box-sizing: border-box !important;
+  white-space: normal !important; /* Forces text to wrap to new lines */
+  word-wrap: break-word !important; /* Breaks long words if necessary */
+}
+}
 
 
 
@@ -804,6 +842,21 @@ border-color:#ebedff;
 
 @media(max-width:1000px){
 
+h2.services-category {
+    font-size: 32px !important; /* Adjusted for a heading */
+    width: 90% !important;
+    max-width: 500px;
+    margin-inline: auto;
+    text-align: center; /* Ensures the text inside is centered */
+    display: block; /* Ensures width and margin-inline work correctly */
+  }
+
+  .telecommunication-services{
+
+height: auto;
+padding-top: 200px;
+margin-bottom: 0px;
+}
 .services-grid{
 grid-template-columns:repeat(2,1fr);
 }
@@ -927,6 +980,11 @@ line-height:1.6;
 
 @media(max-width:900px){
 
+  .why-partner{
+height: 1100px;
+} 
+
+
 .partner-container{
 grid-template-columns:1fr;
 text-align:center;
@@ -934,6 +992,8 @@ text-align:center;
 
 .partner-image img{
 margin:auto;
+width: 370px;
+height: 350px;
 }
 
 .partner-item{

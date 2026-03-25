@@ -927,6 +927,11 @@ line-height:1.6;
 
 @media(max-width:900px){
 
+  .why-partner{
+    height: 1100px;
+  }
+
+
 .partner-container{
 grid-template-columns:1fr;
 text-align:center;
@@ -934,6 +939,8 @@ text-align:center;
 
 .partner-image img{
 margin:auto;
+width: 350px;
+height: 350px;
 }
 
 .partner-item{
