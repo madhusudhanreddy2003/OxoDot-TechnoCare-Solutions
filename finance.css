@@ -704,7 +704,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 .finance-intro-container{
   grid-template-columns:1fr;
-  gap:40px;
+  gap: 40px;
 }
 
 .finance-intro h2{
@@ -803,6 +803,13 @@ border-color:#2f47ff;
 /* RESPONSIVE */
 
 @media(max-width:1000px){
+
+.finance-services{
+
+height: auto;
+padding-top: 200px;
+margin-bottom: 0px;
+}
 
 .services-grid{
 grid-template-columns:repeat(2,1fr);
@@ -927,13 +934,21 @@ line-height:1.6;
 
 @media(max-width:900px){
 
+.why-partner{
+height: 1100px;
+} 
+  
 .partner-container{
 grid-template-columns:1fr;
 text-align:center;
+height: auto;
+padding-bottom: 500px;
 }
 
 .partner-image img{
 margin:auto;
+width: 350px;
+height: 350px;
 }
 
 .partner-item{
