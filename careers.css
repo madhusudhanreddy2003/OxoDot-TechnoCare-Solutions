@@ -4,33 +4,46 @@
 --muted:#bdbdbd;
 --card:rgba(255,255,255,0.05);
 --glass-border:rgba(255,255,255,0.1);
---accent:#b026ff;
+--accent:#6b26ff;
 --shadow:0 20px 60px rgba(0,0,0,0.5);
 }
 
 .dark-mode {
-  --hero-bg: url(assets/images/technology-staffing-banner.webp);
-    --bg: url(assets/images/technology-staffing-banner.webp);
+  --hero-bg: url(assets/Banners/career-bg-11.jpg);
+    --bg: url(assets/Banners/career-bg-11.jpg);
+  --career-page-sub-hero: url(assets/Banners/career-bg-4.jpg);
 --text:#e9ecf1;
 --muted:#555;
 --card:rgba(85, 11, 11, 0.7);
 --glass-border:rgba(0,0,0,0.1);
 --accent:#8a2be2;
 --shadow:0 20px 60px rgba(0,0,0,0.1);
+--heading-color: white;
+--tag-color: rgb(135, 0, 253);
+--job-card-bg: rgba(157, 128, 252, 0.266);
+--job-card-text: rgb(255, 255, 255);
+--job-card-heading: white;
+--job-card-heading-glow: 0px 0px 0px rgb(252, 237, 252);
 }
 
 .light-mode {
 
-  --hero-bg: url(assets/Banners/team-banner-light.jpg);
-  --bg:linear-gradient(90deg, white,#d0bcef );
+  --hero-bg: url(assets/Banners/career-bg-light.jpeg);
+  --bg:linear-gradient(90deg, white,#9ea9f3 );
+  --career-page-sub-hero: url(assets/images/career-bg-light-2.jpeg);
 --text:#0a192f;
 --muted:#555;
 --card:rgba(255,255,255,0.7);
 --glass-border:rgba(0,0,0,0.1);
---accent:#8a2be2;
+--accent:#fff;
 --shadow:0 20px 60px rgba(0,0,0,0.1);
 --team-heading-color: #a20568;
-
+--heading-color: rgb(155, 193, 238);
+--tag-color: rgb(135, 0, 253);
+--job-card-bg: rgb(213, 213, 254);
+--job-card-text: black;
+--job-card-heading: rgb(98, 150, 240);
+--job-card-heading-glow: 0px 0px 0px rgb(35, 13, 62);
 }
 
 
@@ -494,7 +507,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   line-height:1.1;
   margin-bottom:25px;
 
-  background:linear-gradient(90deg,#d62ec0,#ffe4e4);
+  background:linear-gradient(90deg,#dddcea,#ffe4e4);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -563,8 +576,9 @@ font-size:15px;
     justify-content: space-between;
     padding: 120px 8% 80px;
     gap: 60px;
-    background: url(assets/images/about-it-infrastructure-solutions.webp);
-    background-attachment: fixed;
+    background: var(--career-page-sub-hero);
+    
+    background-size: cover;
     min-height: 70vh;
 }
 
@@ -601,100 +615,191 @@ font-size:15px;
 
 
 
-/* ============================================================
-   TEAM SECTIONS: BLOCK STYLING
-   ============================================================ */
-.team-section {
-    padding: 100px 8%;
-    background: var(--bg);
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    gap: 120px; /* Space between rows */
+
+
+
+
+
+
+/* ================= career SERVICES ================= */
+
+.career-services{
+padding:120px 8%;
+  background:var(--bg);
+  background-size: cover;
+  background-attachment: fixed;
+  
 }
 
-.team-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
+.services-container{
+max-width:1300px;
+margin:auto;
+text-align:center;
+gap: 20px;
 }
 
-/* THE KEY FIX: Logic for the .reverse class */
-.team-block.reverse {
-    flex-direction: row-reverse;
-}
-
-.team-text {
-    flex: 1;
-}
-
-.team-text .tag {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.team-text h2 {
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    margin-bottom: 15px;
-    color: var(--team-heading-color);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.team-text p {
-    font-size: 1.15rem;
-    color: var(--text);
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-/* Sales Team Button */
-.cta {
-    padding: 14px 28px;
-    background: var(--accent);
+    .job-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--job-card-bg);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        max-width: 400px;
+        font-family: sans-serif;
+        text-align: left;
+        height: 100%; /* Ensures all cards in a row have equal height */
+    
+    }
+    .job-tag {
+        background: #eef2ff;
+        color: #4f46e5;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        
+    }
+    h3 {
+        margin: 12px 0 8px;
+        color: var(--job-card-heading);
+        text-shadow: var(--job-card-heading-glow);
+        font-size: 1.25rem;
+       
+    }
+    .job-description {
+        color: var(--job-card-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: left;
+        flex-grow: 1; /* This pushes the footer to the absolute bottom */
+    }
+    .job-footer {
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f3f4f6;
+        padding-top: 16px;
+        margin-top: auto;
+    }
+    .job-location {
+        color: var(--job-card-heading);
+        font-size: 0.85rem;
+    }
+.apply-btn {
+    bottom: auto;
+    background: linear-gradient(135deg, #9e63f1 0%, #4f46e5 100%);
     color: white;
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
+    padding: 10px 28px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+.apply-btn:hover {
+    transform: translateY(-2px);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+    background: linear-gradient(135deg, #9e63f1 0%,  #c4b0fa 100%);
 }
 
-.team-block img {
-    flex: 1;
-    width: 100%;
-    max-width: 580px;
-    height: 380px;
-    object-fit: cover;
-    border-radius: 40px; /* Rounded pill look */
-    box-shadow: var(--shadow);
-    border: 1px solid var(--glass-border);
-    transition: transform 0.4s ease;
+.apply-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.3);
 }
 
-.team-block:hover img {
-    transform: scale(1.02);
-    border-color: var(--accent);
+
+.job-list-title{
+font-family:Montserrat,sans-serif;
+font-weight:800;
+font-size:48px;
+margin-bottom:10px;
+color:var(--job-card-heading);
 }
+
+.job-list-subtitle{
+color:var(--text);
+margin-bottom:60px;
+font-size:18px;
+}
+
+
+/* GRID */
+
+.job-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+gap:15px;
+padding-top: 20px;
+padding-bottom: 50px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.career-services{
+
+height: auto;
+padding-top: 200px;
+margin-bottom: 0px;
+}
+
+.job-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.job-grid{
+grid-template-columns:1fr;
+}
+
+.job-list-title{
+font-size:32px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ============================================================
    JOIN THE ELITE (CTA) SECTION
    ============================================================ */
 .cta-section {
-    padding: 100px 8%;
-    background: url(assets/images/client-imgae.png);
-    background-size: cover;
-    background-blend-mode: lighten; 
+    padding: 80px 8%;
+    background: url(assets/images/team-1.png);
+    background-size: cover; 
+    background-blend-mode: darken; 
     text-align: center;
+    
 }
 
 .cta-section h2 { font-size: 3rem; color: var(--heading-color); margin-bottom: 20px; }
@@ -711,7 +816,7 @@ font-size:15px;
 @media (max-width: 992px) {
   .teams-hero-2 {
 
-    background: url(assets/images/about-it-infrastructure-solutions.webp);
+   /*  background: url(assets/images/about-it-infrastructure-solutions.webp); */
 
 }
     .team-block, .team-block.reverse {
@@ -721,8 +826,9 @@ font-size:15px;
     }
     .team-block img { max-width: 100%; height: 300px; }
     .cta-section{
-        background: url(assets/images/client-imgae.png);
-    .btn-primary { padding: 15px 30px; border-radius: 50px; background: rgb(224, 22, 140); color: black; border: none; font-weight: 700; cursor: pointer; }
+        background: url(assets/Banners/career-bg-4.jpg);
+        background-size: cover;
+    .btn-primary { padding: 15px 30px; border-radius: 50px; background: rgb(136, 22, 224); color: rgb(234, 205, 239); border: none; font-weight: 700; cursor: pointer; }
     .btn-primary:hover{
         box-shadow: 0px 0px 15px rgb(224, 22, 140);
     }

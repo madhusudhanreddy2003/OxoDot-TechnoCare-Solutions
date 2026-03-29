@@ -1,0 +1,189 @@
+/* ===== ROOT ===== */
+
+:root{
+--bg:#0a192f;
+--text:#fff;
+--muted:#bdbdbd;
+--accent:#8a2be2;
+--card:rgba(255,255,255,0.05);
+--border:rgba(255,255,255,0.1);
+}
+
+.light-mode{
+--bg:#f5f7fb;
+--text:#0a192f;
+--muted:#555;
+--card:rgba(255,255,255,0.8);
+--border:rgba(0,0,0,0.1);
+}
+
+/* ===== GLOBAL ===== */
+
+body{
+margin:0;
+font-family:Inter;
+background:var(--bg);
+color:var(--text);
+}
+
+/* ===== HERO ===== */
+
+.career-hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(135deg,#1e2a78,#8a2be2);
+}
+
+.hero-content h1{
+font-size:60px;
+}
+
+.hero-content span{
+background:linear-gradient(90deg,#fff,#ff7bff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+margin:20px 0;
+color:#ddd;
+}
+
+.btn-primary{
+padding:14px 30px;
+border-radius:30px;
+background:#fff;
+color:#000;
+text-decoration:none;
+display:inline-block;
+}
+
+/* ===== CULTURE ===== */
+
+.culture-section{
+padding:100px 8%;
+}
+
+.culture-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.culture-card{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+/* ===== JOBS ===== */
+
+.jobs-section{
+padding:100px 8%;
+text-align:center;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:40px;
+}
+
+.job-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.job-card{
+padding:30px;
+border-radius:20px;
+background:var(--card);
+border:1px solid var(--border);
+transition:.4s;
+}
+
+.job-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.job-card button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:var(--accent);
+color:#fff;
+cursor:pointer;
+}
+
+/* ===== PROCESS ===== */
+
+.process-section{
+padding:100px 8%;
+text-align:center;
+}
+
+.process-steps{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.step{
+padding:30px;
+background:var(--card);
+border-radius:20px;
+}
+
+.step span{
+font-size:30px;
+color:var(--accent);
+}
+
+/* ===== CTA ===== */
+
+.career-cta{
+padding:80px;
+text-align:center;
+background:linear-gradient(135deg,#1e2a78,#8a2be2);
+}
+
+/* ===== ANIMATION ===== */
+
+[data-animate]{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+[data-animate].animate{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+.job-grid{
+grid-template-columns:1fr;
+}
+
+.culture-grid{
+grid-template-columns:1fr;
+}
+
+.process-steps{
+flex-direction:column;
+}
+
+.hero-content h1{
+font-size:36px;
+}
+
+}

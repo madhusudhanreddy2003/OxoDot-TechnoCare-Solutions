@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OXODOT TECHNOCARE SOLUTIONS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="careers.css" />
+<script>document.addEventListener("DOMContentLoaded", function(){
+
+const toggleSwitch = document.getElementById("switch");
+const body = document.body;
+
+const DEFAULT_THEME = "dark-mode";
+
+const savedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
+
+if(savedTheme === "dark-mode"){
+    body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+}else{
+    body.classList.add("light-mode");
+    toggleSwitch.checked = false;
+}
+
+toggleSwitch.addEventListener("change", function(){
+
+    if(this.checked){
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme","dark-mode");
+    }else{
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme","light-mode");
+    }
+
+});
+
+});
+</script>
+
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo"><a href="index.html"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"
+                style="mix-blend-mode: multiply;  margin-top:15px;"></a></div>
+        <span class="logo-text">OXODOT TECHNOCARE</span>
+
+        <nav class="nav-menu">
+            <div class="nav-link">Who We Are</div>
+            <div class="nav-item">
+                <div class="nav-link">Domains <span class="nav-arrow">▾</span></div>
+                <div class="dropdown">
+                    <a href="health-care.html">Health Care</a>
+                    <a href="career.html">career</a>
+                    <a href="auto-mobile.html">Auto Mobile</a>
+                    <a href="tele-communication.html">Tele Communication</a>
+                    <a href="real-estate.html">Real Estate</a>
+                </div>
+            </div>
+            <a href="teams.html" class="nav-link">Our Teams</a>
+            <a href="careers.html" class="nav-link">Careers</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+            
+        </nav>
+
+        <!-- NEW -->
+        <div class="hamburger" onclick="openMenu()">☰</div>
+    </header>
+
+    <!-- NEW: MOBILE MENU -->
+    <div class="mobile-overlay" onclick="closeMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <strong>Menu</strong>
+            <span class="mobile-close" onclick="closeMenu()">✕</span>
+        </div>
+
+        <a href="who-we-are.html" class="mobile-link">Who We Are</a>
+
+        <div class="mobile-accordion">
+            <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+                Domains <span>▾</span>
+            </div>
+            <div class="mobile-accordion-content">
+                <a href="health-care.html">Health Care</a>
+                <a href="career.html">career</a>
+                <a href="auto-mobile.html">Auto Mobile</a>
+                <a href="tele-communication.html">Tele Communication</a>
+                <a href="real-estate.html">Real Estate</a>
+            </div>
+        </div>
+
+        <a href="teams.html" class="mobile-link">Our Teams</a>
+        <a href="careers.html" class="mobile-link">Careers</a>
+        <a href="contact-us.html" class="mobile-link">Contact Us</a>
+    </div>
+
+
+
+    <!--theme button --> 
+
+    <!-- From Uiverse.io by Creatlydev --> 
+<div class="container">
+  <label for="switch" class="toggle">
+    <input type="checkbox" class="input" id="switch" />
+    <div class="icon icon--moon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="purple"
+        width="32"
+        height="32"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </div>
+
+    <div class="icon icon--sun">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="white"
+        width="32"
+        height="32"
+      >
+        <path
+          d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
+        ></path>
+      </svg>
+    </div>
+  </label>
+</div>
+
+
+    <!-- ================= automobile HERO ================= -->
+    <section class="teams-hero">
+
+        <div class="teams-hero-overlay"></div>
+
+        <div class="teams-hero-content">
+
+            <h1>
+                OXODOT<br><span>Careers</span>
+            </h1>
+
+            <p>
+                We don't just solve technical problems; we architect digital futures. At OXODOT, our diverse teams converge to redefine the boundaries of technology and business efficiency.
+            </p>
+
+            <a href="#ourteams" class="hero-btn">
+                Explore →
+            </a>
+
+        </div>
+    </section>
+
+<!-- HERO -->
+<section class="teams-hero-2" id="ourteams">
+  <div class="hero-text">
+    <span class="tag">VISIONARY IT CONSULTING</span>
+    <h1 >Empowering global businesses with <span>innovative</span> IT solutions.</h1>
+    <p>We architect digital futures with cutting-edge technologies.</p>
+  </div>
+  <div class="hero-img">
+    
+  </div>
+</section>
+
+<!-- TEAM SECTIONS 
+<section class="team-section">
+
+  <!-- HR (Text Left, Image Right) 
+  <div class="team-block">
+    <div class="team-text" data-animate="fade-right">
+      <span class="tag">CULTIVATING TALENT</span>
+      <h2>HR Team</h2>
+      <p>Our HR professionals unlock human potential.</p>
+    </div>
+    <img data-animate="fade-left" src="assets/images/HR-team.jpg">
+  </div>
+
+  <!-- R&D (Image Left, Text Right) 
+  <div class="team-block reverse">
+    
+    <div class="team-text" data-animate="fade-left">
+      <span class="tag">DESIGNING FUTURE</span>
+      <h2>Research & Development</h2>
+      <p>We innovate next-gen digital experiences.</p>
+    </div>
+    <img data-animate="fade-right" src="assets/images/r&d team.jpg">
+  </div>
+
+  <!-- ENGINEERING (Text Left, Image Right) 
+  <div class="team-block">
+    <div class="team-text" data-animate="fade-right">
+      <span class="tag">THE FOUNDATION</span>
+      <h2>Engineering Team</h2>
+      <p>We build scalable, reliable systems.</p>
+    </div>
+    <img data-animate="fade-left" src="assets/images/enginnering team.jpg">
+  </div>
+
+  <!-- MARKETING (Image Left, Text Right) 
+  <div class="team-block reverse">
+    
+    <div class="team-text" data-animate="fade-left">
+      <span class="tag">THE VOICE</span>
+      <h2>Marketing Team</h2>
+      <p>We translate tech into impactful stories.</p>
+    </div>
+    <img data-animate="fade-right" src="assets/images/marketing-team.jpg">
+  </div>
+
+  <!-- SALES (Image Left, Text Right - FIXED) 
+  <div class="team-block ">
+    
+    <div class="team-text" data-animate="fade-right">
+      <span class="tag">STRATEGIC PARTNERS</span>
+      <h2>Sales Team</h2>
+      <p>Driving growth through smart partnerships.</p>
+    </div>
+    <img data-animate="fade-left" src="assets/images/strategy-team.jpg">
+  </div>
+
+</section> -->
+
+<!-- ================= career SERVICES ================= -->
+    <section class="career-services" id="career-services">
+
+        <div class="services-container">
+
+            <h2 class="job-list-title">
+                Bulid Your Career With OXODOT
+            </h2>
+
+            <p class="job-list-subtitle">
+                Unlock your career potential at OXODOT with the right opportunity
+            </p>
+            <div class="job-grid">
+                <!-- 1. Web Development -->
+<div class="job-card" data-animate="fade-up" data-delay="0.1s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Front-End Developer</h3>
+    </div>
+    <p class="job-description">Unlock your career potential at OXODOT with the right opportunity.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote / Delhi</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 2. Database Engineering -->
+<div class="job-card" data-animate="fade-up" data-delay="0.2s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Database Engineer</h3>
+    </div>
+    <p class="job-description">Build your future at OXODOT with high-growth career opportunities.</p>
+    <div class="job-footer">
+        <span class="job-location">Bengaluru, India</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 3. Cloud Engineering -->
+<div class="job-card" data-animate="fade-up" data-delay="0.3s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Cloud Architect</h3>
+    </div>
+    <p class="job-description">Join OXODOT to build secure, seamless payment systems and solutions.</p>
+    <div class="job-footer">
+        <span class="job-location">Hybrid / Pune</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 4. App Development -->
+<div class="job-card" data-animate="fade-up" data-delay="0.4s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Mobile App Developer</h3>
+    </div>
+    <p class="job-description">Accelerate your career growth with cutting-edge mobile innovation at OXODOT.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote / Delhi</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 5. Research -->
+<div class="job-card" data-animate="fade-up" data-delay="0.5s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Research Scientist</h3>
+    </div>
+    <p class="job-description">The right opportunity to lead breakthrough research and professional development.</p>
+    <div class="job-footer">
+        <span class="job-location">Hyderabad, India</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 6. Healthcare -->
+<div class="job-card" data-animate="fade-up" data-delay="0.6s">
+    <div class="job-header">
+        <span class="job-tag">Contract</span>
+        <h3>Healthcare Analyst</h3>
+    </div>
+    <p class="job-description">Focused on career longevity in the evolving digital health sector.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 7. Medical Coding -->
+<div class="job-card" data-animate="fade-up" data-delay="0.7s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Medical Coding Specialist</h3>
+    </div>
+    <p class="job-description">Start a rewarding career path with expert-led growth at OXODOT.</p>
+    <div class="job-footer">
+        <span class="job-location">Chennai, India</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 8. Backend Development -->
+<div class="job-card" data-animate="fade-up" data-delay="0.8s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Backend Developer</h3>
+    </div>
+    <p class="job-description">Scalable career growth awaits in our high-performance engineering team.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote / Delhi</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 9. Cyber Security -->
+<div class="job-card" data-animate="fade-up" data-delay="0.9s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Security Engineer</h3>
+    </div>
+    <p class="job-description">Protect the future while advancing your career at OXODOT.</p>
+    <div class="job-footer">
+        <span class="job-location">Mumbai, India</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 10. UI/UX Design -->
+<div class="job-card" data-animate="fade-up" data-delay="1.0s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Product Designer</h3>
+    </div>
+    <p class="job-description">Design your career future with our creative-first growth culture.</p>
+    <div class="job-footer">
+        <span class="job-location">Hybrid / Delhi</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 11. AI/ML -->
+<div class="job-card" data-animate="fade-up" data-delay="1.1s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>Machine Learning Engineer</h3>
+    </div>
+    <p class="job-description">The perfect opportunity for innovators seeking rapid career advancement.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+<!-- 12. DevOps -->
+<div class="job-card" data-animate="fade-up" data-delay="1.2s">
+    <div class="job-header">
+        <span class="job-tag">Full-Time</span>
+        <h3>DevOps Engineer</h3>
+    </div>
+    <p class="job-description">Bridge development and operations in a high-growth career environment.</p>
+    <div class="job-footer">
+        <span class="job-location">Remote / Delhi</span>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+            </div>
+
+
+            
+
+
+            
+
+    </section>
+
+<!-- JOIN THE ELITE CTA -->
+<section class="cta-section">
+  <h2>Right opportunities for Right people!</h2>
+  <p>We are always looking for visionary talent.</p>
+  <div class="cta-buttons">
+    <a href="teams.html"><button class="btn-primary">Meet Our Experts Teams</button></a>
+    <a href="who-we-are.html"><button class="btn-outline">Who We Are</button></a>
+  </div>
+</section>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-top">
+
+                <!-- LEFT -->
+                <div class="footer-about">
+                    <h2 class="footer-title">Connect With Us ↗</h2>
+                    <p class="footer-desc">
+                        OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
+                        We see ourselves as trusted solutions partner. We understand your needs,
+                        Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
+                        Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
+                    </p>
+
+
+
+
+                </div>
+
+                <!-- QUICK LINKS -->
+                <div class="footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="footer-social">
+                    <h4>STAY IN TOUCH</h4>
+                    <div class="footer-icons">
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/instagram-new.png" alt="instagram-new" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/linkedin--v2.png" alt="linkedin--v2" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/youtube-play.png" alt="youtube-play" /></a>
+                        <a href="#"><img width="50" height="50"
+                                src="https://img.icons8.com/3d-fluency/94/facebook-logo.png" alt="facebook-logo" /></a>
+                    </div>
+                    <div class="logo-container">
+                        <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 3.png" alt="logo" width="100"
+                            style="padding-top: 20px ;">
+                        <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+                © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
+                <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span
+                            style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        (function () {
+            const hamburger = document.querySelector(".hamburger");
+            const mobileMenu = document.querySelector(".mobile-menu");
+            const overlay = document.querySelector(".mobile-overlay");
+            const closeBtn = document.querySelector(".mobile-close");
+
+            hamburger.onclick = () => {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+            };
+        })();
+    </script>
+
+    <script>
+        // ACCORDION
+
+        document.querySelectorAll(".mobile-accordion-btn").forEach(btn => {
+            btn.onclick = () => {
+                btn.parentElement.classList.toggle("open");
+            };
+        });
+
+
+        // SCROLL ANIMATIONS
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                } else {
+                    entry.target.classList.remove("animate");
+                }
+            });
+        }, { threshold: .2 });
+
+        document.querySelectorAll("[data-animate]").forEach(el => {
+            observer.observe(el);
+        });
+
+        /* Declarative scroll animations */
+        const animatedElements = document.querySelectorAll('[data-animate]');
+
+        const animationObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        animatedElements.forEach(el => animationObserver.observe(el));
+
+
+        /* NEW: MOBILE MENU JS */
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.querySelector('.mobile-overlay');
+        function openMenu() {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+        function toggleAccordion(el) {
+            el.parentElement.classList.toggle('open');
+        }
+
+    </script>
+</body>
+
+</html>
