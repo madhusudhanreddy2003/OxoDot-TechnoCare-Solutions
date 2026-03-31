@@ -4,34 +4,77 @@
 --muted:#bdbdbd;
 --card:rgba(255,255,255,0.05);
 --glass-border:rgba(255,255,255,0.1);
---accent:#b026ff;
+--accent:#6b26ff;
 --shadow:0 20px 60px rgba(0,0,0,0.5);
 }
 
 .dark-mode {
-  --hero-bg: url(assets/images/technology-staffing-banner.webp);
-    --bg: url(assets/images/technology-staffing-banner.webp);
+  --hero-bg: url(assets/Banners/about-page-banner-bg-2.webp);
+    --bg: url(assets/Banners/career-bg-11.jpg);
+  --career-page-sub-hero: url(assets/Banners/career-bg-4.jpg);
 --text:#e9ecf1;
 --muted:#555;
 --card:rgba(85, 11, 11, 0.7);
 --glass-border:rgba(0,0,0,0.1);
 --accent:#8a2be2;
 --shadow:0 20px 60px rgba(0,0,0,0.1);
+--heading-color: white;
+--tag-color: rgb(135, 0, 253);
+--job-card-bg: rgba(157, 128, 252, 0.266);
+--job-card-text: rgb(255, 255, 255);
+
+
+--job-card-heading-glow: 0px 0px 0px rgb(252, 237, 252);
+
+
+
+    --primary-teal: #00bfa5;
+    --text-dark: #c6dce2;
+    --text-muted: #d1d5d6;
+    
+
+    --border-light: rgba(255, 255, 255, 0.101);
+
+
+    --card-heading: linear-gradient(90deg,#53dceb,rgb(134, 239, 171));
+--bg-gradient: url(assets/Banners/about-page-banner-bg-5.jpg);
+--card-bg: rgba(255, 255, 255, 0.115);
+--vmg-heading:linear-gradient(80deg, #e8f0e9,rgb(101, 205, 236));
+--bg-gradient: url(assets/Banners/about-page-banner-bg-6.jpg);
 }
 
 .light-mode {
 
-  --hero-bg: url(assets/Banners/team-banner-light.jpg);
-  --bg:linear-gradient(90deg, white,#d0bcef );
+--hero-bg: url(assets/Banners/about-us-bg-light.webp);
+--hero-bg-mobile: url(assets/Banners/about-us-bg-light-mobile.webp);
+--bg:linear-gradient(90deg, white,#9ea9f3);
+--career-page-sub-hero: url(assets/images/career-bg-light-2.jpeg);
 --text:#0a192f;
 --muted:#555;
 --card:rgba(255,255,255,0.7);
 --glass-border:rgba(0,0,0,0.1);
---accent:#8a2be2;
+--accent:#fff;
 --shadow:0 20px 60px rgba(0,0,0,0.1);
 --team-heading-color: #a20568;
+--heading-color: rgb(155, 193, 238);
+--tag-color: rgb(135, 0, 253);
+--job-card-bg: rgb(213, 213, 254);
+--job-card-text: black;
+--job-card-heading: rgb(98, 150, 240);
+--job-card-heading-glow: 0px 0px 0px rgb(35, 13, 62);
 
-}
+
+
+    --card-heading: #0e91f5;
+--bg-gradient: radial-gradient(at 0% 50%, rgb(169, 216, 237) 0, transparent 50%),
+                   radial-gradient(at 100% 100%, rgb(222, 255, 214) 0, transparent 50%);
+    --card-bg: rgba(118, 225, 237, 0.164);
+    --text-dark: #2d3436;
+      --text-muted: #323a3c;
+          --border-light: rgba(111, 237, 176, 0.868);
+          --vmg-heading:linear-gradient(80deg, #2a71eb,rgb(0, 28, 84));
+
+        }
 
 
 /*Theme button css/
@@ -490,11 +533,12 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 .teams-hero h1{
   font-family:Montserrat,sans-serif;
   font-weight:800;
-  font-size:70px;
+  font-size:100px;
   line-height:1.1;
   margin-bottom:25px;
 
-  background:linear-gradient(90deg,#d62ec0,#ffe4e4);
+  background:linear-gradient(90deg,#53dceb,rgb(134, 239, 171));
+  
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -531,7 +575,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 /* Hero text scaling */
 .teams-hero h1{
-font-size:42px;
+font-size:70px;
 }
 
 .teams-hero p{
@@ -554,177 +598,489 @@ font-size:15px;
 
 }
 
+
+
+/* ================= ABOUT SECTION ================= */
+.about-section{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  color:#fff;
+  text-shadow: #000 0px 0px 10px;
+}
+
+/* Video */
+.about-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+/* Overlay */
+.about-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(2, 18, 41, 0.95) 5%, rgba(1, 27, 83, 0) 50%, rgba(5, 22, 67, 0.95) 100%);
+  z-index:2;
+}
+
+/* Content Wrapper */
+.about-content{
+  position:relative;
+  z-index:3;
+  height:100%;
+  padding:30px 0px;
+  display:flex;
+  flex-direction:row;
+  align-items:right;
+  gap:60px;
+}
+
+/* Left */
+.about-left h5{
+  letter-spacing:1px;
+  opacity:.85;
+  margin-bottom:10px;
+}
+
+.about-left h2{
+  font-family:Montserrat,sans-serif;
+  font-size:48px;
+  margin-bottom:20px;
+  margin-left: 0px;
+}
+
+.about-left p{
+  max-width:720px;
+  line-height:1.7;
+  opacity:.95;
+}
+
 /* ============================================================
    TEAMS-HERO-2 SECTION
    ============================================================ */
-.teams-hero-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 120px 8% 80px;
-    gap: 60px;
-    background: url(assets/images/about-it-infrastructure-solutions.webp);
+/* Global Styles for Section */
+section {
+    font-family: 'Inter', sans-serif; /* Recommended font for this look */
+    background: var(--bg-gradient);
+    background-color: #f8fbff;
     background-attachment: fixed;
-    min-height: 70vh;
+    background-size: cover;
+    padding: 70px 10%;
 }
 
+/* ===== CORE VALUES SECTION (Based on Reference) ===== */
 
-
-.teams-hero-2 .tag {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--partner-item-icon-bg-color);
-    color: var(--accent);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px var(--accent);
-}
-
-.teams-hero-2 h1 {
-    font-size: clamp(2.5rem, 5vw, 3.8rem);
-    color: var(--heading-color);
-    font-family: 'Montserrat', sans-serif;
+.section-title {
+    text-align: center;
+    font-size: 48px;
     font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 60px;
+    letter-spacing: -1px;
 }
 
-.teams-hero-2 h1 span { color: var(--accent); }
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-.teams-hero-2 .hero-img img {
-    width: 100%;
-    max-width: 550px;
-    border-radius: 30px;
-    box-shadow: var(--shadow);
+.value-card {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px 40px 40px;
+
+    /* This creates the unique "clipped corner" look from the image 
+    clip-path: polygon(0 0, 92% 0, 100% 15%, 100% 100%, 8% 100%, 0 85%);*/
+    border: 1px solid var(--border-light);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    padding-top: 60px;
+}
+
+.value-card.one {
+    border-radius: 70px 0px 20px 0px;
+}
+.value-card.two {
+    border-radius: 0px 70px 0px 20px;
+}
+.value-card.three {
+    border-radius: 0px 20px 0px 70px;
+}
+.value-card.four {
+    border-radius: 20px 0px 70px 0px;
 }
 
 
 
-/* ============================================================
-   TEAM SECTIONS: BLOCK STYLING
-   ============================================================ */
-.team-section {
-    padding: 100px 8%;
-    background: var(--bg);
-    background-attachment: fixed;
+.value-card .icon {
     display: flex;
-    flex-direction: column;
-    gap: 120px; /* Space between rows */
+    justify-content: start;
+    margin-top: 0px;
+    padding-bottom: 10px;
 }
 
-.team-block {
+
+.value-card h3 {
+    color: var(--text-dark);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* ===== VMG SECTION (The 3-column top part) ===== */
+
+.vmg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.vmg-card {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--card-bg);
+    padding: 40px 40px;
+    border-radius: 20px;
+    text-align: justify;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+
+}
+
+.vmg-card:hover{
+    transform: translateY(-10px);
+
+}
+
+.vmg-card h3 {
+    background : var(--vmg-heading);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.vmg-card p {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+
+
+
+.icon {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 80px;
+    justify-content: center;
+    margin-bottom: 0px;
 }
 
-/* THE KEY FIX: Logic for the .reverse class */
-.team-block.reverse {
-    flex-direction: row-reverse;
+.icon img {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
-.team-text {
-    flex: 1;
+
+.story-text {
+    max-width: 1300px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    text-align: justify;
 }
 
-.team-text .tag {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 12px;
+
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+.teams-hero{
+    background: var(--hero-bg-mobile);
+    background-size: cover;
 }
 
-.team-text h2 {
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    margin-bottom: 15px;
-    color: var(--team-heading-color);
-    font-family: 'Montserrat', sans-serif;
+.section{
+    background: var(--bg-gradient-2);}
+
+    .values-grid, .vmg-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card.one {
+        border-radius: 30px;
+    }
+    .value-card.two {
+        border-radius: 30px;
+    }
+    .value-card.three {
+        border-radius: 30px;
+    }
+    .value-card.four {
+        border-radius: 30px;
+    }
+    
+
+    .section-title {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .vmg-card h3 {
+        font-size: 24px;
+        color:aquamarine;
+    }
+
+    .vmg-card p{
+        text-align: left;
+    }
 }
 
-.team-text p {
-    font-size: 1.15rem;
-    color: var(--text);
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
 
-/* Sales Team Button */
-.cta {
-    padding: 14px 28px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-.cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
 
-.team-block img {
-    flex: 1;
-    width: 100%;
-    max-width: 580px;
-    height: 380px;
-    object-fit: cover;
-    border-radius: 40px; /* Rounded pill look */
-    box-shadow: var(--shadow);
-    border: 1px solid var(--glass-border);
-    transition: transform 0.4s ease;
-}
 
-.team-block:hover img {
-    transform: scale(1.02);
-    border-color: var(--accent);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ============================================================
    JOIN THE ELITE (CTA) SECTION
    ============================================================ */
 .cta-section {
-    padding: 100px 8%;
-    background: url(assets/images/client-imgae.png);
-    background-size: cover;
-    background-blend-mode: lighten; 
+    padding: 80px 8%;
+    background: url(assets/Banners/we-assist-you.webp);
+    background-size: cover; 
+    background-blend-mode: darken; 
     text-align: center;
+    
 }
 
 .cta-section h2 { font-size: 3rem; color: var(--heading-color); margin-bottom: 20px; }
 
 .cta-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
 
-.btn-primary { padding: 15px 30px; border-radius: 50px; background: white; color: black; border: none; font-weight: 700; cursor: pointer; }
-.btn-primary:hover{ box-shadow: 0px 0px 15px rgb(247, 243, 245)}
-.btn-outline { padding: 15px 30px; border-radius: 50px; background: transparent; color: white; border: 2px solid white; font-weight: 700; cursor: pointer; }
-.btn-outline:hover{ box-shadow: 0px 0px 15px rgb(247, 243, 245)}
+.btn-primary { 
+    padding: 15px 50px;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer; }
+.btn-primary:hover{ box-shadow: 0px 0px 15px rgb(243, 245, 247)}
+
 /* ============================================================
    MOBILE RESPONSIVE
    ============================================================ */
 @media (max-width: 992px) {
-  .teams-hero-2 {
 
-    background: url(assets/images/about-it-infrastructure-solutions.webp);
-
-}
-    .team-block, .team-block.reverse {
-        flex-direction: column !important;
-        text-align: center;
-        gap: 40px;
-    }
-    .team-block img { max-width: 100%; height: 300px; }
     .cta-section{
-        background: url(assets/images/client-imgae.png);
-    .btn-primary { padding: 15px 30px; border-radius: 50px; background: rgb(224, 22, 140); color: black; border: none; font-weight: 700; cursor: pointer; }
+        background: url(assets/Banners/we-assist-you.webp);
+        background-size: cover;
+    .btn-primary { padding: 15px 30px; border-radius: 50px; background: rgb(3, 62, 145); color: rgb(234, 205, 239); border: none; font-size: 14px; font-weight: 700; cursor: pointer; }
     .btn-primary:hover{
-        box-shadow: 0px 0px 15px rgb(224, 22, 140);
+        box-shadow: 0px 0px 15px rgb(8, 30, 110);
     }
 
     .btn-outline { padding: 15px 30px; border-radius: 50px; background: transparent; color: white; border: 2px solid white; font-weight: 700; cursor: pointer; }
@@ -1007,6 +1363,7 @@ font-size:15px;
   color:#aaa;
 }
 .logo-container {
+
   display: flex;
   padding-top: 10px;
   margin-left: 0px; /* Vertically centers the text with the logo */

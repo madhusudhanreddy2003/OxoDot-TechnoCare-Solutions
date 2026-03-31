@@ -34,8 +34,8 @@
 
   <div id="page-loader">
     <h1 class="welcome-text"
-      style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-      OXODOT TECHNOCARE</h1>
+      style="background: linear-gradient(259.44deg, #34b0d3 25.03%, #66abf0 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      OXODOT TECHNOCARE<span> Loading...</span></h1>
     <div class="loader">
       <svg width="100" height="100" viewBox="0 0 100 100">
         <defs>
@@ -64,7 +64,7 @@
     <span class="logo-text">OXODOT TECHNOCARE</span>
 
     <nav class="nav-menu">
-      <div class="nav-link">Who We Are</div>
+      <a href="about-us.html" class="nav-link">About Us</a>
       <div class="nav-item">
         <div class="nav-link">Domains <span class="nav-arrow">▾</span></div>
         <div class="dropdown">
@@ -92,7 +92,7 @@
       <span class="mobile-close" onclick="closeMenu()">✕</span>
     </div>
 
-    <a href="who-we-are.html" class="mobile-link">Who We Are</a>
+    <a href="about-us.html" class="mobile-link">About Us</a>
 
     <div class="mobile-accordion">
       <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
@@ -172,14 +172,14 @@
 
   <!-- ================= ABOUT SECTION ================= -->
   <section class="about-section" id="about">
-    <!-- Background Video -->
+    <!-- Background Video 
     <video class="about-video" autoplay muted loop playsinline>
       <source src="assets/videos/about-section.mp4" style="display: block;" type="video/mp4" />
       Your browser does not support the video tag.
-    </video> 
+    </video> -->
 
-    <!-- Overlay -->
-    <div class="about-overlay"></div>
+    <!-- Overlay 
+    <div class="about-overlay"></div> -->
 
     <!-- Content -->
     <div class="about-content">
@@ -188,16 +188,15 @@
         <h5 data-animate="fade-up">OUR STORY</h5>
         <h2 data-animate="fade-up">About Us</h2>
         <p data-animate="fade-right" data-delay="300">
-          OxoDot TechnoCare Solutions is an IT company in INDIA, dedicated to providing technology-driven solutions for
-          hospitals, health systems, and medical groups. It specializes in offering end-to-end RCM services, physician
-          advisory services, practice management, revenue integrity solutions, medical coding management, EHR/EMR
-          technology services, business office services, quality management programs, business intelligence and analysis
-          and more. Additionally, the company provides business process outsourcing and information technology services
-          to local Government Departments and NGOs within India. Also to few Clients of US, UK, MiddleEast. OxoDot also
-          offers a wide range of services, including CFO advisory, environmental and social governance services,
-          financial planning and analysis, enterprise risk and compliance services, human capital management, catering
-          to various industries to healthcare, aviation, automotive, public services, retail, technology, AI-ML and
-          agriculture sercives/ development/ RND.
+          OXODOT TECHNOCARE SOLUTIONS is a trusted IT partner delivering 
+                innovative, scalable, and secure technology solutions across industries.
+                We combine expertise, agility, and innovation to transform businesses 
+                into digital leaders.Accelerating digital transformation by delivering high-integrity 
+                software solutions that balance complexity with simplicity.
+                Located in New Delhi, India, we serve clients globally with a commitment to excellence and customer satisfaction.
+                We are dedicated to helping businesses thrive in the digital age through our comprehensive IT services and solutions.
+                We are visionary IT Consulting that Empowering global businesses with innovative IT solutions.
+                We architect digital futures with cutting-edge technologies.
         </p>
         <!-- ================= EXPLORE TECH SOLUTIONS =================
       <div class="about-stats">
@@ -214,6 +213,14 @@
           <span>Employees</span>
         </div>
       </div> -->
+
+
+      </div>
+      <!-- Right -->
+      <div class="about-right" data-animate="fade-left">
+          <div class="about-image">
+                <img src="assets/logo/new-logo-Photoroom.png" alt="About Us Image">
+          </div>
       </div>
     </div>
   </section>
@@ -726,7 +733,7 @@ slider.addEventListener('touchend', e=>{
           <h4>QUICK LINKS</h4>
           <ul>
             <li><a href="#">Solutions</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
             <li><a href="#">Blogs</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms & Conditions</a></li>

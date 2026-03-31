@@ -41,13 +41,27 @@ body.loading {
   opacity: 0;
 }
 
+@media (max-width: 768px) {
+  .welcome-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+    letter-spacing: 3px;
+    align-items: center;
+    margin-left: 50px;
+  
+  }
+}
+
+
+
 /* ================= LOADER STYLES ================= */
 .loader {
-  --color-one: #ffbf48;
-  --color-two: #be4a1d;
-  --color-three: #ffbf4780;
-  --color-four: #bf4a1d80;
-  --color-five: #ffbf4740;
+--color-one: #0050d1; 
+--color-two: #003366; 
+--color-three: #0070d180; 
+--color-four: #3651d780; 
+--color-five: #0026d140; 
   --time-animation: 2s;
   
   position: relative;
@@ -497,6 +511,8 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   overflow:hidden;
   color:#fff;
   text-shadow: #000 0px 0px 10px;
+  background:url(assets/Banners/contact-page-bg.webp);
+  background-attachment: fixed;
 }
 
 /* Video */
@@ -546,6 +562,20 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   max-width:720px;
   line-height:1.7;
   opacity:.95;
+}
+
+.about-right{
+  display:flex;
+  justify-content:flex-end;
+  image-rendering: pixelated;
+}
+
+.about-image{
+  width:100%;
+  max-width:420px;
+  border-radius:12px;
+  overflow:hidden;
+
 }
 
 /* Stats */
@@ -685,27 +715,27 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 /* Card 1: Healthcare (Teal/Dark) */
 .solution-card-link:nth-child(1):hover .solution-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(51, 157, 157, 0.4));
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.1) 50%, rgba(34, 150, 252, 0.4));
 }
 
 /* Card 2: Finance (Gold/Dark) */
 .solution-card-link:nth-child(2):hover .solution-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(157, 137, 69, 0.4));
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.1) 50%, rgba(34, 150, 252, 0.4));
 }
 
 /* Card 3: Automobile (Deep Red/Dark) */
 .solution-card-link:nth-child(3):hover .solution-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(157, 51, 51, 0.4));
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.1) 50%, rgba(34, 150, 252, 0.4));
 }
 
 /* Card 4: Telecom (Blue/Dark) */
 .solution-card-link:nth-child(4):hover .solution-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(144, 19, 247, 0.4));
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.1) 50%, rgba(34, 150, 252, 0.4));
 }
 
 /* Card 5: Real Estate (Purple/Dark) */
 .solution-card-link:nth-child(5):hover .solution-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(243, 167, 37, 0.4));
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.1) 50%, rgba(34, 150, 252, 0.4));
 }
 
 /* Content Wrapper */
@@ -714,7 +744,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   z-index:2;
   display:flex;
   flex-direction:column;
-  gap:15px;
+  gap:115px;
 }
 
 /* Description hidden by default (desktop) */
@@ -757,6 +787,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
   .solution-content p{
     opacity:1;
     transform:none;
+    text-shadow: #000 0px 0px 3px;
   }
 }
 
@@ -773,7 +804,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
     padding:80px 24px;
   }
   .solutions-title{
-    font-size:32px;
+    font-size:42px;
   }
   .solutions-grid{
     grid-template-columns:1fr;

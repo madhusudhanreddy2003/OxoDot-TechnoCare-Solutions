@@ -826,7 +826,7 @@ font-size:32px;
     }
     .team-block img { max-width: 100%; height: 300px; }
     .cta-section{
-        background: url(assets/Banners/career-bg-4.jpg);
+        background: url(assets/Banners/career-bg-4\ -\ Copy.jpg);
         background-size: cover;
     .btn-primary { padding: 15px 30px; border-radius: 50px; background: rgb(136, 22, 224); color: rgb(234, 205, 239); border: none; font-weight: 700; cursor: pointer; }
     .btn-primary:hover{
@@ -1113,6 +1113,7 @@ font-size:32px;
   color:#aaa;
 }
 .logo-container {
+
   display: flex;
   padding-top: 10px;
   margin-left: 0px; /* Vertically centers the text with the logo */
@@ -1124,4 +1125,24 @@ font-size:32px;
   margin: 0;           /* Removes default browser margins */
   white-space: nowrap; /* Prevents the text from wrapping to a second line */
 }
+}
+
+@media (max-width: 768px){
+
+    /* ===== FOOTER FIX ===== */
+  .footer {
+    padding: 60px 20px 20px;
+  }
+  .logo-container{
+    margin-top: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+    gap: 15px;
+
+  }
+  .logo-container h1{
+  font-size: 1.0rem;   /* Adjust size so it fits inside your 80px bar */
+  }
+
+
 }
