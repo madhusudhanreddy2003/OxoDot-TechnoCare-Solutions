@@ -573,6 +573,7 @@ body{font-family:Inter,sans-serif;background:#000;color:#fff}
 
 @media (max-width:768px){
 
+
 /* Hero text scaling */
 .teams-hero h1{
 font-size:70px;
@@ -818,8 +819,9 @@ section {
 /* Responsive Fix */
 @media (max-width: 900px) {
 .teams-hero{
-    background: var(--hero-bg-mobile);
+    background: var(--hero-bg);
     background-size: cover;
+
 }
 
 .section{
