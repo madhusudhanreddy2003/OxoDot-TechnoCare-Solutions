@@ -81,7 +81,7 @@ export default async function handler(req, res) {
 
     /*
      * ============================================================
-     * GET SMTP CREDENTIALS FROM ENVIRONMENT VARIABLES
+     * SMTP CONFIGURATION
      * ============================================================
      */
 
@@ -107,7 +107,7 @@ export default async function handler(req, res) {
 
     /*
      * ============================================================
-     * MAKE SURE SMTP CREDENTIALS EXIST
+     * CHECK SMTP CREDENTIALS
      * ============================================================
      */
 
@@ -126,14 +126,6 @@ export default async function handler(req, res) {
     /*
      * ============================================================
      * CREATE NODEMAILER TRANSPORTER
-     * ============================================================
-     *
-     * Hostinger:
-     *
-     * smtp.hostinger.com
-     * Port 465
-     * SSL
-     *
      * ============================================================
      */
 
@@ -169,11 +161,6 @@ export default async function handler(req, res) {
      * ============================================================
      * ESCAPE HTML
      * ============================================================
-     *
-     * Prevents user-submitted HTML from being injected into
-     * the email body.
-     *
-     * ============================================================
      */
 
     function escapeHtml(value) {
@@ -196,199 +183,601 @@ export default async function handler(req, res) {
 
     const safeMessage =
         escapeHtml(cleanMessage)
-            .replace(/\n/g, "<br>");
+            .replace(/\r?\n/g, "<br>");
 
     /*
      * ============================================================
-     * EMAIL CONTENT
+     * EMAIL SUBJECT
      * ============================================================
      */
 
     const emailSubject =
-        `New Website Enquiry - ${cleanName}`;
-
-    const htmlEmail = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>New Website Enquiry</title>
-        </head>
-
-        <body style="
-            margin:0;
-            padding:0;
-            background:#f4f7fb;
-            font-family:Arial,Helvetica,sans-serif;
-            color:#1a1a1a;
-        ">
-
-            <div style="
-                max-width:680px;
-                margin:40px auto;
-                background:#ffffff;
-                border-radius:16px;
-                overflow:hidden;
-                box-shadow:0 10px 35px rgba(0,0,0,0.08);
-            ">
-
-                <div style="
-                    padding:30px;
-                    background:linear-gradient(
-                        135deg,
-                        #07152d,
-                        #123d63,
-                        #18c9aa
-                    );
-                    color:#ffffff;
-                ">
-
-                    <h1 style="
-                        margin:0;
-                        font-size:26px;
-                    ">
-                        OXODOT TECHNOCARE SOLUTIONS
-                    </h1>
-
-                    <p style="
-                        margin:8px 0 0;
-                        opacity:.85;
-                        font-size:14px;
-                    ">
-                        New Website Contact Enquiry
-                    </p>
-
-                </div>
-
-                <div style="padding:30px;">
-
-                    <div style="
-                        margin-bottom:20px;
-                        padding:18px;
-                        background:#f7f9fc;
-                        border-radius:10px;
-                    ">
-
-                        <strong>Full Name</strong>
-
-                        <div style="
-                            margin-top:6px;
-                            color:#555;
-                        ">
-                            ${safeName}
-                        </div>
-
-                    </div>
-
-
-                    <div style="
-                        margin-bottom:20px;
-                        padding:18px;
-                        background:#f7f9fc;
-                        border-radius:10px;
-                    ">
-
-                        <strong>Email Address</strong>
-
-                        <div style="
-                            margin-top:6px;
-                            color:#555;
-                        ">
-                            ${safeEmail}
-                        </div>
-
-                    </div>
-
-
-                    <div style="
-                        margin-bottom:20px;
-                        padding:18px;
-                        background:#f7f9fc;
-                        border-radius:10px;
-                    ">
-
-                        <strong>Phone Number</strong>
-
-                        <div style="
-                            margin-top:6px;
-                            color:#555;
-                        ">
-                            ${safePhone}
-                        </div>
-
-                    </div>
-
-
-                    <div style="
-                        margin-bottom:20px;
-                        padding:18px;
-                        background:#f7f9fc;
-                        border-radius:10px;
-                    ">
-
-                        <strong>Message</strong>
-
-                        <div style="
-                            margin-top:10px;
-                            color:#555;
-                            line-height:1.7;
-                        ">
-                            ${safeMessage}
-                        </div>
-
-                    </div>
-
-                    <div style="
-                        margin-top:30px;
-                        padding-top:20px;
-                        border-top:1px solid #e5e7eb;
-                        color:#888;
-                        font-size:12px;
-                    ">
-
-                        This enquiry was submitted through:
-
-                        <strong>
-                            oxodottechnocaresolutions.com
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </body>
-        </html>
-    `;
+        "We got a new Enquiry from the website";
 
     /*
      * ============================================================
-     * PLAIN TEXT VERSION
+     * HTML EMAIL
+     * ============================================================
+     */
+
+    const htmlEmail = `
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        New Website Enquiry
+    </title>
+
+</head>
+
+<body
+    style="
+        margin:0;
+        padding:0;
+        background:#eef3f7;
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+        color:#172033;
+    "
+>
+
+    <!-- Main Wrapper -->
+
+    <table
+        width="100%"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+        style="
+            background:#eef3f7;
+            padding:40px 15px;
+        "
+    >
+
+        <tr>
+
+            <td align="center">
+
+                <!-- Email Container -->
+
+                <table
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    border="0"
+                    style="
+                        max-width:680px;
+                        background:#ffffff;
+                        border-radius:18px;
+                        overflow:hidden;
+                        box-shadow:
+                            0 12px 40px
+                            rgba(7,21,45,0.12);
+                    "
+                >
+
+                    <!-- ================================================= -->
+                    <!-- HEADER -->
+                    <!-- ================================================= -->
+
+                    <tr>
+
+                        <td
+                            style="
+                                padding:34px 38px;
+                                background:
+                                    linear-gradient(
+                                        135deg,
+                                        #07152d 0%,
+                                        #0d3154 52%,
+                                        #13c9b0 100%
+                                    );
+                            "
+                        >
+
+                            <div
+                                style="
+                                    font-size:25px;
+                                    font-weight:700;
+                                    color:#ffffff;
+                                    letter-spacing:0.3px;
+                                "
+                            >
+                                OXODOT TECHNOCARE
+                            </div>
+
+                            <div
+                                style="
+                                    margin-top:5px;
+                                    font-size:15px;
+                                    font-weight:500;
+                                    color:#d9fdf8;
+                                "
+                            >
+                                SOLUTIONS
+                            </div>
+
+                            <div
+                                style="
+                                    margin-top:22px;
+                                    width:50px;
+                                    height:4px;
+                                    background:#14d6bb;
+                                    border-radius:10px;
+                                "
+                            ></div>
+
+                            <div
+                                style="
+                                    margin-top:22px;
+                                    font-size:21px;
+                                    font-weight:600;
+                                    color:#ffffff;
+                                "
+                            >
+                                New Website Enquiry
+                            </div>
+
+                            <div
+                                style="
+                                    margin-top:7px;
+                                    font-size:13px;
+                                    color:#d6e4f0;
+                                "
+                            >
+                                A new enquiry has been submitted
+                                through your website.
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ================================================= -->
+                    <!-- CONTENT -->
+                    <!-- ================================================= -->
+
+                    <tr>
+
+                        <td
+                            style="
+                                padding:35px 38px 20px 38px;
+                            "
+                        >
+
+                            <!-- Intro -->
+
+                            <p
+                                style="
+                                    margin:0 0 25px 0;
+                                    font-size:15px;
+                                    line-height:1.7;
+                                    color:#566174;
+                                "
+                            >
+                                You have received a new enquiry
+                                from the OXODOT TECHNOCARE
+                                SOLUTIONS website.
+                            </p>
+
+
+                            <!-- ================================================= -->
+                            <!-- NAME -->
+                            <!-- ================================================= -->
+
+                            <table
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                                border="0"
+                                style="
+                                    margin-bottom:14px;
+                                    background:#f7f9fc;
+                                    border:1px solid #e7edf3;
+                                    border-radius:12px;
+                                "
+                            >
+
+                                <tr>
+
+                                    <td
+                                        style="
+                                            padding:18px 20px;
+                                        "
+                                    >
+
+                                        <div
+                                            style="
+                                                font-size:11px;
+                                                font-weight:700;
+                                                text-transform:uppercase;
+                                                letter-spacing:1px;
+                                                color:#0fae9a;
+                                                margin-bottom:7px;
+                                            "
+                                        >
+                                            Name
+                                        </div>
+
+                                        <div
+                                            style="
+                                                font-size:16px;
+                                                font-weight:600;
+                                                color:#172033;
+                                            "
+                                        >
+                                            ${safeName}
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+
+                            <!-- ================================================= -->
+                            <!-- FROM -->
+                            <!-- ================================================= -->
+
+                            <table
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                                border="0"
+                                style="
+                                    margin-bottom:14px;
+                                    background:#f7f9fc;
+                                    border:1px solid #e7edf3;
+                                    border-radius:12px;
+                                "
+                            >
+
+                                <tr>
+
+                                    <td
+                                        style="
+                                            padding:18px 20px;
+                                        "
+                                    >
+
+                                        <div
+                                            style="
+                                                font-size:11px;
+                                                font-weight:700;
+                                                text-transform:uppercase;
+                                                letter-spacing:1px;
+                                                color:#0fae9a;
+                                                margin-bottom:7px;
+                                            "
+                                        >
+                                            From
+                                        </div>
+
+                                        <a
+                                            href="mailto:${safeEmail}"
+                                            style="
+                                                font-size:16px;
+                                                font-weight:600;
+                                                color:#087f9f;
+                                                text-decoration:none;
+                                                word-break:break-word;
+                                            "
+                                        >
+                                            ${safeEmail}
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+
+                            <!-- ================================================= -->
+                            <!-- CONTACT NUMBER -->
+                            <!-- ================================================= -->
+
+                            <table
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                                border="0"
+                                style="
+                                    margin-bottom:14px;
+                                    background:#f7f9fc;
+                                    border:1px solid #e7edf3;
+                                    border-radius:12px;
+                                "
+                            >
+
+                                <tr>
+
+                                    <td
+                                        style="
+                                            padding:18px 20px;
+                                        "
+                                    >
+
+                                        <div
+                                            style="
+                                                font-size:11px;
+                                                font-weight:700;
+                                                text-transform:uppercase;
+                                                letter-spacing:1px;
+                                                color:#0fae9a;
+                                                margin-bottom:7px;
+                                            "
+                                        >
+                                            Contact Number
+                                        </div>
+
+                                        <a
+                                            href="tel:${safePhone}"
+                                            style="
+                                                font-size:16px;
+                                                font-weight:600;
+                                                color:#172033;
+                                                text-decoration:none;
+                                            "
+                                        >
+                                            ${safePhone}
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+
+                            <!-- ================================================= -->
+                            <!-- ENQUIRY -->
+                            <!-- ================================================= -->
+
+                            <table
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                                border="0"
+                                style="
+                                    margin-bottom:10px;
+                                    background:#f7f9fc;
+                                    border:1px solid #e7edf3;
+                                    border-radius:12px;
+                                "
+                            >
+
+                                <tr>
+
+                                    <td
+                                        style="
+                                            padding:20px;
+                                        "
+                                    >
+
+                                        <div
+                                            style="
+                                                font-size:11px;
+                                                font-weight:700;
+                                                text-transform:uppercase;
+                                                letter-spacing:1px;
+                                                color:#0fae9a;
+                                                margin-bottom:9px;
+                                            "
+                                        >
+                                            Enquiry
+                                        </div>
+
+                                        <div
+                                            style="
+                                                font-size:15px;
+                                                line-height:1.75;
+                                                color:#414b5d;
+                                                word-break:break-word;
+                                            "
+                                        >
+                                            ${safeMessage}
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ================================================= -->
+                    <!-- ACTION BAR -->
+                    <!-- ================================================= -->
+
+                    <tr>
+
+                        <td
+                            style="
+                                padding:10px 38px 30px 38px;
+                            "
+                        >
+
+                            <table
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                                border="0"
+                                style="
+                                    background:#07152d;
+                                    border-radius:12px;
+                                "
+                            >
+
+                                <tr>
+
+                                    <td
+                                        style="
+                                            padding:18px 20px;
+                                        "
+                                    >
+
+                                        <div
+                                            style="
+                                                font-size:13px;
+                                                color:#cbd8e7;
+                                                line-height:1.6;
+                                            "
+                                        >
+                                            <strong
+                                                style="
+                                                    color:#ffffff;
+                                                "
+                                            >
+                                                Quick Action
+                                            </strong>
+                                            <br>
+
+                                            Simply click
+                                            <strong
+                                                style="
+                                                    color:#16d5ba;
+                                                "
+                                            >
+                                                Reply
+                                            </strong>
+                                            to respond directly
+                                            to the customer.
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ================================================= -->
+                    <!-- FOOTER -->
+                    <!-- ================================================= -->
+
+                    <tr>
+
+                        <td
+                            style="
+                                padding:25px 38px 30px 38px;
+                                border-top:1px solid #e8edf2;
+                                text-align:center;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    font-size:13px;
+                                    font-weight:600;
+                                    color:#172033;
+                                "
+                            >
+                                OXODOT TECHNOCARE SOLUTIONS
+                            </div>
+
+                            <div
+                                style="
+                                    margin-top:7px;
+                                    font-size:12px;
+                                    color:#8993a3;
+                                    line-height:1.6;
+                                "
+                            >
+                                This enquiry was submitted
+                                through the company website.
+                            </div>
+
+                            <div
+                                style="
+                                    margin-top:10px;
+                                    font-size:12px;
+                                    color:#0fae9a;
+                                "
+                            >
+                                oxodottechnocaresolutions.com
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+                <!-- End Email Container -->
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</body>
+
+</html>
+`;
+
+    /*
+     * ============================================================
+     * PLAIN TEXT EMAIL
+     * ============================================================
+     *
+     * This is used by email clients that do not support HTML.
+     *
      * ============================================================
      */
 
     const textEmail = `
 OXODOT TECHNOCARE SOLUTIONS
 
-New Website Contact Enquiry
+NEW WEBSITE ENQUIRY
+===================
 
-Full Name:
+We got a new enquiry from the website.
+
+Name:
 ${cleanName}
 
-Email Address:
+From:
 ${cleanEmail}
 
-Phone Number:
+Contact Number:
 ${cleanPhone}
 
-Message:
+Enquiry:
 ${cleanMessage}
+
 
 ----------------------------------------
 
-Submitted through:
+OXODOT TECHNOCARE SOLUTIONS
 oxodottechnocaresolutions.com
+
+This enquiry was submitted through the company website.
+
+Simply reply to this email to respond directly to the customer.
 `;
 
     /*
@@ -401,23 +790,52 @@ oxodottechnocaresolutions.com
 
         await transporter.sendMail({
 
+            /*
+             * Sender
+             */
+
             from: {
                 name: "OXODOT TECHNOCARE SOLUTIONS",
                 address: mailFrom
             },
 
+            /*
+             * Recipient
+             */
+
             to: mailTo,
+
+            /*
+             * VERY IMPORTANT
+             *
+             * When you click Reply in Hostinger,
+             * it will reply directly to the customer.
+             */
 
             replyTo: {
                 name: cleanName,
                 address: cleanEmail
             },
 
-            subject: emailSubject,
+            /*
+             * Subject
+             */
+
+            subject:
+                "We got a new Enquiry from the website",
+
+            /*
+             * Plain text fallback
+             */
 
             text: textEmail,
 
+            /*
+             * Professional HTML email
+             */
+
             html: htmlEmail
+
         });
 
         /*
