@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>OXODOT TECHNOCARE SOLUTIONS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+
+
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- CSS Styles -->
+
+  <link rel="stylesheet" href="index.css" />
+  
+
+
+</head>
+
+<body><!-- ================= PAGE LOADER ================= -->
+
+
+  <div id="page-loader">
+    <h1 class="welcome-text"
+      style="background: linear-gradient(259.44deg, #34b0d3 25.03%, #66abf0 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      OXODOT TECHNOCARE<span> Loading...</span></h1>
+    <div class="loader">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <defs>
+          <mask id="clipping">
+            <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
+            <polygon points="25,25 75,25 50,75" fill="white"></polygon>
+            <polygon points="50,25 75,75 25,75" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+          </mask>
+        </defs>
+      </svg>
+      <div class="box"></div>
+    </div>
+  </div>
+
+
+
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo"><img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 1.png" width="80px" height="80px"
+        style="mix-blend-mode: multiply;  margin-top:15px;"></div>
+    <span class="logo-text">OXODOT TECHNOCARE</span>
+
+    <nav class="nav-menu">
+      <a href="about-us.html" class="nav-link">About Us</a>
+      <div class="nav-item">
+        <div class="nav-link">Domains <span class="nav-arrow">▾</span></div>
+        <div class="dropdown">
+          <a href="health-care.html">Health Care</a>
+          <a href="finance.html">Finance</a>
+          <a href="auto-mobile.html">Auto Mobile</a>
+          <a href="tele-communication.html">Tele Communication</a>
+          <a href="real-estate.html">Real Estate</a>
+        </div>
+      </div>
+      <a href="teams.html" class="nav-link">Our Teams</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
+    </nav>
+
+    <!-- NEW -->
+    <div class="hamburger" onclick="openMenu()">☰</div>
+  </header>
+
+  <!-- NEW: MOBILE MENU -->
+  <div class="mobile-overlay" onclick="closeMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-header">
+      <strong>Menu</strong>
+      <span class="mobile-close" onclick="closeMenu()">✕</span>
+    </div>
+
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about-us.html" class="mobile-link">About Us</a>
+
+    <div class="mobile-accordion">
+      <div class="mobile-accordion-btn" onclick="toggleAccordion(this)">
+        Domains <span>▾</span>
+      </div>
+      <div class="mobile-accordion-content">
+        <a href="health-care.html">Health Care</a>
+        <a href="finance.html">Finance</a>
+        <a href="auto-mobile.html">Auto Mobile</a>
+        <a href="tele-communication.html">Tele Communication</a>
+        <a href="real-estate.html">Real Estate</a>
+      </div>
+    </div>
+
+    <a href="teams.html" class="mobile-link">Our Teams</a>
+    <a href="careers.html" class="mobile-link">Careers</a>
+    <a href="contact-us.html" class="mobile-link">Contact Us</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    
+    <div class="slide active" style="background-image:url('assets/Banners/logo-banner.webp')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/GCC-TCPL-Banner-3.jpg')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/bfsibanner.webp')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/industry-bg.webp')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/it-banner.webp')"></div>
+    <div class="slide " style="background-image:url('assets/Banners/AdobeStock_291228153.jpeg')"></div>
+    <div class="slide" style="background-image:url('assets/Banners/slide-1.jpg')"></div>
+
+    <div class="hero-content">
+      <div class="hero-left" data-animate="fade-right">
+        <h1>INNOVATE.<br>GROW.<br>SUCCEED.</h1>
+      </div>
+      <div class="hero-right">
+        <p>Unlock Your Potential<br>with Smarter IT</p>
+        <a href="#about" class="hero-btn">Learn More →</a>
+      </div>
+    </div>
+
+    <div class="hero-arrows">
+      <div class="hero-arrow" id="prev">←</div>
+      <div class="hero-arrow" id="next">→</div>
+    </div>
+  </section>
+
+  <script>
+    /* HERO SLIDER (UNCHANGED) */
+    const slides = document.querySelectorAll('.slide');
+    let current = 0, timer;
+    function showSlide(i) {
+      slides.forEach(s => s.classList.remove('active'));
+      slides[i].classList.add('active');
+    }
+    function nextSlide() { current = (current + 1) % slides.length; showSlide(current) }
+    function prevSlide() { current = (current - 1 + slides.length) % slides.length; showSlide(current) }
+    document.getElementById('next').onclick = nextSlide;
+    document.getElementById('prev').onclick = prevSlide;
+    timer = setInterval(nextSlide, 5000);
+
+    /* NEW: MOBILE MENU JS */
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-overlay');
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    }
+    function toggleAccordion(el) {
+      el.parentElement.classList.toggle('open');
+    }
+
+  </script>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section class="about-section" id="about">
+    <!-- Background Video 
+    <video class="about-video" autoplay muted loop playsinline>
+      <source src="assets/videos/about-section.mp4" style="display: block;" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> -->
+
+    <!-- Overlay 
+    <div class="about-overlay"></div> -->
+
+    <!-- Content -->
+    <div class="about-content">
+      <!-- Left -->
+      <div class="about-left" data-animate="fade-right">
+        <h5 data-animate="fade-up">OUR STORY</h5>
+        <h2 data-animate="fade-up">About Us</h2>
+        <p data-animate="fade-right" data-delay="300">
+          OXODOT TECHNOCARE SOLUTIONS is a trusted IT partner delivering 
+                innovative, scalable, and secure technology solutions across industries.
+                We combine expertise, agility, and innovation to transform businesses 
+                into digital leaders.Accelerating digital transformation by delivering high-integrity 
+                software solutions that balance complexity with simplicity.
+                Located in New Delhi, India, we serve clients globally with a commitment to excellence and customer satisfaction.
+                We are dedicated to helping businesses thrive in the digital age through our comprehensive IT services and solutions.
+                We are visionary IT Consulting that Empowering global businesses with innovative IT solutions.
+                We architect digital futures with cutting-edge technologies.
+        </p>
+        <!-- ================= EXPLORE TECH SOLUTIONS =================
+      <div class="about-stats">
+        <div class="stat">
+          <h3>4500+</h3>
+          <span>Cr Turnover</span>
+        </div>
+        <div class="stat">
+          <h3>750+</h3>
+          <span>Locations</span>
+        </div>
+        <div class="stat">
+          <h3>5000+</h3>
+          <span>Employees</span>
+        </div>
+      </div> -->
+
+
+      </div>
+      <!-- Right -->
+      <div class="about-right" data-animate="fade-left">
+          <div class="about-image">
+                <img src="assets/logo/new-logo-Photoroom.png" alt="About Us Image">
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Domains We Work On ================= -->
+  <section class="solutions-section">
+    <div class="solutions-container">
+      <h2 class="solutions-title" data-animate="fade-up"
+        style="background: linear-gradient(259.44deg, #e5f8f4 25.03%, rgb(255, 255, 255) 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Domains We Work On</h2>
+      <div class="solutions-grid">
+
+        <a href="health-care.html" class="solution-card-link">
+          <div class="solution-card" data-animate="fade-up">
+            <div class="solution-overlay"></div>
+            <div class="solution-content">
+              <h3
+                style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #dcedee  90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Health Care</h3>
+              <p>
+                Innovative IT solutions for hospitals, health systems,
+                and medical groups to optimize operations and enhance patient care.
+              </p>
+            </div>
+          </div>
+        </a>
+        
+        <a href="finance.html" class="solution-card-link">
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg,  #89ffe7 25.03%, #dcedee  90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; ">
+              Finance</h3>
+            <p>
+              Comprehensive IT services for financial institutions like Banks, E-Commerce Platforms including
+              fintech solutions, risk management, and regulatory compliance.
+            </p>
+          </div>
+        </div>
+        </a>
+
+        <a href="auto-mobile.html" class="solution-card-link">
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #dcedee  90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Auto Mobile</h3>
+            <p>
+              End-to-end IT solutions for automotive industry including connected car technologies, supply chain
+              management, Aero space Technologies, Naval Technologies and manufacturing automation.
+            </p>
+          </div>
+        </div>
+        </a>
+
+        <a href="tele-communication.html" class="solution-card-link">
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg, #89ffe7 25.03%, #dcedee  90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Tele Communication</h3>
+            <p>
+              Cutting-edge telecommunications solutions for seamless connectivity and enhanced communication
+              experiences, including 5G, IoT, and network optimization.
+            </p>
+          </div>
+        </div>
+        </a>
+
+        <a href="real-estate.html" class="solution-card-link">
+        <div class="solution-card" data-animate="fade-up">
+          <div class="solution-overlay"></div>
+          <div class="solution-content">
+            <h3
+              style="background: linear-gradient(259.44deg,  #89ffe7 25.03%, #dcedee  90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Real Estate</h3>
+            <p>
+              Innovative IT solutions for real estate industry including property management, Interior & exterior
+              design, smart building technologies, and even Land brokerage, total end to end services are provided.
+            </p>
+          </div>
+        </div>
+        </a>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR TEAM ================= 
+<section class="team-section">
+  <div class="team-container">
+
+    <div class="team-header" data-animate="fade-up">
+      <h2 style="background: linear-gradient(79.44deg, #fdfdfb 25.03%, #3748e5 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OUR <span>TEAM</h2>
+    </div>
+
+    <div class="team-grid">
+
+       TEAM CARD 
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Walter White">
+        </div>
+        <div class="team-info">
+          <h3>Walter White</h3>
+          <p>Chief Executive Officer</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+        </div>
+        <div class="team-info">
+          <h3>Sarah Johnson</h3>
+          <p>Product Manager</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="William Anderson">
+        </div>
+        <div class="team-info">
+          <h3>William Anderson</h3>
+          <p>Chief Technology Officer</p>
+        </div>
+      </div>
+
+      <div class="team-card" data-animate="fade-up">
+        <div class="team-image">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Amanda Jepson">
+        </div>
+        <div class="team-info">
+          <h3>Amanda Jepson</h3>
+          <p>Finance Manager</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+            -->
+
+  <!-- ================= ULTRA TESTIMONIALS ================= 
+<section class="testimonial-hero">
+<h2 class="solutions-title" data-animate="fade-up" style="background: linear-gradient(259.44deg, #DE89FF 25.03%, #FFCA80 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+     TESTIMONIALS </h2>
+  <div class="testimonial-container">
+
+    <div class="testimonial-slider" id="testimonialSlider">
+
+      <!-- Slide 
+      <div class="testimonial-slide active">
+        <div class="testimonial-image">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+        </div>
+
+        <div class="testimonial-content">
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+
+          <p class="testimonial-text">
+            “Team Computers has revolutionized our healthcare services with
+            cutting-edge technology and exceptional customer support.”
+          </p>
+
+          <div class="testimonial-author">
+            <h3>Alice Brown</h3>
+            <span>Healthcare Administrator</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 
+      <div class="testimonial-slide">
+        <div class="testimonial-image">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+        </div>
+
+        <div class="testimonial-content">
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+
+          <p class="testimonial-text">
+            “Their cloud transformation strategy improved scalability and
+            reduced operational costs significantly.”
+          </p>
+
+          <div class="testimonial-author">
+            <h3>Rahul Mehta</h3>
+            <span>CTO, Manufacturing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrows 
+    <div class="testimonial-arrow left" id="testimonialPrev">←</div>
+    <div class="testimonial-arrow right" id="testimonialNext">→</div>
+
+    <!-- Dots 
+    <div class="testimonial-dots" id="testimonialDots"></div>
+
+  </div>
+
+  <div class="quote-decor">”</div>
+
+
+<script>
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+const prevBtn = document.getElementById('testimonialPrev');
+const nextBtn = document.getElementById('testimonialNext');
+const dotsContainer = document.getElementById('testimonialDots');
+
+let index = 0;
+let startX = 0;
+
+/* Create dots */
+testimonialSlides.forEach((_, i)=>{
+  const dot = document.createElement('span');
+  if(i === 0) dot.classList.add('active');
+  dot.addEventListener('click', ()=> goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll('span');
+
+function goToSlide(i){
+  testimonialSlides[index].classList.remove('active');
+  dots[index].classList.remove('active');
+
+  index = i;
+
+  testimonialSlides[index].classList.add('active');
+  dots[index].classList.add('active');
+}
+
+function nextSlide(){
+  goToSlide((index + 1) % testimonialSlides.length);
+}
+
+function prevSlide(){
+  goToSlide((index - 1 + testimonialSlides.length) % testimonialSlides.length);
+}
+
+nextBtn.onclick = nextSlide;
+prevBtn.onclick = prevSlide;
+
+/* Auto play */
+let auto = setInterval(nextSlide, 7000);
+
+/* Swipe support */
+const slider = document.getElementById('testimonialSlider');
+
+slider.addEventListener('touchstart', e=>{
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener('touchend', e=>{
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) nextSlide();
+  if(endX - startX > 50) prevSlide();
+});
+</script>
+</section>
+-->
+
+  <!-- ================= FAQ SECTION ================= -->
+  <section class="faq-section">
+
+    <div class="faq-container">
+
+      <h2 class="solutions-title" data-animate="fade-up"
+        style="background: linear-gradient(259.44deg, #e5f8f4 25.03%, #ffffff 90.57%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Frequently Asked <br>QUESTIONS </h2>
+
+      <p class="faq-subtitle">
+        Find answers to common questions. If you can't find what you're looking for,
+        feel free to contact our support team.
+      </p>
+
+      <div class="faq-accordion">
+
+        <!-- ITEM -->
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What are Services are being Provided ?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We provide a wide range of IT services including product engineering, cloud solutions, staffing, web
+              development, security solutions, annual maintenance contracts, business analytics, and digital presence
+              management. Our expertise spans across various industries to help businesses innovate and grow.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>On what basis you charge for the services ?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Basically, We charge based on the scope of work, complexity of the project, and the resources required.
+              Our pricing is transparent and tailored to meet your specific business needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is there any concession if I pay in advance?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, we offer discounts for advance payments. The concession amount depends on the total project cost and
+              the payment terms agreed upon. Please contact our sales team for detailed information on our advance
+              payment discounts.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you offer enterprise solutions?</span>
+            <span class="faq-icon">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. We provide tailored enterprise solutions with dedicated support
+              and scalable architecture.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <script>
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        button.addEventListener('click', () => {
+
+          // Close others
+          faqItems.forEach(el => {
+            if (el !== item) {
+              el.classList.remove('active');
+              el.querySelector('.faq-answer').style.maxHeight = null;
+            }
+          });
+
+          // Toggle current
+          item.classList.toggle('active');
+
+          if (item.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+
+        });
+      });
+    </script>
+
+  </section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section" id="contact">
+
+  <h2
+    class="solutions-title"
+    data-animate="fade-up"
+    style="
+      background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    "
+  >
+    Contact US
+  </h2>
+
+  <div class="contact-container">
+
+    <!-- =====================================================
+         LEFT : CONTACT FORM
+         ===================================================== -->
+    <div
+      class="contact-form-wrapper"
+      data-animate="fade-right"
+    >
+
+      <div class="contact-form-heading">
+
+        <span class="contact-eyebrow">
+          LET'S CONNECT
+        </span>
+
+        <h2>
+          Have a Question?
+          <span>Ask Us.</span>
+        </h2>
+
+        <p>
+          Tell us what you're building, what you're solving,
+          or where you'd like to go next. Our team will get
+          back to you shortly.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+      <form
+        class="contact-form"
+        id="contactForm"
+        novalidate
+      >
+
+        <!-- ================================================
+             FULL NAME
+             IMPORTANT:
+             name="name" matches /api/contact.js
+             ================================================ -->
+        <div class="form-group">
+
+          <input
+            type="text"
+            id="fullName"
+            name="name"
+            autocomplete="name"
+            maxlength="100"
+            required
+          >
+
+          <label for="fullName">
+            Full Name <span>*</span>
+          </label>
+
+          <div class="input-line"></div>
+
+        </div>
+
+
+        <!-- ================================================
+             EMAIL
+             ================================================ -->
+        <div class="form-group">
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            maxlength="150"
+            required
+          >
+
+          <label for="email">
+            Email Address <span>*</span>
+          </label>
+
+          <div class="input-line"></div>
+
+        </div>
+
+
+        <!-- ================================================
+             PHONE
+             ================================================ -->
+        <div class="form-group">
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            maxlength="30"
+            required
+          >
+
+          <label for="phone">
+            Phone Number <span>*</span>
+          </label>
+
+          <div class="input-line"></div>
+
+        </div>
+
+
+        <!-- ================================================
+             MESSAGE
+             ================================================ -->
+        <div class="form-group message-group">
+
+          <textarea
+            id="message"
+            name="message"
+            maxlength="3000"
+            required
+          ></textarea>
+
+          <label for="message">
+            How can we help? <span>*</span>
+          </label>
+
+          <div class="input-line"></div>
+
+          <div class="character-count">
+            <span id="messageCount">0</span> / 3000
+          </div>
+
+        </div>
+
+
+        <!-- ================================================
+             HONEYPOT
+             Hidden spam protection
+             ================================================ -->
+        <div
+          class="form-honeypot"
+          aria-hidden="true"
+        >
+
+          <label for="website">
+            Website
+          </label>
+
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- ================================================
+             SUBMIT AREA
+             ================================================ -->
+        <div class="contact-submit-area">
+
+          <button
+            type="submit"
+            class="submit-btn"
+            id="submitBtn"
+          >
+
+            <span
+              class="submit-btn-content"
+              id="submitText"
+            >
+              Send Message
+            </span>
+
+            <span
+              class="submit-btn-arrow"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+            <span
+              class="submit-spinner"
+              id="submitSpinner"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+
+
+          <div
+            id="formStatus"
+            class="form-status"
+            role="alert"
+            aria-live="polite"
+          ></div>
+
+        </div>
+
+
+        <!-- SECURITY NOTE -->
+        <div class="form-security-note">
+
+          <span class="security-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </span>
+
+          <span>
+            Your information is securely transmitted
+            and will only be used to respond to your enquiry.
+          </span>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT : OFFICE INFORMATION
+         ===================================================== -->
+    <div
+      class="contact-info-wrapper"
+      data-animate="fade-left"
+    >
+
+      <span class="contact-eyebrow">
+        FIND US
+      </span>
+
+      <h2>
+        Our Head Office
+      </h2>
+
+      <p class="office-intro">
+        We're here to turn ideas into meaningful technology.
+        Reach out to the OXODOT team and let's start a conversation.
+      </p>
+
+
+      <!-- OFFICE DETAILS -->
+      <div class="office-details">
+
+        <!-- ADDRESS -->
+        <div class="office-detail-item">
+
+          <div class="office-icon">
+            <img
+              src="assets/icons/map.png"
+              width="25"
+              height="20"
+              alt="Location"
+            >
+          </div>
+
+          <div class="office-detail-content">
+
+            <span class="office-detail-label">
+              VISIT US
+            </span>
+
+            <p>
+              Street 7, Mayur Vihar,
+              Phase 1, Delhi, India
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+        <div class="office-detail-item">
+
+          <div class="office-icon">
+            <img
+              src="assets/icons/call.png"
+              width="20"
+              height="15"
+              alt="Phone"
+            >
+          </div>
+
+          <div class="office-detail-content">
+
+            <span class="office-detail-label">
+              CALL US
+            </span>
+
+            <p>
+              <a href="tel:+919946373982">
+                +91-9946373982
+              </a>
+
+              <span class="phone-divider">
+                —
+              </span>
+
+              <a href="tel:+91743433887">
+                9743433887
+              </a>
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="office-detail-item">
+
+          <div class="office-icon">
+
+            <img
+              src="assets/icons/email.png"
+              width="20"
+              height="15"
+              alt="Email"
+            >
+
+          </div>
+
+          <div class="office-detail-content">
+
+            <span class="office-detail-label">
+              EMAIL US
+            </span>
+
+            <p>
+              <a
+                href="mailto:info@oxodottechnocaresolutions.com"
+              >
+                info@oxodottechnocaresolutions.com
+              </a>
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- WORKING HOURS -->
+        <div class="office-detail-item">
+
+          <div class="office-icon">
+
+            <img
+              src="assets/icons/time-left.png"
+              width="20"
+              height="15"
+              alt="Working hours"
+            >
+
+          </div>
+
+          <div class="office-detail-content">
+
+            <span class="office-detail-label">
+              WORKING HOURS
+            </span>
+
+            <p>
+              Monday – Friday
+              <br>
+              08:00 – 19:00
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           MAP
+           ================================================= -->
+      <div class="map-wrapper">
+
+        <div class="map-overlay">
+
+          <span>
+            OXODOT TECHNOCARE SOLUTIONS
+          </span>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Street+7,+Mayur+Vihar,+Phase+1,+Delhi,+India"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Maps
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+        <iframe
+          src="https://maps-cdn.cdn-files-a.com/include/globalMapDisplay.php?q=street+7%2C+Mayur+Vihar%2C+Phase1%2C+Delhi%2C+India&z=15&l=en&ilfc="
+          title="OXODOT TECHNOCARE SOLUTIONS location"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-top">
+
+        <!-- LEFT -->
+        <div class="footer-about">
+          <h2 class="footer-title">Connect With Us ↗</h2>
+          <p class="footer-desc">
+            OXODOT TECHNOCARE SOLUTIONS is a bridge between business needs and the world of IT solutions.
+            We see ourselves as trusted solutions partner. We understand your needs,
+            Identify-Integrate-Support High quality, affordable IT Solutions in Hardware,
+            Software, Services, Mobility, Analytics and Cloud with Speed, Flexibility.
+          </p>
+
+
+
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+          <h4>QUICK LINKS</h4>
+          <ul>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="footer-social">
+          <h4>STAY IN TOUCH</h4>
+          <div class="footer-icons">
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/instagram-new.png"
+                alt="instagram-new" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/linkedin--v2.png"
+                alt="linkedin--v2" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/youtube-play.png"
+                alt="youtube-play" /></a>
+            <a href="#"><img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/facebook-logo.png"
+                alt="facebook-logo" /></a>
+          </div>
+          <div class="logo-container">
+            <img src="assets/logo/OXODOT TECHNOCARE SOLUTIONS PVT LTD 3.png" alt="logo" width="100"
+              style="padding-top: 20px ;">
+            <h1>OXODOT TECHNOCARE<br>SOLUTIONS</h1>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+        © 2026 OXODOT TECHNOCARE SOLUTIONS. All Rights Reserved.<br>
+        <p>Designed & Developed by <a href="https://madhusudhanreddy.netlify.app" target="_blank"><span
+              style="color: #00d1a7; text-decoration: none;">Madhu Sudhan Reddy</span></a></p>
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    document.body.classList.add("loading");
+
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("page-loader");
+
+      setTimeout(() => {
+        loader.classList.add("hidden");
+        document.body.classList.remove("loading");
+      }, 800); // cinematic delay
+    });
+  </script>
+
+
+  <script>
+    /* Declarative scroll animations */
+    const animatedElements = document.querySelectorAll('[data-animate]');
+
+    const animationObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            animationObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    animatedElements.forEach(el => animationObserver.observe(el));
+  </script>
+
+</body>
+
+</html>

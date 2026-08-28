@@ -1,0 +1,16 @@
+{
+  "name": "oxodot-technocare-solutions-main",
+  "version": "1.0.0",
+  "description": "OXODOT TECHNOCARE SOLUTIONS website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.0"
+  }
+}

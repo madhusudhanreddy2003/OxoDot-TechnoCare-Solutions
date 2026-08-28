@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers - OXODOT TECHNOCARE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sample.css">
+<script>
+    const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("animate");
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll("[data-animate]").forEach(el=>{
+observer.observe(el);
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="career-hero">
+    <div class="hero-content" data-animate>
+        <h1>
+            Build Your Future With <br>
+            <span>OXODOT TECHNOCARE</span>
+        </h1>
+        <p>
+            Join a team that transforms industries through technology,
+            innovation, and excellence.
+        </p>
+
+        <a href="#jobs" class="btn-primary">View Open Positions</a>
+    </div>
+</section>
+
+<!-- CULTURE -->
+<section class="culture-section">
+
+    <div class="culture-grid">
+
+        <div class="culture-text" data-animate>
+            <h2>Driven by Innovation</h2>
+            <p>
+                We believe in solving real-world problems using cutting-edge technology.
+                At OXODOT, every idea matters and every voice is heard.
+            </p>
+        </div>
+
+        <div class="culture-card" data-animate>
+            <h3>Work Culture</h3>
+            <ul>
+                <li>✔ Flexible & Modern Workplace</li>
+                <li>✔ Growth-Focused Learning</li>
+                <li>✔ Real Impact Projects</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- JOB LIST -->
+<section class="jobs-section" id="jobs">
+
+    <h2 class="section-title">Open Positions</h2>
+
+    <div class="job-grid">
+
+        <div class="job-card" data-animate>
+            <h3>Frontend Developer</h3>
+            <p>React / UI / UX Specialist</p>
+            <span>Remote • Full Time</span>
+            <button>Apply Now</button>
+        </div>
+
+        <div class="job-card" data-animate>
+            <h3>Backend Engineer</h3>
+            <p>Node.js / API Development</p>
+            <span>Hybrid • Full Time</span>
+            <button>Apply Now</button>
+        </div>
+
+        <div class="job-card" data-animate>
+            <h3>Cloud Engineer</h3>
+            <p>AWS / DevOps / Infra</p>
+            <span>Onsite • Full Time</span>
+            <button>Apply Now</button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+
+    <h2 class="section-title">Hiring Process</h2>
+
+    <div class="process-steps">
+
+        <div class="step" data-animate>
+            <span>1</span>
+            <h3>Apply</h3>
+            <p>Submit your application</p>
+        </div>
+
+        <div class="step" data-animate>
+            <span>2</span>
+            <h3>Interview</h3>
+            <p>Technical + HR rounds</p>
+        </div>
+
+        <div class="step" data-animate>
+            <span>3</span>
+            <h3>Offer</h3>
+            <p>Get onboard with us</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="career-cta">
+
+    <h2>Ready to join the future?</h2>
+    <p>Be part of something bigger. Let’s build together.</p>
+
+    <button class="btn-primary">Apply Now</button>
+
+</section>
+
+<script src="animations.js"></script>
+
+</body>
+</html>
