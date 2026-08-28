@@ -4449,3 +4449,98 @@ footer.footer {
   }
 
 }
+
+
+/* =========================================================
+   CONTACT FORM STATUS
+   ========================================================= */
+
+.form-status {
+  margin-top: 16px;
+  min-height: 24px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+}
+
+.form-status.success {
+  color: #00f5c4;
+}
+
+.form-status.error {
+  color: #ff6b6b;
+}
+
+
+/* =========================================================
+   INPUT ERROR
+   ========================================================= */
+
+.contact-form input.input-error,
+.contact-form textarea.input-error {
+  border-color: #ff6b6b !important;
+
+  box-shadow:
+    0 0 0 1px #ff6b6b,
+    0 0 18px rgba(255, 107, 107, 0.15);
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON LOADING
+   ========================================================= */
+
+.submit-btn:disabled {
+  opacity: 0.75;
+  cursor: wait;
+  pointer-events: none;
+}
+
+.submit-btn.is-loading {
+  cursor: wait;
+}
+
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+.submit-spinner {
+  display: none;
+
+  width: 18px;
+  height: 18px;
+
+  margin-left: 10px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation: contactSpinner 0.7s linear infinite;
+
+  vertical-align: middle;
+}
+
+.submit-btn.is-loading .submit-spinner {
+  display: inline-block;
+}
+
+@keyframes contactSpinner {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}

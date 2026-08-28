@@ -30,6 +30,396 @@
 
 </head>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const contactForm = document.getElementById("contactForm");
+
+  if (!contactForm) {
+    console.error("Contact form not found.");
+    return;
+  }
+
+
+  const submitBtn =
+    document.getElementById("submitBtn");
+
+  const submitText =
+    document.getElementById("submitText");
+
+  const submitArrow =
+    document.getElementById("submitArrow");
+
+  const submitSpinner =
+    document.getElementById("submitSpinner");
+
+  const formStatus =
+    document.getElementById("formStatus");
+
+  const message =
+    document.getElementById("message");
+
+  const messageCount =
+    document.getElementById("messageCount");
+
+
+  /* =====================================================
+     MESSAGE CHARACTER COUNTER
+     ===================================================== */
+
+  if (message && messageCount) {
+
+    function updateMessageCount() {
+
+      messageCount.textContent =
+        message.value.length;
+
+    }
+
+    message.addEventListener(
+      "input",
+      updateMessageCount
+    );
+
+    updateMessageCount();
+  }
+
+
+  /* =====================================================
+     FORM SUBMISSION
+     ===================================================== */
+
+  contactForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      /* -----------------------------------------------
+         CLEAR PREVIOUS STATUS
+         ----------------------------------------------- */
+
+      formStatus.className =
+        "form-status";
+
+      formStatus.textContent =
+        "";
+
+
+      /* -----------------------------------------------
+         GET FORM ELEMENTS
+         ----------------------------------------------- */
+
+      const name =
+        document.getElementById("fullName");
+
+      const email =
+        document.getElementById("email");
+
+      const phone =
+        document.getElementById("phone");
+
+      const website =
+        document.getElementById("website");
+
+
+      /* -----------------------------------------------
+         BASIC VALIDATION
+         ----------------------------------------------- */
+
+      if (!name.value.trim()) {
+
+        showError(
+          "Please enter your full name."
+        );
+
+        name.focus();
+
+        return;
+      }
+
+
+      if (!email.value.trim()) {
+
+        showError(
+          "Please enter your email address."
+        );
+
+        email.focus();
+
+        return;
+      }
+
+
+      const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+      if (!emailRegex.test(email.value.trim())) {
+
+        showError(
+          "Please enter a valid email address."
+        );
+
+        email.focus();
+
+        return;
+      }
+
+
+      if (!phone.value.trim()) {
+
+        showError(
+          "Please enter your phone number."
+        );
+
+        phone.focus();
+
+        return;
+      }
+
+
+      if (!message.value.trim()) {
+
+        showError(
+          "Please enter your message."
+        );
+
+        message.focus();
+
+        return;
+      }
+
+
+      /* -----------------------------------------------
+         HONEYPOT
+         ----------------------------------------------- */
+
+      if (website && website.value.trim()) {
+
+        showSuccess(
+          "Your message has been sent successfully."
+        );
+
+        contactForm.reset();
+
+        if (messageCount) {
+          messageCount.textContent = "0";
+        }
+
+        return;
+      }
+
+
+      /* -----------------------------------------------
+         LOADING STATE
+         ----------------------------------------------- */
+
+      submitBtn.disabled = true;
+
+      submitText.textContent =
+        "Sending...";
+
+      submitArrow.style.display =
+        "none";
+
+      submitSpinner.style.display =
+        "inline-block";
+
+      formStatus.className =
+        "form-status loading";
+
+      formStatus.textContent =
+        "Sending your message...";
+
+
+      /* -----------------------------------------------
+         REQUEST BODY
+         ----------------------------------------------- */
+
+      const payload = {
+
+        name:
+          name.value.trim(),
+
+        email:
+          email.value.trim(),
+
+        phone:
+          phone.value.trim(),
+
+        message:
+          message.value.trim()
+
+      };
+
+
+      try {
+
+        /* =============================================
+           SEND TO VERCEL SERVERLESS FUNCTION
+           ============================================= */
+
+        const response =
+          await fetch(
+            "/api/contact",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify(payload)
+            }
+          );
+
+
+        /* =============================================
+           READ RESPONSE
+           ============================================= */
+
+        let result;
+
+        try {
+
+          result =
+            await response.json();
+
+        } catch (jsonError) {
+
+          result = {
+            success: false,
+            message:
+              "The server returned an invalid response."
+          };
+
+        }
+
+
+        /* =============================================
+           SUCCESS
+           ============================================= */
+
+        if (
+          response.ok &&
+          result.success
+        ) {
+
+          showSuccess(
+            result.message ||
+            "Your message has been sent successfully. Our team will contact you soon."
+          );
+
+
+          contactForm.reset();
+
+
+          if (messageCount) {
+            messageCount.textContent =
+              "0";
+          }
+
+
+          contactForm
+            .querySelectorAll(
+              "input, textarea"
+            )
+            .forEach(function (field) {
+
+              field.classList.remove(
+                "valid",
+                "invalid"
+              );
+
+            });
+
+        }
+
+
+        /* =============================================
+           SERVER ERROR
+           ============================================= */
+
+        else {
+
+          showError(
+            result.message ||
+            "We could not send your message right now. Please try again later."
+          );
+
+        }
+
+
+      } catch (error) {
+
+        console.error(
+          "Contact form error:",
+          error
+        );
+
+
+        showError(
+          "Unable to connect to the email service. Please try again."
+        );
+
+      }
+
+
+      /* -----------------------------------------------
+         RESTORE BUTTON
+         ----------------------------------------------- */
+
+      submitBtn.disabled = false;
+
+      submitText.textContent =
+        "Send Message";
+
+      submitArrow.style.display =
+        "inline";
+
+      submitSpinner.style.display =
+        "none";
+
+    }
+  );
+
+
+  /* =====================================================
+     SUCCESS MESSAGE
+     ===================================================== */
+
+  function showSuccess(messageText) {
+
+    formStatus.className =
+      "form-status success";
+
+    formStatus.textContent =
+      messageText;
+
+  }
+
+
+  /* =====================================================
+     ERROR MESSAGE
+     ===================================================== */
+
+  function showError(messageText) {
+
+    formStatus.className =
+      "form-status error";
+
+    formStatus.textContent =
+      messageText;
+
+  }
+
+});
+</script>
+
 <body><!-- ================= PAGE LOADER ================= -->
 
 
@@ -608,13 +998,18 @@ slider.addEventListener('touchend', e=>{
   </section>
 
 <!-- ================= CONTACT SECTION ================= -->
+<!-- ================= CONTACT SECTION ================= -->
 <section class="contact-section" id="contact">
 
   <h2
     class="solutions-title"
     data-animate="fade-up"
     style="
-      background: linear-gradient(259.44deg, #89ffe7 25.03%, #FFCA80 90.57%);
+      background: linear-gradient(
+        259.44deg,
+        #89ffe7 25.03%,
+        #ffca80 90.57%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     "
@@ -622,11 +1017,14 @@ slider.addEventListener('touchend', e=>{
     Contact US
   </h2>
 
+
   <div class="contact-container">
+
 
     <!-- =====================================================
          LEFT : CONTACT FORM
          ===================================================== -->
+
     <div
       class="contact-form-wrapper"
       data-animate="fade-right"
@@ -652,18 +1050,21 @@ slider.addEventListener('touchend', e=>{
       </div>
 
 
-      <!-- FORM -->
+      <!-- =================================================
+           CONTACT FORM
+           IMPORTANT:
+           The name attributes MUST match contact.js
+           ================================================= -->
+
       <form
         class="contact-form"
         id="contactForm"
         novalidate
       >
 
-        <!-- ================================================
-             FULL NAME
-             IMPORTANT:
-             name="name" matches /api/contact.js
-             ================================================ -->
+
+        <!-- ================= FULL NAME ================= -->
+
         <div class="form-group">
 
           <input
@@ -672,6 +1073,7 @@ slider.addEventListener('touchend', e=>{
             name="name"
             autocomplete="name"
             maxlength="100"
+            placeholder=" "
             required
           >
 
@@ -684,9 +1086,8 @@ slider.addEventListener('touchend', e=>{
         </div>
 
 
-        <!-- ================================================
-             EMAIL
-             ================================================ -->
+        <!-- ================= EMAIL ================= -->
+
         <div class="form-group">
 
           <input
@@ -695,6 +1096,7 @@ slider.addEventListener('touchend', e=>{
             name="email"
             autocomplete="email"
             maxlength="150"
+            placeholder=" "
             required
           >
 
@@ -707,9 +1109,8 @@ slider.addEventListener('touchend', e=>{
         </div>
 
 
-        <!-- ================================================
-             PHONE
-             ================================================ -->
+        <!-- ================= PHONE ================= -->
+
         <div class="form-group">
 
           <input
@@ -718,6 +1119,7 @@ slider.addEventListener('touchend', e=>{
             name="phone"
             autocomplete="tel"
             maxlength="30"
+            placeholder=" "
             required
           >
 
@@ -730,15 +1132,15 @@ slider.addEventListener('touchend', e=>{
         </div>
 
 
-        <!-- ================================================
-             MESSAGE
-             ================================================ -->
+        <!-- ================= MESSAGE ================= -->
+
         <div class="form-group message-group">
 
           <textarea
             id="message"
             name="message"
             maxlength="3000"
+            placeholder=" "
             required
           ></textarea>
 
@@ -755,10 +1157,11 @@ slider.addEventListener('touchend', e=>{
         </div>
 
 
-        <!-- ================================================
+        <!-- =================================================
              HONEYPOT
              Hidden spam protection
-             ================================================ -->
+             ================================================= -->
+
         <div
           class="form-honeypot"
           aria-hidden="true"
@@ -779,9 +1182,10 @@ slider.addEventListener('touchend', e=>{
         </div>
 
 
-        <!-- ================================================
+        <!-- =================================================
              SUBMIT AREA
-             ================================================ -->
+             ================================================= -->
+
         <div class="contact-submit-area">
 
           <button
@@ -799,6 +1203,7 @@ slider.addEventListener('touchend', e=>{
 
             <span
               class="submit-btn-arrow"
+              id="submitArrow"
               aria-hidden="true"
             >
               →
@@ -812,21 +1217,31 @@ slider.addEventListener('touchend', e=>{
 
           </button>
 
-
-          <div
-            id="formStatus"
-            class="form-status"
-            role="alert"
-            aria-live="polite"
-          ></div>
-
         </div>
 
 
-        <!-- SECURITY NOTE -->
+        <!-- =================================================
+             STATUS MESSAGE
+             ================================================= -->
+
+        <div
+          class="form-status"
+          id="formStatus"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- =================================================
+             SECURITY NOTE
+             ================================================= -->
+
         <div class="form-security-note">
 
-          <span class="security-icon">
+          <span
+            class="security-icon"
+            aria-hidden="true"
+          >
             <i class="fa-solid fa-shield-halved"></i>
           </span>
 
@@ -845,6 +1260,7 @@ slider.addEventListener('touchend', e=>{
     <!-- =====================================================
          RIGHT : OFFICE INFORMATION
          ===================================================== -->
+
     <div
       class="contact-info-wrapper"
       data-animate="fade-left"
@@ -864,19 +1280,24 @@ slider.addEventListener('touchend', e=>{
       </p>
 
 
-      <!-- OFFICE DETAILS -->
+      <!-- ================= OFFICE DETAILS ================= -->
+
       <div class="office-details">
 
+
         <!-- ADDRESS -->
+
         <div class="office-detail-item">
 
           <div class="office-icon">
+
             <img
               src="assets/icons/map.png"
               width="25"
               height="20"
               alt="Location"
             >
+
           </div>
 
           <div class="office-detail-content">
@@ -896,15 +1317,18 @@ slider.addEventListener('touchend', e=>{
 
 
         <!-- PHONE -->
+
         <div class="office-detail-item">
 
           <div class="office-icon">
+
             <img
               src="assets/icons/call.png"
               width="20"
               height="15"
               alt="Phone"
             >
+
           </div>
 
           <div class="office-detail-content">
@@ -914,6 +1338,7 @@ slider.addEventListener('touchend', e=>{
             </span>
 
             <p>
+
               <a href="tel:+919946373982">
                 +91-9946373982
               </a>
@@ -925,6 +1350,7 @@ slider.addEventListener('touchend', e=>{
               <a href="tel:+91743433887">
                 9743433887
               </a>
+
             </p>
 
           </div>
@@ -933,6 +1359,7 @@ slider.addEventListener('touchend', e=>{
 
 
         <!-- EMAIL -->
+
         <div class="office-detail-item">
 
           <div class="office-icon">
@@ -953,11 +1380,13 @@ slider.addEventListener('touchend', e=>{
             </span>
 
             <p>
+
               <a
                 href="mailto:info@oxodottechnocaresolutions.com"
               >
                 info@oxodottechnocaresolutions.com
               </a>
+
             </p>
 
           </div>
@@ -966,6 +1395,7 @@ slider.addEventListener('touchend', e=>{
 
 
         <!-- WORKING HOURS -->
+
         <div class="office-detail-item">
 
           <div class="office-icon">
@@ -986,8 +1416,7 @@ slider.addEventListener('touchend', e=>{
             </span>
 
             <p>
-              Monday – Friday
-              <br>
+              Monday – Friday<br>
               08:00 – 19:00
             </p>
 
@@ -998,9 +1427,8 @@ slider.addEventListener('touchend', e=>{
       </div>
 
 
-      <!-- =================================================
-           MAP
-           ================================================= -->
+      <!-- ================= MAP ================= -->
+
       <div class="map-wrapper">
 
         <div class="map-overlay">
@@ -1019,6 +1447,7 @@ slider.addEventListener('touchend', e=>{
           </a>
 
         </div>
+
 
         <iframe
           src="https://maps-cdn.cdn-files-a.com/include/globalMapDisplay.php?q=street+7%2C+Mayur+Vihar%2C+Phase1%2C+Delhi%2C+India&z=15&l=en&ilfc="
